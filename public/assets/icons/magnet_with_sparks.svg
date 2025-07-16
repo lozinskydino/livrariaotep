@@ -1,0 +1,93 @@
+<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradientes para o ímã -->
+    <linearGradient id="redPole" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E53E3E;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="bluePole" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4299E1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2B6CB0;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="magnetBody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E2E8F0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A0AEC0;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Filtro para brilho das faíscas -->
+    <filter id="sparkGlow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Corpo principal do ímã em formato de U -->
+  <path d="M 15 15 L 15 35 Q 15 45 25 45 L 35 45 Q 45 45 45 35 L 45 15" 
+        stroke="url(#magnetBody)" 
+        stroke-width="8" 
+        fill="none" 
+        stroke-linecap="round"/>
+  
+  <!-- Polo Norte (vermelho) -->
+  <rect x="12" y="12" width="8" height="15" rx="4" fill="url(#redPole)" stroke="#C53030" stroke-width="1"/>
+  <text x="16" y="22" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white" text-anchor="middle">N</text>
+  
+  <!-- Polo Sul (azul) -->
+  <rect x="40" y="12" width="8" height="15" rx="4" fill="url(#bluePole)" stroke="#2C5282" stroke-width="1"/>
+  <text x="44" y="22" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white" text-anchor="middle">S</text>
+  
+  <!-- Linhas de campo magnético -->
+  <path d="M 20 10 Q 30 5 40 10" stroke="#FFD22F" stroke-width="1.5" fill="none" opacity="0.8">
+    <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2s" repeatCount="indefinite"/>
+  </path>
+  <path d="M 18 8 Q 30 2 42 8" stroke="#FFD22F" stroke-width="1" fill="none" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;0.3;0.6" dur="2.5s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Faíscas animadas -->
+  <!-- Faísca 1 -->
+  <g filter="url(#sparkGlow)">
+    <path d="M 8 20 L 12 18 L 10 22 L 14 20" stroke="#FFD22F" stroke-width="2" fill="none" stroke-linecap="round">
+      <animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite" begin="0s"/>
+    </path>
+  </g>
+  
+  <!-- Faísca 2 -->
+  <g filter="url(#sparkGlow)">
+    <path d="M 48 18 L 52 16 L 50 20 L 54 18" stroke="#FFD22F" stroke-width="2" fill="none" stroke-linecap="round">
+      <animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite" begin="0.3s"/>
+    </path>
+  </g>
+  
+  <!-- Faísca 3 -->
+  <g filter="url(#sparkGlow)">
+    <path d="M 25 50 L 29 48 L 27 52 L 31 50" stroke="#FFD22F" stroke-width="2" fill="none" stroke-linecap="round">
+      <animate attributeName="opacity" values="0;1;0" dur="2.2s" repeatCount="indefinite" begin="0.6s"/>
+    </path>
+  </g>
+  
+  <!-- Faísca 4 -->
+  <g filter="url(#sparkGlow)">
+    <path d="M 35 50 L 39 48 L 37 52 L 41 50" stroke="#FFD22F" stroke-width="2" fill="none" stroke-linecap="round">
+      <animate attributeName="opacity" values="0;1;0" dur="1.7s" repeatCount="indefinite" begin="0.9s"/>
+    </path>
+  </g>
+  
+  <!-- Partículas pequenas -->
+  <circle cx="10" cy="25" r="1" fill="#FFD22F" filter="url(#sparkGlow)">
+    <animate attributeName="opacity" values="0.2;1;0.2" dur="1.3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="50" cy="23" r="1.5" fill="#B782F0" filter="url(#sparkGlow)">
+    <animate attributeName="opacity" values="1;0.3;1" dur="1.9s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="30" cy="8" r="1" fill="#FFD22F" filter="url(#sparkGlow)">
+    <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2.1s" repeatCount="indefinite"/>
+  </circle>
+</svg>

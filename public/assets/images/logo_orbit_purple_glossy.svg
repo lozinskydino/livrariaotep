@@ -1,0 +1,79 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradientes para efeito glossy */>
+    <radialGradient id="purpleGradient" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#E6B3FF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#B782F0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6B46C1;stop-opacity:1" />
+    </radialGradient>
+    
+    <radialGradient id="yellowGradient" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#FFF59D;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFD22F;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F57F17;stop-opacity:1" />
+    </radialGradient>
+    
+    <radialGradient id="redGradient" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#FFCDD2;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#F44336;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C62828;stop-opacity:1" />
+    </radialGradient>
+    
+    <!-- Filtro para brilho -->>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Círculo de fundo roxo principal -->
+  <circle cx="150" cy="150" r="120" fill="url(#purpleGradient)" stroke="#4A148C" stroke-width="3" filter="url(#glow)"/>
+  
+  <!-- Órbitas elípticas -->
+  <ellipse cx="150" cy="150" rx="100" ry="40" fill="none" stroke="#B39DDB" stroke-width="2" opacity="0.6" transform="rotate(15 150 150)"/>
+  <ellipse cx="150" cy="150" rx="80" ry="30" fill="none" stroke="#9575CD" stroke-width="2" opacity="0.7" transform="rotate(-30 150 150)"/>
+  <ellipse cx="150" cy="150" rx="60" ry="25" fill="none" stroke="#7E57C2" stroke-width="2" opacity="0.8" transform="rotate(45 150 150)"/>
+  
+  <!-- Elementos orbitais - esferas pequenas -->
+  <circle cx="220" cy="120" r="8" fill="url(#yellowGradient)" filter="url(#glow)">
+    <animateTransform attributeName="transform" type="rotate" values="0 150 150;360 150 150" dur="8s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="90" cy="180" r="6" fill="url(#redGradient)" filter="url(#glow)">
+    <animateTransform attributeName="transform" type="rotate" values="0 150 150;-360 150 150" dur="6s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="180" cy="80" r="5" fill="#FFD22F" filter="url(#glow)">
+    <animateTransform attributeName="transform" type="rotate" values="0 150 150;360 150 150" dur="10s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Núcleo central com símbolo de ímã estilizado -->
+  <circle cx="150" cy="150" r="35" fill="url(#purpleGradient)" stroke="#311B92" stroke-width="2"/>
+  
+  <!-- Símbolo de ímã no centro -->
+  <rect x="140" y="130" width="20" height="40" rx="10" fill="url(#redGradient)"/>
+  <rect x="135" y="125" width="10" height="15" rx="5" fill="#FF5722"/>
+  <rect x="155" y="125" width="10" height="15" rx="5" fill="#2196F3"/>
+  
+  <!-- Linhas de força magnética -->
+  <path d="M 120 150 Q 100 130 120 110" stroke="#FFD22F" stroke-width="2" fill="none" opacity="0.8">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
+  </path>
+  <path d="M 180 150 Q 200 170 180 190" stroke="#FFD22F" stroke-width="2" fill="none" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Partículas brilhantes -->
+  <circle cx="130" cy="100" r="2" fill="#FFD22F" opacity="0.9">
+    <animate attributeName="opacity" values="0.2;1;0.2" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="200" cy="160" r="1.5" fill="#B782F0" opacity="0.8">
+    <animate attributeName="opacity" values="1;0.3;1" dur="2.2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="110" cy="200" r="2.5" fill="#FFD22F" opacity="0.7">
+    <animate attributeName="opacity" values="0.4;0.9;0.4" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+</svg>

@@ -1,0 +1,103 @@
+<svg width="1200" height="2000" viewBox="0 0 1200 2000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradiente para o fundo do espaço -->
+    <linearGradient id="spaceGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A0B33;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3B1F52;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2D1B3E;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Gradiente para o planeta -->
+    <radialGradient id="planetGradient" cx="50%" cy="50%" r="50%" fx="40%" fy="40%">
+      <stop offset="0%" style="stop-color:#B782F0;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="80%" style="stop-color:#6B46C1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#553C9A;stop-opacity:1" />
+    </radialGradient>
+    
+    <!-- Filtro para brilho das estrelas -->
+    <filter id="starGlow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Fundo do espaço -->
+  <rect width="100%" height="100%" fill="url(#spaceGradient)" />
+  
+  <!-- Estrelas pequenas (pontos) -->
+  <g>
+    <!-- Gerar 200 estrelas aleatórias -->
+    <script type="text/javascript">
+      <![CDATA[
+      for (let i = 0; i < 200; i++) {
+        const x = Math.random() * 1200;
+        const y = Math.random() * 2000;
+        const r = Math.random() * 1.5 + 0.5;
+        const opacity = Math.random() * 0.5 + 0.5;
+        document.write(`<circle cx="${x}" cy="${y}" r="${r}" fill="white" opacity="${opacity}" filter="url(#starGlow)" />`);
+      }
+      ]]>
+    </script>
+    
+    <!-- Algumas estrelas pré-definidas para garantir que apareçam -->
+    <circle cx="100" cy="150" r="1.2" fill="white" opacity="0.8" filter="url(#starGlow)" />
+    <circle cx="300" cy="250" r="1.5" fill="white" opacity="0.9" filter="url(#starGlow)" />
+    <circle cx="500" cy="350" r="1.0" fill="white" opacity="0.7" filter="url(#starGlow)" />
+    <circle cx="700" cy="450" r="1.3" fill="white" opacity="0.8" filter="url(#starGlow)" />
+    <circle cx="900" cy="550" r="1.1" fill="white" opacity="0.9" filter="url(#starGlow)" />
+    <circle cx="200" cy="650" r="1.4" fill="white" opacity="0.7" filter="url(#starGlow)" />
+    <circle cx="400" cy="750" r="1.2" fill="white" opacity="0.8" filter="url(#starGlow)" />
+    <circle cx="600" cy="850" r="1.5" fill="white" opacity="0.9" filter="url(#starGlow)" />
+    <circle cx="800" cy="950" r="1.0" fill="white" opacity="0.7" filter="url(#starGlow)" />
+    <circle cx="1000" cy="1050" r="1.3" fill="white" opacity="0.8" filter="url(#starGlow)" />
+    <circle cx="150" cy="1150" r="1.1" fill="white" opacity="0.9" filter="url(#starGlow)" />
+    <circle cx="350" cy="1250" r="1.4" fill="white" opacity="0.7" filter="url(#starGlow)" />
+    <circle cx="550" cy="1350" r="1.2" fill="white" opacity="0.8" filter="url(#starGlow)" />
+    <circle cx="750" cy="1450" r="1.5" fill="white" opacity="0.9" filter="url(#starGlow)" />
+    <circle cx="950" cy="1550" r="1.0" fill="white" opacity="0.7" filter="url(#starGlow)" />
+    <circle cx="250" cy="1650" r="1.3" fill="white" opacity="0.8" filter="url(#starGlow)" />
+    <circle cx="450" cy="1750" r="1.1" fill="white" opacity="0.9" filter="url(#starGlow)" />
+    <circle cx="650" cy="1850" r="1.4" fill="white" opacity="0.7" filter="url(#starGlow)" />
+    <circle cx="850" cy="1950" r="1.2" fill="white" opacity="0.8" filter="url(#starGlow)" />
+  </g>
+  
+  <!-- Estrelas brilhantes (com animação) -->
+  <g>
+    <circle cx="200" cy="200" r="2" fill="white" filter="url(#starGlow)">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="800" cy="300" r="2.5" fill="white" filter="url(#starGlow)">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="400" cy="1200" r="2.2" fill="white" filter="url(#starGlow)">
+      <animate attributeName="opacity" values="0.4;0.9;0.4" dur="3.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="900" cy="1600" r="2.3" fill="white" filter="url(#starGlow)">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="4.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="600" cy="500" r="3" fill="white" filter="url(#starGlow)">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="5s" repeatCount="indefinite" />
+      <animate attributeName="r" values="2.5;3.5;2.5" dur="5s" repeatCount="indefinite" />
+    </circle>
+  </g>
+  
+  <!-- Planeta roxo grande na parte inferior -->
+  <circle cx="600" cy="1700" r="800" fill="url(#planetGradient)" opacity="0.9" />
+  
+  <!-- Detalhes do planeta - crateras e texturas -->
+  <g opacity="0.3">
+    <ellipse cx="400" cy="1500" rx="100" ry="70" fill="#9061F9" transform="rotate(-15 400 1500)" />
+    <ellipse cx="700" cy="1400" rx="120" ry="80" fill="#9061F9" transform="rotate(20 700 1400)" />
+    <ellipse cx="900" cy="1600" rx="90" ry="60" fill="#9061F9" transform="rotate(-10 900 1600)" />
+    <ellipse cx="500" cy="1800" rx="150" ry="100" fill="#9061F9" transform="rotate(5 500 1800)" />
+    <ellipse cx="800" cy="1900" rx="130" ry="90" fill="#9061F9" transform="rotate(-25 800 1900)" />
+  </g>
+  
+  <!-- Brilho atmosférico do planeta -->
+  <circle cx="600" cy="1700" r="820" fill="none" stroke="#D8B4FE" stroke-width="10" opacity="0.2" />
+  <circle cx="600" cy="1700" r="840" fill="none" stroke="#D8B4FE" stroke-width="5" opacity="0.1" />
+</svg>
