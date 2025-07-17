@@ -45,3 +45,20 @@ body {
 .border-pulse {
   animation: borderPulse 2s ease-in-out infinite;
 }
+
+.animate-floating {
+  animation: subirDescer 3s ease-in-out infinite;
+  display: inline-block; /* ou block, conforme o caso */
+}
+
+@keyframes subirDescer {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Sobe */
+  }
+  100% {
+    transform: translateY(0); /* Volta à posição original */
+  }
+}

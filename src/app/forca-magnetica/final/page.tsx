@@ -33,7 +33,7 @@ export default function ForcaMagneticaFinal() {
       />
 
       {/* Content container */}
-      <div className="flex flex-col items-center h-full px-10 pt-[40px] pb-10 gap-3 overflow-y-auto" style={{ paddingLeft: "50px" }}>
+      <div className="flex flex-col items-center h-full px-10 pt-[40px] pb-10 gap-3 overflow-y-none" style={{ paddingLeft: "50px" }}>
         {/* Logo */}
         <div className="flex-shrink-0 z-10">
           <Image src="/assets/figma/logo-forca-magnetica.png" alt="Logo Força Magnética" width={313} height={313} className="object-contain max-w-[211px]" />
