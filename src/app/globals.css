@@ -62,3 +62,24 @@ body {
     transform: translateY(0); /* Volta à posição original */
   }
 }
+
+@keyframes pulseStep {
+  0% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  80% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.5);
+  }
+}
+
+.animate-pulse-step {
+  animation: pulseStep 4s ease-in-out infinite;
+  transform-origin: center center;
+  display: inline-block;
+}
