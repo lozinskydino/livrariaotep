@@ -12,36 +12,38 @@ export default function Artropodes() {
   };
 
   return (
-    <div className="relative overflow-hidden w-[393px] min-h-screen mx-auto">
-      
-      {/* Background com paisagem */}
-      <div className="absolute inset-0">
-        <Image 
-          src="/assets/images/artropodes/bg.svg" 
-          alt="Background Artrópodes" 
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
+    <div className="relative overflow-hidden flex flex-col justify-center items-center min-h-screen mx-auto">
 
-      {/* Conteúdo principal */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-[40px] w-full">
-        
-        {/* Título integrado ao background */}
-        <div className="flex-shrink-0 relative mb-8">
+      <div className="w-[393px]">
+        {/* Background com paisagem */}
+        <div className="absolute inset-0">
           <Image
-            src="/assets/images/artropodes/logo.svg"
-            alt="Logo Artrópodes"
-            width={310}
-            height={233}
-            className="object-contain"
+            src="/assets/images/artropodes/bg.svg"
+            alt="Background Artrópodes"
+            fill
+            className="object-cover"
+            priority
           />
         </div>
 
-        {/* Botão INICIAR */}
-        <div className="flex-shrink-0 w-[127px]">
-          <Botao onClick={handleIniciarClick} label="INICIAR" variant="amarelo" height="67px" />
+        {/* Conteúdo principal */}
+        <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-[40px] w-full">
+
+          {/* Título integrado ao background */}
+          <div className="flex-shrink-0 relative mb-8">
+            <Image
+              src="/assets/images/artropodes/logo.svg"
+              alt="Logo Artrópodes"
+              width={310}
+              height={233}
+              className="object-contain"
+            />
+          </div>
+
+          {/* Botão INICIAR */}
+          <div className="flex-shrink-0 w-[127px]">
+            <Botao onClick={handleIniciarClick} label="INICIAR" variant="amarelo" height="67px" />
+          </div>
         </div>
       </div>
     </div>

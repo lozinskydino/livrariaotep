@@ -16,7 +16,8 @@ export default function ArtropodesFinal() {
   };
 
   return (
-    <div className="relative overflow-hidden w-[393px] mx-auto">
+    <div className="relative overflow-hidden flex flex-col justify-center items-center min-h-screen mx-auto">
+      <div className="w-[393px]">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#41AA98] to-[#EBF3EE]" />
       {/* Conteúdo principal */}
@@ -56,6 +57,7 @@ export default function ArtropodesFinal() {
         <div className="flex-1">
           <Botao onClick={handleHomeClick} label="INÍCIO" variant="verde" height="64px" />
         </div>
+      </div>
       </div>
     </div>
   );

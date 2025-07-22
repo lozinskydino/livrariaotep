@@ -3,8 +3,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
-import BotaoVoltar from "../components/BotaoVoltar";
-import BotaoAvancar from "../components/BotaoAvancar";
+import Botao from "../components/Botao";
 import ForcaMagneticaModal from "../components/ForcaMagneticaModal";
 import VentoSolarModal from "../components/VentoSolarModal";
 import AuroraBorealModal from "../components/AuroraBorealModal";
@@ -29,7 +28,7 @@ export default function ForcaMagneticaTerra() {
       bgColor: "#A03BB1",
       bgSecondary: "#FDC0FF",
       textColor: "#A03BB1",
-      position: { x: 260.65, y: 235.15 },
+      position: { x: 260.65, y: 185.15 },
       width: 251,
       height: 67,
     },
@@ -39,7 +38,7 @@ export default function ForcaMagneticaTerra() {
       bgColor: "#FFB213",
       bgSecondary: "#FFEE88",
       textColor: "#EC8F14",
-      position: { x: 631.65, y: 119.15 },
+      position: { x: 631.65, y: 69.15 },
       width: 229,
       height: 67,
     },
@@ -49,7 +48,7 @@ export default function ForcaMagneticaTerra() {
       bgColor: "#FFB213",
       bgSecondary: "#FFEE88",
       textColor: "#EC8F14",
-      position: { x: 634.65, y: 440 },
+      position: { x: 634.65, y: 360 },
       width: 243,
       height: 67,
     },
@@ -59,17 +58,17 @@ export default function ForcaMagneticaTerra() {
       bgColor: "#FFB213",
       bgSecondary: "#FFEE88",
       textColor: "#EC8F14",
-      position: { x: 250.65, y: 270 },
+      position: { x: 250.65, y: 220 },
       width: 369,
       height: 94,
     },
   ];
 
   const vectors = [
-    { src: "/assets/figma/vector-1.png", position: { x: 326.65, y: 329.15 }, width: 130.49, height: 116.3 },
-    { src: "/assets/figma/vector-2.png", position: { x: 235, y: 119 }, width: 135.8, height: 100.59 },
-    { src: "/assets/figma/vector-3.png", position: { x: 879.79, y: 125.97 }, width: 133.58, height: 150.75 },
-    { src: "/assets/figma/vector-4.png", position: { x: 886.65, y: 593.15 }, width: 153.41, height: 118.99 },
+    { src: "/assets/figma/vector-1.png", position: { x: 326.65, y: 279.15 }, width: 130.49, height: 116.3 },
+    { src: "/assets/figma/vector-2.png", position: { x: 235, y: 69 }, width: 135.8, height: 100.59 },
+    { src: "/assets/figma/vector-3.png", position: { x: 879.79, y: 75.97 }, width: 133.58, height: 150.75 },
+    { src: "/assets/figma/vector-4.png", position: { x: 886.65, y: 503.15 }, width: 153.41, height: 118.99 },
   ];
 
   const handleButtonClick = (e: React.MouseEvent, buttonId: number) => {
@@ -152,11 +151,11 @@ export default function ForcaMagneticaTerra() {
   };
 
   return (
-    <div className="relative w-full max-w-[393px] min-h-screen mx-auto bg-black overflow-hidden">
+    <div className="relative w-full min-h-screen bg-black overflow-hidden">
       {/* Container com scroll horizontal */}
       <div ref={scrollContainerRef} className="relative w-full h-screen overflow-x-auto overflow-y-hidden cursor-grab active:cursor-grabbing" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }} onMouseDown={handleMouseDown} onMouseLeave={handleMouseLeave} onMouseUp={handleMouseUp} onMouseMove={handleMouseMove} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
         {/* Imagem de fundo da Terra */}
-        <div className="relative" style={{ width: "1176px", height: "852px" }}>
+        <div className="relative w-[1080px] h-[852px] lg:w-full lg:flex lg:justify-center">
           <Image
             src="/assets/figma/terra-background.png"
             alt="Terra"
@@ -164,6 +163,7 @@ export default function ForcaMagneticaTerra() {
             className="object-cover object-center"
             style={{
               minHeight: "100vh",
+              width: "100%",
             }}
           />
 
@@ -175,60 +175,62 @@ export default function ForcaMagneticaTerra() {
             }}
           />
 
-          {/* Vetores SVG */}
-          {vectors.map((vector, index) => (
-            <div
-              key={index}
-              className="absolute"
-              style={{
-                left: `${vector.position.x}px`,
-                top: `${vector.position.y}px`,
-                width: `${vector.width}px`,
-                height: `${vector.height}px`,
-              }}>
-              <Image src={vector.src} alt={`Vector ${index + 1}`} fill className="object-contain" />
-            </div>
-          ))}
-
-          {/* Botões interativos */}
-          {buttons.map((button) => (
-            <button
-              key={button.id}
-              onClick={(e) => handleButtonClick(e, button.id)}
-              className="absolute flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 border-4 border-white rounded-full shadow-[0px_2px_0px_0px_rgba(0,0,0,0.15)] relative overflow-hidden"
-              style={{
-                left: `${button.position.x}px`,
-                top: `${button.position.y}px`,
-                width: `${button.width}px`,
-                height: `${button.height}px`,
-                backgroundColor: button.id === 0 ? "#6829A8" : "#E6A500",
-                padding: button.id === 3 ? "20px 10px" : "20px",
-              }}>
-              {/* Background overlay */}
+          <div className="relative lg:w-[1080px]">
+            {/* Vetores SVG */}
+            {vectors.map((vector, index) => (
               <div
-                className="absolute inset-0 rounded-full"
+                key={index}
+                className="absolute w-full"
                 style={{
-                  left: "1.01px",
-                  top: "0px",
-                  width: "calc(100% - 3px)",
-                  height: "calc(100% - 4px)",
-                  backgroundColor: button.id === 0 ? "#E8B3FF" : "#FFF176",
-                }}
-              />
+                  left: `${vector.position.x}px`,
+                  top: `${vector.position.y}px`,
+                  width: `${vector.width}px`,
+                  height: `${vector.height}px`,
+                }}>
+                <Image src={vector.src} alt={`Vector ${index + 1}`} fill className="object-contain absolute" />
+              </div>
+            ))}
 
-              {/* Texto do botão */}
-              <span className="relative z-10 font-nunito font-black text-xl leading-[1.364] tracking-[0.04em] uppercase text-center whitespace-pre-line" style={{ color: button.id === 0 ? "#6829A8" : "#E6A500" }}>
-                {button.text}
-              </span>
-            </button>
-          ))}
+            {/* Botões interativos */}
+            {buttons.map((button) => (
+              <button
+                key={button.id}
+                onClick={(e) => handleButtonClick(e, button.id)}
+                className="absolute flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 border-4 border-white rounded-full shadow-[0px_2px_0px_0px_rgba(0,0,0,0.15)] relative overflow-hidden cursor-pointer"
+                style={{
+                  left: `${button.position.x}px`,
+                  top: `${button.position.y}px`,
+                  width: `${button.width}px`,
+                  height: `${button.height}px`,
+                  backgroundColor: button.id === 0 ? "#6829A8" : "#E6A500",
+                  padding: button.id === 3 ? "20px 10px" : "20px",
+                }}>
+                {/* Background overlay */}
+                <div
+                  className="absolute inset-0 rounded-full"
+                  style={{
+                    left: "1.01px",
+                    top: "0px",
+                    width: "calc(100% - 3px)",
+                    height: "calc(100% - 4px)",
+                    backgroundColor: button.id === 0 ? "#E8B3FF" : "#FFF176",
+                  }}
+                />
+
+                {/* Texto do botão */}
+                <span className="relative z-10 font-nunito font-black text-xl leading-[1.364] tracking-[0.04em] uppercase text-center whitespace-pre-line" style={{ color: button.id === 0 ? "#6829A8" : "#E6A500" }}>
+                  {button.text}
+                </span>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Botões de navegação */}
-      <div className="absolute bottom-10 left-10 right-10 flex justify-between items-center gap-6">
-        <BotaoVoltar onClick={handleVoltarClick} />
-        <BotaoAvancar onClick={handleAvancarClick} />
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 w-[363px] flex justify-between items-center gap-6 px-10">
+        <Botao onClick={handleVoltarClick} label="VOLTAR" variant="azul" />
+        <Botao onClick={handleAvancarClick} label="AVANÇAR" variant="verde" />
       </div>
 
       {/* Elemento 'mova para o lado' fixo no topo */}

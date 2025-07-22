@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import BotaoRedondo from "./BotaoRedondo";
+import ModalHeader from "./ModalHeader";
 
 interface ArtropodesModalProps {
   isOpen: boolean;
@@ -25,20 +26,12 @@ const ArtropodesModal: React.FC<ArtropodesModalProps> = ({ isOpen, onClose, onHo
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50" onClick={handleBackdropClick}>
-      <div className="relative w-full max-w-[393px] h-full overflow-hidden">
+      <div className="relative w-full h-full overflow-hidden">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#41AA98] to-[#EBF3EE]" />
 
         {/* Top buttons */}
-        <div className="absolute flex justify-between items-center z-20 w-full bg-[#64AD9C] p-[15px]">
-          <button onClick={onClose} className="w-12 h-12 rounded-full bg-[#94E7FC] border-[3px] border-white flex items-center justify-center shadow-[0px_3px_0px_0px_#01668E]">
-            <Image src="/assets/icons/back-arrow-icon.svg" alt="Voltar" width={28} height={27} className="text-[#01668E]" />
-          </button>
-
-          <button onClick={onHome} className="w-12 h-12 rounded-full bg-[#94E7FC] border-[3px] border-white flex items-center justify-center shadow-[0px_3px_0px_0px_#01668E]">
-            <Image src="/assets/icons/home-icon.svg" alt="Home" width={24} height={24} className="text-[#01668E]" />
-          </button>
-        </div>
+        <ModalHeader onClose={onClose} onHome={onHome} />
 
         {/* Content container */}
         <div className="flex flex-col items-center h-full px-10 pt-[80px] pb-10 gap-3 overflow-y-auto pl-[50px]">
@@ -127,8 +120,8 @@ const ArtropodesModal: React.FC<ArtropodesModalProps> = ({ isOpen, onClose, onHo
           </div>
 
           {/* Bottom button */}
-          <div className="w-full mt-6">
-            <button onClick={onClose} className="w-full bg-[#01668E] border-4 border-white rounded-full py-3 px-6 shadow-[0px_2px_0px_0px_rgba(0,0,0,0.15)] relative overflow-hidden">
+          <div className="w-full mt-6 max-w-[313px] flex justify-center cursor-pointer">
+            <button onClick={onClose} className="w-full bg-[#01668E] border-4 border-white rounded-full py-3 px-6 shadow-[0px_2px_0px_0px_rgba(0,0,0,0.15)] relative overflow-hidden cursor-pointer">
               <div
                 className="absolute inset-0 bg-[#94E7FC] rounded-full top-0" 
                 style={{left: "1.01px", width: "calc(100% - 3px)", height: "calc(100% - 4px)"}}

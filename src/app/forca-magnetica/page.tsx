@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import BotaoAvancar from "./components/BotaoAvancar";
+import Botao from "./components/Botao";
 
 export default function ForcaMagnetica() {
   const router = useRouter();
@@ -12,14 +12,7 @@ export default function ForcaMagnetica() {
   };
 
   return (
-    <div
-      className="relative overflow-hidden"
-      style={{
-        width: "393px",
-        minHeight: "100vh",
-        background: "linear-gradient(180deg, #9C59FE 0%, #420C66 100%)",
-        margin: "0 auto",
-      }}>
+    <div className="relative overflow-hidden w-full min-h-screen bg-gradient-to-b from-[#9C59FE] to-[#420C66]">
       {/* Background Image com overlay roxo */}
       <div
         className="absolute inset-0"
@@ -39,21 +32,15 @@ export default function ForcaMagnetica() {
       </div>
 
       {/* Conteúdo principal */}
-      <div
-        className="relative z-10 flex flex-col items-center justify-center min-h-screen"
-        style={{
-          width: "100%",
-          padding: "40px",
-          gap: "40px",
-        }}>
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen w-[363px] mx-auto p-10 gap-10 md:gap-16">
         {/* Logo completo do Figma */}
         <div className="flex-shrink-0">
-          <Image src="/assets/figma/logo-forca-magnetica.png" alt="Logo Força Magnética" width={313} height={313} className="object-contain" />
+          <Image src="/assets/figma/logo-forca-magnetica.png" alt="Logo Força Magnética" width={313} height={313} className="object-contain md:w-[400px] md:h-[400px]" />
         </div>
 
         {/* Botão INICIAR - Unificado */}
         <div className="flex-shrink-0">
-          <BotaoAvancar onClick={handleIniciarClick} label="INICIAR" />
+          <Botao onClick={handleIniciarClick} label="INICIAR" variant="amarelo" />
         </div>
       </div>
     </div>

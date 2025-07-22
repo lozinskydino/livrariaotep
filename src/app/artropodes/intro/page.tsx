@@ -15,7 +15,8 @@ export default function ArtropodesIntro() {
   };
 
   return (
-    <div className="relative overflow-hidden h-screen w-[393px] mx-auto bg-[url('/assets/images/artropodes/bg.png')] bg-cover bg-center bg-no-repeat">
+    <div className="relative overflow-hidden flex flex-col justify-center items-center min-h-screen mx-auto bg-[url('/assets/images/artropodes/bg.png')] bg-cover bg-center bg-no-repeat">
+      <div className="w-[393px] relative h-[100vh]">
       {/* Conteúdo principal */}
       <div className="flex justify-center w-full mt-[80px] m-w-[315px]">
         {/* Content block */}
@@ -32,7 +33,7 @@ export default function ArtropodesIntro() {
       </div>
 
       {/* Botões de navegação */}
-      <div className="absolute w-full bottom-8 m-w-[313px] flex justify-center gap-4 z-20">
+      <div className="absolute bottom-[40px] w-full flex justify-center gap-4">
         <div className="">
           <Botao onClick={handleVoltarClick} label="VOLTAR" variant="azul" height="67px" />
         </div>
@@ -40,6 +41,7 @@ export default function ArtropodesIntro() {
         <div className="">
           <Botao onClick={handleAvancarClick} label="AVANÇAR" variant="verde" height="67px" />
         </div>
+      </div>
       </div>
     </div>
   );

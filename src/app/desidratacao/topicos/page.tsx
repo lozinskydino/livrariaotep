@@ -68,149 +68,162 @@ export default function DesidratacaoTopicos() {
 
   return (
     <div
-      className="relative overflow-hidden"
+      className="relative overflow-hidden flex justify-center"
       style={{
-        width: "393px",
         minHeight: "100vh",
         background: "linear-gradient(180deg, #FF69B4 0%, #FF1493 100%)",
         margin: "0 auto",
       }}>
-      {/* Overlay rosa para dar o tom correto */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: "linear-gradient(180deg, rgba(255, 105, 180, 0.3) 0%, rgba(255, 20, 147, 0.4) 100%)",
-        }}
-      />
+      <div className="w-[393px] relative">
+        {/* Overlay rosa para dar o tom correto */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(180deg, rgba(255, 105, 180, 0.3) 0%, rgba(255, 20, 147, 0.4) 100%)",
+          }}
+        />
 
-      {/* Elementos decorativos - pirulitos */}
-      <div className="absolute right-4 z-5">
-        <div className="animate-floating">
-          <Image src="/assets/images/desidratacao/bombom.png" alt="Pirulito" width={138} height={56} />
+        {/* Elementos decorativos - pirulitos */}
+        <div className="absolute right-4 z-5">
+          <div className="animate-floating">
+            <Image src="/assets/images/desidratacao/bombom.png" alt="Pirulito" width={138} height={56} />
+          </div>
         </div>
-      </div>
 
-      {/* Conteúdo principal */}
-      <div className="flex flex-col items-center h-full px-10 pt-[80px] pb-[120px] gap-[5px] overflow-hidden" style={{ paddingLeft: "50px" }}>
-        
-        {/* Tópicos Accordion */}
-        {topicos.map((topico, index) => (
-          <div key={topico.id} className="w-[313px] relative">
-            {/* Tópico expandido */}
-            {topicoAberto === topico.id && (
-              <div className="bg-[#A03BB1] border-4 border-white rounded-[16px] flex flex-col justify-end items-start gap-4 relative mb-0" style={{ padding: "0px 5px 7px 0px" }}>
-                <div className="bg-[#FDC0FF] border-2 border-[#641671] rounded-[16px] z-0 flex-none order-0 w-full" style={{ padding: "14px 10px" }}>
-                  <div className="w-full flex flex-col items-start gap-4 z-20 relative">
-                    <div className="flex items-center justify-between w-full">
-                      <h3 className="text-[#641671] font-nunito font-bold text-[16px] leading-[1.2] flex-1">
+        {/* Conteúdo principal */}
+        <div className="flex flex-col items-center h-full px-10 pt-[80px] pb-[120px] gap-[5px] overflow-hidden" style={{ paddingLeft: "50px" }}>
+
+          {/* Tópicos Accordion */}
+          {topicos.map((topico, index) => (
+            <div key={topico.id} className="w-[313px] relative">
+              {/* Tópico expandido */}
+              {topicoAberto === topico.id && (
+                <div className="bg-[#A03BB1] border-4 border-white rounded-[16px] flex flex-col justify-end items-start gap-4 relative mb-0 cursor-pointer hover:bg-[#8B2A9B] transition-colors" onClick={() => toggleTopico(topico.id)} style={{ padding: "0px 5px 7px 0px" }}>
+                  <div className="bg-[#FDC0FF] border-2 border-[#641671] rounded-[16px] z-0 flex-none order-0 w-full" style={{ padding: "14px 10px" }}>
+                    <div className="w-full flex flex-col items-start gap-4 z-20 relative">
+                      <div className="flex items-center justify-between w-full">
+                        <h3 className="text-[#641671] font-nunito font-bold text-[16px] leading-[1.2] flex-1">
+                          {topico.titulo}
+                        </h3>
+                        <button className="ml-2">
+                          <Image src="/assets/icons/arrow-up.svg" alt="Fechar" width={24} height={24} />
+                        </button>
+                      </div>
+
+                      {topico.id !== "produtos" && topico.id !== "sabor" && topico.imagem && (
+                        <div className="w-full rounded-[12px] overflow-hidden">
+                          <Image
+                            src={topico.imagem}
+                            alt={topico.titulo}
+                            width={281}
+                            height={160}
+                            className="w-full h-[160px] object-cover"
+                          />
+                        </div>
+                      )}
+
+                      {(topico.id === "caramelizacao" || topico.id === "produtos") && topico.imagemSecundaria && (
+                        <div className="w-full rounded-[12px] overflow-hidden">
+                          <Image
+                            src={topico.imagemSecundaria}
+                            alt={`${topico.titulo} - Imagem adicional`}
+                            width={281}
+                            height={160}
+                            className="w-full h-auto object-contain"
+                          />
+                        </div>
+                      )}
+
+                      <p className="text-[#641671] font-nunito font-semibold text-[16px] leading-[1.2] flex-none order-0 self-stretch z-[2] whitespace-pre-line">
+                        <div dangerouslySetInnerHTML={{ __html: topico.conteudo }} />
+                      </p>
+
+                      {(topico.id === "produtos") && topico.imagem && (
+                        <div className="w-full rounded-[12px] overflow-hidden">
+                          <Image
+                            src={topico.imagem}
+                            alt={topico.titulo}
+                            width={281}
+                            height={280}
+                            className="w-full h-[280px] object-cover"
+                          />
+                        </div>
+                      )}
+
+                      {(topico.id === "sabor") && topico.imagem && (
+                        <div className="w-full rounded-[12px] overflow-hidden">
+                          <Image
+                            src={topico.imagem}
+                            alt={topico.titulo}
+                            width={281}
+                            height={160}
+                            className="w-full h-[160px] object-cover"
+                          />
+                        </div>
+                      )}
+
+                      {topico.conteudo2 && (
+                        <p className="text-[#641671] font-nunito font-semibold text-[16px] leading-[1.2] flex-none order-0 self-stretch z-[2] whitespace-pre-line">
+                          <div dangerouslySetInnerHTML={{ __html: topico.conteudo2 }} />
+                        </p>
+                      )}
+
+                      {(topico.id !== "caramelizacao") && topico.imagemSecundaria && (
+                        <div className="w-full rounded-[12px] overflow-hidden">
+                          <Image
+                            src={topico.imagemSecundaria}
+                            alt={`${topico.titulo} - Imagem adicional`}
+                            width={281}
+                            height={160}
+                            className="w-full h-auto object-contain"
+                          />
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Tópico fechado */}
+              {topicoAberto !== topico.id && (
+                <button
+                  onClick={() => toggleTopico(topico.id)}
+                  className="w-full bg-[#A03BB1] border-4 border-white rounded-[16px] flex flex-col justify-end items-start gap-4 relative mb-0 hover:bg-[#8B2A9B] transition-colors"
+                  style={{ padding: "0px 5px 7px 0px" }}
+                >
+                  <div className="bg-[#FDC0FF] border-2 border-[#641671] rounded-[16px] z-0 flex-none order-0 w-full cursor-pointer hover:bg-[#ed8eef] transition-colors" style={{ padding: "14px 10px" }}>
+                    <div className="w-full flex flex-row items-center justify-between z-20 relative">
+                      <h3 className="text-[#641671] font-nunito font-bold text-[16px] leading-[1.2] text-left flex-1">
                         {topico.titulo}
                       </h3>
-                      <button onClick={() => toggleTopico(topico.id)} className="ml-2">
-                        <Image src="/assets/icons/arrow-up.svg" alt="Fechar" width={24} height={24} />
-                      </button>
+                      <Image src="/assets/icons/arrow-down.svg" alt="Expandir" width={24} height={24} className="ml-2" />
                     </div>
-                    
-                    {topico.id !== "produtos" && topico.id !== "sabor" && topico.imagem && (
-                      <div className="w-full rounded-[12px] overflow-hidden">
-                        <Image 
-                          src={topico.imagem} 
-                          alt={topico.titulo} 
-                          width={281} 
-                          height={160} 
-                          className="w-full h-[160px] object-cover"
-                        />
-                      </div>
-                    )}
-
-                    {(topico.id === "caramelizacao" || topico.id === "produtos") && topico.imagemSecundaria && (
-                      <div className="w-full rounded-[12px] overflow-hidden">
-                        <Image 
-                          src={topico.imagemSecundaria} 
-                          alt={`${topico.titulo} - Imagem adicional`} 
-                          width={281} 
-                          height={160} 
-                          className="w-full h-auto object-contain"
-                        />
-                      </div>
-                    )}
-                    
-                    <p className="text-[#641671] font-nunito font-semibold text-[16px] leading-[1.2] flex-none order-0 self-stretch z-[2] whitespace-pre-line">
-                      <div dangerouslySetInnerHTML={{ __html: topico.conteudo }} />
-                    </p>
-
-                    {(topico.id === "produtos" || topico.id === "sabor") && topico.imagem && (
-                      <div className="w-full rounded-[12px] overflow-hidden">
-                        <Image 
-                          src={topico.imagem} 
-                          alt={topico.titulo} 
-                          width={281} 
-                          height={160} 
-                          className="w-full h-[160px] object-cover"
-                        />
-                      </div>
-                    )}
-
-                    {topico.conteudo2 && (
-                      <p className="text-[#641671] font-nunito font-semibold text-[16px] leading-[1.2] flex-none order-0 self-stretch z-[2] whitespace-pre-line">
-                        <div dangerouslySetInnerHTML={{ __html: topico.conteudo2 }} />
-                      </p>
-                    )}
-                    
-                    {(topico.id !== "caramelizacao") && topico.imagemSecundaria && (
-                      <div className="w-full rounded-[12px] overflow-hidden">
-                        <Image 
-                          src={topico.imagemSecundaria} 
-                          alt={`${topico.titulo} - Imagem adicional`} 
-                          width={281} 
-                          height={160} 
-                          className="w-full h-auto object-contain"
-                        />
-                      </div>
-                    )}
                   </div>
-                </div>
-              </div>
-            )}
-            
-            {/* Tópico fechado */}
-            {topicoAberto !== topico.id && (
-              <button
-                onClick={() => toggleTopico(topico.id)}
-                className="w-full bg-[#A03BB1] border-4 border-white rounded-[16px] flex flex-col justify-end items-start gap-4 relative mb-0 hover:bg-[#8B2A9B] transition-colors"
-                style={{ padding: "0px 5px 7px 0px" }}
-              >
-                <div className="bg-[#FDC0FF] border-2 border-[#641671] rounded-[16px] z-0 flex-none order-0 w-full" style={{ padding: "14px 10px" }}>
-                  <div className="w-full flex flex-row items-center justify-between z-20 relative">
-                    <h3 className="text-[#641671] font-nunito font-bold text-[16px] leading-[1.2] text-left flex-1">
-                      {topico.titulo}
-                    </h3>
-                    <Image src="/assets/icons/arrow-down.svg" alt="Expandir" width={24} height={24} className="ml-2" />
-                  </div>
-                </div>
-              </button>
-            )}
+                </button>
+              )}
+            </div>
+          ))}
+
+          {/* Imagem de instrução */}
+          <div className="mt-6 mb-6">
+            <Image
+              src="/assets/images/desidratacao/info-clique.png"
+              alt="Clique para expandir"
+              width={114}
+              height={62}
+              className="object-contain"
+            />
           </div>
-        ))}
-
-        {/* Imagem de instrução */}
-        <div className="mt-6 mb-6">
-          <Image 
-            src="/assets/images/desidratacao/info-clique.png" 
-            alt="Clique para expandir" 
-            width={114} 
-            height={62} 
-            className="object-contain"
-          />
         </div>
-      </div>
 
-      {/* Botões fixos */}
-      <div className="absolute max-w-[303px] bottom-[40px] left-[50px] z-10 flex flex-row justify-stretch items-stretch w-full gap-6">
-        <div className="flex-1">
-          <Botao onClick={handleVoltarClick} label="VOLTAR" variant="azul" height="67px" />
-        </div>
-        <div className="flex-1">
-          <Botao onClick={handleAvancarClick} label="AVANÇAR" variant="verde" height="67px" />
+        {/* Botões fixos */}
+        <div className="absolute max-w-[303px] bottom-[40px] left-[50px] z-10 flex flex-row justify-stretch items-stretch w-full gap-6">
+          <div className="flex-1">
+            <Botao onClick={handleVoltarClick} label="VOLTAR" variant="azul" height="67px" />
+          </div>
+          <div className="flex-1">
+            <Botao onClick={handleAvancarClick} label="AVANÇAR" variant="verde" height="67px" />
+          </div>
         </div>
       </div>
     </div>
