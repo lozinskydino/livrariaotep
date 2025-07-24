@@ -32,7 +32,7 @@ export default function ForcaMagneticaDetalhes() {
           {/* Conteúdo */}
           <div className="relative z-10 flex flex-row items-stretch gap-4">
             <p className="font-nunito font-semibold text-base leading-[1.2] text-white text-left m-0 ">
-              As luzes que geram imagens fascinantes no céu com um brilho predominantemente verde são das chamadas auroras; elas se formam em regiões próximas aos polos da Terra. Você já parou para pensar por que as auroras se formam somente nos polos e não em todos os lugares do planeta? Imagine como seria se fosse possível contemplarmos aquelas cores no céu onde quer que estivéssemos! Seria um privilégio, não é mesmo?! E o que causa esse brilho intenso tão lindo no céu? Essas perguntas serão respondidas e mais curiosidades serão mostradas no infográfico a seguir.
+              As luzes que geram imagens fascinantes no céu, com um brilho predominantemente verde, são as chamadas auroras; elas se formam em regiões próximas aos polos da Terra. Você já parou para pensar por que as auroras se formam somente nos polos e não em todos os lugares do planeta? Imagine como seria se fosse possível contemplarmos aquelas cores no céu onde quer que estivéssemos! Seria um privilégio, não é mesmo?! E o que causa esse brilho intenso tão lindo no céu? Essas perguntas serão respondidas e mais curiosidades serão mostradas no infográfico a seguir.
             </p>
           </div>
         </div>

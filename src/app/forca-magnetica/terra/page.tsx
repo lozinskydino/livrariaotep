@@ -153,7 +153,7 @@ export default function ForcaMagneticaTerra() {
   return (
     <div className="relative w-full min-h-screen bg-black overflow-hidden">
       {/* Container com scroll horizontal */}
-      <div ref={scrollContainerRef} className="relative w-full h-screen overflow-x-auto overflow-y-hidden cursor-grab active:cursor-grabbing" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }} onMouseDown={handleMouseDown} onMouseLeave={handleMouseLeave} onMouseUp={handleMouseUp} onMouseMove={handleMouseMove} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
+      <div ref={scrollContainerRef} className="relative w-full h-screen overflow-x-auto overflow-y-hidden cursor-grab active:cursor-grabbing lg:cursor-default lg:active:cursor-default" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }} onMouseDown={handleMouseDown} onMouseLeave={handleMouseLeave} onMouseUp={handleMouseUp} onMouseMove={handleMouseMove} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
         {/* Imagem de fundo da Terra */}
         <div className="relative w-[1080px] h-[852px] lg:w-full lg:flex lg:justify-center">
           <Image
@@ -175,7 +175,7 @@ export default function ForcaMagneticaTerra() {
             }}
           />
 
-          <div className="relative lg:w-[1080px]">
+          <div className="relative lg:w-[1080px] select-none">
             {/* Vetores SVG */}
             {vectors.map((vector, index) => (
               <div
@@ -187,7 +187,7 @@ export default function ForcaMagneticaTerra() {
                   width: `${vector.width}px`,
                   height: `${vector.height}px`,
                 }}>
-                <Image src={vector.src} alt={`Vector ${index + 1}`} fill className="object-contain absolute" />
+                <Image src={vector.src} alt={`Vector ${index + 1}`} fill className="object-contain absolute select-none pointer-events-none" />
               </div>
             ))}
 
@@ -234,7 +234,7 @@ export default function ForcaMagneticaTerra() {
       </div>
 
       {/* Elemento 'mova para o lado' fixo no topo */}
-      <div className="absolute top-[45px] z-20 flex items-center justify-center w-full">
+      <div className="absolute top-[45px] z-20 flex items-center justify-center w-full lg:hidden">
         <img src="/assets/icons/Cursor.png" alt="Elemento" />
         <img src="/assets/images/top-text.svg" alt="" />
       </div>
