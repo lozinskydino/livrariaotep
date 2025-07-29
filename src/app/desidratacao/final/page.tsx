@@ -45,7 +45,7 @@ export default function DesidratacaoFinal() {
           <div className="bg-[#A03BB1] border-4 border-white rounded-[16px] flex flex-col justify-end items-start gap-4 relative mb-8 w-full max-w-[313px]" style={{ padding: "0px 5px 7px 0px" }}>
             <div className="bg-[#FDC0FF] border-2 border-[#641671] rounded-[16px] z-0 flex-none order-0 w-full" style={{ padding: "14px 10px" }}>
               <div className="w-full flex flex-col items-start gap-4 z-20 relative">
-                <p className="text-[#641671] font-nunito font-semibold text-[16px] leading-[1.2] flex-none order-0 self-stretch z-[2]">A caramelização do açúcar, relacionada a diversas receitas culinárias, não envolve apenas a transformação visual e do sabor de alimentos. Ela é um exemplo de como as reações químicas estão presentes em nosso cotidiano, desde receitas simples até produtos industriais. Entender esses processos nos ajuda a valorizar a ciência por trás da culinária, de cada produto que consumimos ou de fenômenos que presenciamos.</p>
+                <p className="text-[#641671] font-nunito font-semibold text-[16px] leading-[1.2] flex-none order-0 self-stretch z-[2]">A caramelização do açúcar, relacionada a diversas receitas culinárias, não envolve apenas a transformação do visual e do sabor de alimentos. Ela é um exemplo de como as reações químicas estão presentes em nosso cotidiano, desde receitas simples até produtos industriais. Entender esses processos nos ajuda a valorizar a ciência por trás da culinária, de cada produto que consumimos ou de fenômenos que presenciamos.</p>
               </div>
             </div>
           </div>

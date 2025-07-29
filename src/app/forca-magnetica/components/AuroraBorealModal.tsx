@@ -96,7 +96,7 @@ const AuroraBorealModal: React.FC<AuroraBorealModalProps> = ({ isOpen, onClose }
                     <div
                       className="flex flex-col justify-center items-center p-2 gap-2 w-[281px] h-[160px] rounded-[16px] relative"
                       style={{
-                        backgroundImage: "linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.1) 100%), url('/assets/images/forca-magnetica/Yellowknife.png')",
+                        backgroundImage: "linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.1) 100%), url('/assets/images/forca-magnetica/yellowknife.png')",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                         isolation: "isolate",

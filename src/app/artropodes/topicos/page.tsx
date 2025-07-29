@@ -124,19 +124,8 @@ export default function ArtropodesTopicos() {
             </div>
           </div>
 
-          {/* Estrelas e bolacha-do-mar (item único em baixo) */}
-          <div className="w-full max-w-[155px] mb-0 pr-[5px] pb-[5px]">
-            <div className="bg-[#41AA98] border-4 border-white rounded-[60px] pr-[5px] pb-[5px] cursor-pointer" onClick={handleEquinodermosClick}>
-              <div className="bg-[#EBF3EE] hover:bg-[#b9dac7] border-2 border-[#1C4F46] rounded-[60px] p-4 h-[120px] flex flex-col items-center justify-center">
-                <div className="flex items-center justify-center mb-2">
-                  <img src="/assets/images/artropodes/estrela-bolacha.svg" alt="Estrelas e bolacha-do-mar" className="w-[130px] h-[130px] object-contain animate-pulse-step" />
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* Texto de interação */}
-          <div className="flex flex-col items-center mb-8">
+          <div className="flex flex-col items-center mb-8 lg:hidden">
             {/* Imagem de instrução */}
             <div className="mt-6 mb-6">
               <Image src="/assets/images/artropodes/info-clique.svg" alt="Clique para expandir" width={185} height={62} className="object-contain" />

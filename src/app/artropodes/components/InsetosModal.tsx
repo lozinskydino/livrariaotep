@@ -50,7 +50,6 @@ const InsetosModal: React.FC<InsetosModalProps> = ({ isOpen, onClose, onHome }) 
                 {/* Primeira seção com botão 1 */}
                 <div className="w-full flex flex-col gap-4">
                   <div className="flex items-start gap-2">
-                    <BotaoRedondo onClick={() => handleBotaoClick("1")} numero="1" />
                     <p className="text-[#1C4F46] font-nunito font-semibold text-[16px] leading-[1.2] flex-1">Os insetos representam o maior número de artrópodes, com 750 mil espécies descritas. Podem ser exemplificados por moscas, mosquitos, borboletas, pulgas, libélulas, entre outros.</p>
                   </div>
                 </div>
@@ -69,7 +68,6 @@ const InsetosModal: React.FC<InsetosModalProps> = ({ isOpen, onClose, onHome }) 
                 {/* Segunda seção com botão 2 */}
                 <div className="w-full flex flex-col gap-4">
                   <div className="flex items-start gap-2">
-                    <BotaoRedondo onClick={() => handleBotaoClick("2")} numero="2" />
                     <p className="text-[#1C4F46] font-nunito font-semibold text-[16px] leading-[1.2] flex-1">Eles apresentam o corpo dividido em cabeça, tórax e abdômen e seis pernas. Podem apresentar um ou dois pares de asas ou não ter asas. Mas todos têm um par de antenas.</p>
                   </div>
 
@@ -78,7 +76,7 @@ const InsetosModal: React.FC<InsetosModalProps> = ({ isOpen, onClose, onHome }) 
                     <div
                       className="flex flex-col justify-center items-center p-2 gap-2 w-[281px] h-[280px] rounded-[16px] relative"
                       style={{
-                        backgroundImage: `url('/assets/images/artropodes/morfologia-inseto.png')`,
+                        backgroundImage: `url('/assets/images/artropodes/morfologia-inseto.svg')`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                       }}></div>
@@ -98,7 +96,6 @@ const InsetosModal: React.FC<InsetosModalProps> = ({ isOpen, onClose, onHome }) 
                   </div>
 
                   <div className="flex items-start gap-2">
-                    <BotaoRedondo onClick={() => handleBotaoClick("3")} numero="3" />
                     <p className="text-[#1C4F46] font-nunito font-semibold text-[16px] leading-[1.2] flex-1">A metamorfose está presente no desenvolvimento de muitos insetos. No caso da borboleta, ela é completa; já no caso do gafanhoto, ela é incompleta; e no caso da traça, a metamorfose não ocorre.</p>
                   </div>
                 </div>
@@ -122,7 +119,6 @@ const InsetosModal: React.FC<InsetosModalProps> = ({ isOpen, onClose, onHome }) 
                   </div>
 
                   <div className="flex items-start gap-2">
-                    <BotaoRedondo onClick={() => handleBotaoClick("4")} numero="4" />
                     <p className="text-[#1C4F46] font-nunito font-semibold text-[16px] leading-[1.2] flex-1">Na metamorfose completa, do ovo sai a lagarta ou larva, que forma a pupa da qual surge a fase adulta.</p>
                   </div>
                 </div>
@@ -146,7 +142,6 @@ const InsetosModal: React.FC<InsetosModalProps> = ({ isOpen, onClose, onHome }) 
                   </div>
 
                   <div className="flex items-start gap-2">
-                    <BotaoRedondo onClick={() => handleBotaoClick("5")} numero="5" />
                     <p className="text-[#1C4F46] font-nunito font-semibold text-[16px] leading-[1.2] flex-1">Na metamorfose completa, do ovo sai a lagarta ou larva, que forma a pupa da qual surge a fase adulta.</p>
                   </div>
                 </div>
@@ -164,8 +159,9 @@ const InsetosModal: React.FC<InsetosModalProps> = ({ isOpen, onClose, onHome }) 
                   </div>
 
                   <div className="flex items-start gap-2">
-                    <BotaoRedondo onClick={() => handleBotaoClick("6")} numero="6" />
-                    <p className="text-[#1C4F46] font-nunito font-semibold text-[16px] leading-[1.2] flex-1">Muitos insetos são importantes na reprodução das plantas, como é o caso das abelhas, por serem polinizadores. Mas existem aqueles que são transmissores de doença, como o Aedes aegypti, que transmite os vírus da dengue, da febre amarela, do zika vírus e da chikungunya.</p>
+                    <p className="text-[#1C4F46] font-nunito font-semibold text-[16px] leading-[1.2] flex-1">
+                      Muitos insetos são importantes na reprodução das plantas, como é o caso das abelhas, por serem polinizadores. Mas existem aqueles que são transmissores de doença, como o <i>Aedes aegypti</i>, que transmite os vírus da dengue, da febre amarela, do zika vírus e da chikungunya.
+                    </p>
                   </div>
                 </div>
               </div>

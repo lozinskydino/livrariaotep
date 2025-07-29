@@ -19,14 +19,14 @@ const topicos: TopicoData[] = [
     id: "desvendando",
     titulo: "Desvendando a química do caramelo: reações de desidratação",
     conteudo: "Você já experimentou caramelo ou açúcar caramelizado? Em algumas receitas, como as de pé de moleque, maçã do amor, pudim e pipoca caramelizada, o açúcar passa pela caramelização para modificar o seu sabor, textura e aparência. Navegue por este infográfico para saber mais!",
-    imagem: "/assets/images/desidratacao/pe-de-moleque.png"
+    imagem: "/assets/images/desidratacao/pe-de-moleque.png",
   },
   {
     id: "caramelizacao",
     titulo: "A caramelização do açúcar",
     conteudo: "A caramelização se trata de um conjunto de reações químicas de compostos orgânicos e geralmente é feita com açúcar cristal, comum em nossas casas. Esse açúcar é formado por moléculas de sacarose, um dissacarídeo formado por glicose e frutose.",
     imagem: "/assets/images/desidratacao/acucar-1.png",
-    imagemSecundaria: "/assets/images/desidratacao/acucar-2.png"
+    imagemSecundaria: "/assets/images/desidratacao/acucar-2.svg",
   },
   {
     id: "reacoes",
@@ -37,17 +37,17 @@ const topicos: TopicoData[] = [
   {
     id: "produtos",
     titulo: "Produtos da desidratação",
-    conteudo: "Por meio das fórmulas moleculares do esquema acima e experimentos, observa-se que inicialmente, a desidratação do açúcar envolve a eliminação de moléculas de água e união das moléculas restantes. As demais cotas são: C12H18O9, C36H48O24, C24H26O13\n\nNem todas as reações químicas envolvidas na caramelização foram devidamente identificadas, mas sabe-se que o processo se inicia com a desidratação, que resulta na união de moléculas, na decomposição em moléculas menores e na formação de compostos cíclicos. Alguns dos primeiros produtos formados, que alteram a cor, o sabor e as propriedades físico-químicas, são a <b>caramelana, o carameleno e o caramelino</b>. Esses compostos são formados por meio do seguinte processo:\n\n",
+    conteudo: " As demais cotas são: C12H18O9, C36H48O24, C24H26O13\n\nNem todas as reações químicas envolvidas na caramelização foram devidamente identificadas, mas sabe-se que o processo se inicia com a desidratação, que resulta na união de moléculas, na decomposição em moléculas menores e na formação de compostos cíclicos. Alguns dos primeiros produtos formados, que alteram a cor, o sabor e as propriedades físico-químicas, são a <b>caramelana, o carameleno e o caramelino</b>. Esses compostos são formados por meio do seguinte processo:\n\n",
     conteudo2: "Ou seja, por meio das fórmulas moleculares do esquema acima e experimentos, observa-se que inicialmente, a desidratação do açúcar envolve a eliminação de moléculas de água e união das moléculas restantes.",
-    imagem: "/assets/images/desidratacao/formulas.png"
+    imagem: "/assets/images/desidratacao/formulas.svg",
   },
   {
     id: "sabor",
     titulo: "O sabor do caramelo",
     conteudo: "Além das receitas caseiras, a caramelização está presente em processos da indústria alimentícia, como a produção de doces artificiais e refrigerantes. E o sabor do caramelo depende de reações químicas controladas, pois acima de 180 °C o açúcar pode queimar, criando compostos com sabor mais amargo.\n\n",
     conteudo2: "Se você gostou de saber dessa informação, continue explorando a ciência presente no seu dia a dia. Dessa forma, aprenderá muito mais sobre o funcionamento do mundo ao seu redor e de que forma pode utilizar melhor os recursos a seu dispor.",
-    imagem: "/assets/images/desidratacao/caramelo.png"
-  }
+    imagem: "/assets/images/desidratacao/caramelo.png",
+  },
 ];
 
 export default function DesidratacaoTopicos() {
@@ -92,7 +92,6 @@ export default function DesidratacaoTopicos() {
 
         {/* Conteúdo principal */}
         <div className="flex flex-col items-center h-full px-10 pt-[80px] pb-[120px] gap-[5px] overflow-hidden" style={{ paddingLeft: "50px" }}>
-
           {/* Tópicos Accordion */}
           {topicos.map((topico, index) => (
             <div key={topico.id} className="w-[313px] relative">
@@ -102,9 +101,7 @@ export default function DesidratacaoTopicos() {
                   <div className="bg-[#FDC0FF] border-2 border-[#641671] rounded-[16px] z-0 flex-none order-0 w-full" style={{ padding: "14px 10px" }}>
                     <div className="w-full flex flex-col items-start gap-4 z-20 relative">
                       <div className="flex items-center justify-between w-full">
-                        <h3 className="text-[#641671] font-nunito font-bold text-[16px] leading-[1.2] flex-1">
-                          {topico.titulo}
-                        </h3>
+                        <h3 className="text-[#641671] font-nunito font-bold text-[16px] leading-[1.2] flex-1">{topico.titulo}</h3>
                         <button className="ml-2">
                           <Image src="/assets/icons/arrow-up.svg" alt="Fechar" width={24} height={24} />
                         </button>
@@ -112,25 +109,13 @@ export default function DesidratacaoTopicos() {
 
                       {topico.id !== "produtos" && topico.id !== "sabor" && topico.imagem && (
                         <div className="w-full rounded-[12px] overflow-hidden">
-                          <Image
-                            src={topico.imagem}
-                            alt={topico.titulo}
-                            width={281}
-                            height={160}
-                            className="w-full h-[160px] object-cover"
-                          />
+                          <Image src={topico.imagem} alt={topico.titulo} width={281} height={160} className="w-full h-[160px] object-cover" />
                         </div>
                       )}
 
                       {(topico.id === "caramelizacao" || topico.id === "produtos") && topico.imagemSecundaria && (
                         <div className="w-full rounded-[12px] overflow-hidden">
-                          <Image
-                            src={topico.imagemSecundaria}
-                            alt={`${topico.titulo} - Imagem adicional`}
-                            width={281}
-                            height={160}
-                            className="w-full h-auto object-contain"
-                          />
+                          <Image src={topico.imagemSecundaria} alt={`${topico.titulo} - Imagem adicional`} width={281} height={160} className="w-full h-auto object-contain" />
                         </div>
                       )}
 
@@ -138,27 +123,15 @@ export default function DesidratacaoTopicos() {
                         <div dangerouslySetInnerHTML={{ __html: topico.conteudo }} />
                       </p>
 
-                      {(topico.id === "produtos") && topico.imagem && (
+                      {topico.id === "produtos" && topico.imagem && (
                         <div className="w-full rounded-[12px] overflow-hidden">
-                          <Image
-                            src={topico.imagem}
-                            alt={topico.titulo}
-                            width={281}
-                            height={280}
-                            className="w-full h-[280px] object-cover"
-                          />
+                          <Image src={topico.imagem} alt={topico.titulo} width={281} height={280} className="w-full h-[280px] object-cover" />
                         </div>
                       )}
 
-                      {(topico.id === "sabor") && topico.imagem && (
+                      {topico.id === "sabor" && topico.imagem && (
                         <div className="w-full rounded-[12px] overflow-hidden">
-                          <Image
-                            src={topico.imagem}
-                            alt={topico.titulo}
-                            width={281}
-                            height={160}
-                            className="w-full h-[160px] object-cover"
-                          />
+                          <Image src={topico.imagem} alt={topico.titulo} width={281} height={160} className="w-full h-[160px] object-cover" />
                         </div>
                       )}
 
@@ -168,15 +141,9 @@ export default function DesidratacaoTopicos() {
                         </p>
                       )}
 
-                      {(topico.id !== "caramelizacao") && topico.imagemSecundaria && (
+                      {topico.id !== "caramelizacao" && topico.imagemSecundaria && (
                         <div className="w-full rounded-[12px] overflow-hidden">
-                          <Image
-                            src={topico.imagemSecundaria}
-                            alt={`${topico.titulo} - Imagem adicional`}
-                            width={281}
-                            height={160}
-                            className="w-full h-auto object-contain"
-                          />
+                          <Image src={topico.imagemSecundaria} alt={`${topico.titulo} - Imagem adicional`} width={281} height={160} className="w-full h-auto object-contain" />
                         </div>
                       )}
                     </div>
@@ -186,16 +153,10 @@ export default function DesidratacaoTopicos() {
 
               {/* Tópico fechado */}
               {topicoAberto !== topico.id && (
-                <button
-                  onClick={() => toggleTopico(topico.id)}
-                  className="w-full bg-[#A03BB1] border-4 border-white rounded-[16px] flex flex-col justify-end items-start gap-4 relative mb-0 hover:bg-[#8B2A9B] transition-colors"
-                  style={{ padding: "0px 5px 7px 0px" }}
-                >
+                <button onClick={() => toggleTopico(topico.id)} className="w-full bg-[#A03BB1] border-4 border-white rounded-[16px] flex flex-col justify-end items-start gap-4 relative mb-0 hover:bg-[#8B2A9B] transition-colors" style={{ padding: "0px 5px 7px 0px" }}>
                   <div className="bg-[#FDC0FF] border-2 border-[#641671] rounded-[16px] z-0 flex-none order-0 w-full cursor-pointer hover:bg-[#ed8eef] transition-colors" style={{ padding: "14px 10px" }}>
                     <div className="w-full flex flex-row items-center justify-between z-20 relative">
-                      <h3 className="text-[#641671] font-nunito font-bold text-[16px] leading-[1.2] text-left flex-1">
-                        {topico.titulo}
-                      </h3>
+                      <h3 className="text-[#641671] font-nunito font-bold text-[16px] leading-[1.2] text-left flex-1">{topico.titulo}</h3>
                       <Image src="/assets/icons/arrow-down.svg" alt="Expandir" width={24} height={24} className="ml-2" />
                     </div>
                   </div>
@@ -205,14 +166,8 @@ export default function DesidratacaoTopicos() {
           ))}
 
           {/* Imagem de instrução */}
-          <div className="mt-6 mb-6">
-            <Image
-              src="/assets/images/desidratacao/info-clique.png"
-              alt="Clique para expandir"
-              width={114}
-              height={62}
-              className="object-contain"
-            />
+          <div className="mt-6 mb-6 lg:hidden">
+            <Image src="/assets/images/desidratacao/info-clique.png" alt="Clique para expandir" width={114} height={62} className="object-contain" />
           </div>
         </div>
 
