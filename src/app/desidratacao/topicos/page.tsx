@@ -74,7 +74,7 @@ export default function DesidratacaoTopicos() {
         background: "linear-gradient(180deg, #FF69B4 0%, #FF1493 100%)",
         margin: "0 auto",
       }}>
-      <div className="w-[393px] relative">
+      <div className="w-[393px] relative lg:w-[600px]">
         {/* Overlay rosa para dar o tom correto */}
         <div
           className="absolute inset-0"
@@ -94,7 +94,7 @@ export default function DesidratacaoTopicos() {
         <div className="flex flex-col items-center h-full px-10 pt-[80px] pb-[120px] gap-[5px] overflow-hidden" style={{ paddingLeft: "50px" }}>
           {/* Tópicos Accordion */}
           {topicos.map((topico, index) => (
-            <div key={topico.id} className="w-[313px] relative">
+            <div key={topico.id} className="w-[313px] relative lg:w-[500px]">
               {/* Tópico expandido */}
               {topicoAberto === topico.id && (
                 <div className="bg-[#A03BB1] border-4 border-white rounded-[16px] flex flex-col justify-end items-start gap-4 relative mb-0 cursor-pointer hover:bg-[#8B2A9B] transition-colors" onClick={() => toggleTopico(topico.id)} style={{ padding: "0px 5px 7px 0px" }}>
@@ -108,14 +108,14 @@ export default function DesidratacaoTopicos() {
                       </div>
 
                       {topico.id !== "produtos" && topico.id !== "sabor" && topico.imagem && (
-                        <div className="w-full rounded-[12px] overflow-hidden">
-                          <Image src={topico.imagem} alt={topico.titulo} width={281} height={160} className="w-full h-[160px] object-cover" />
+                        <div className="w-full h-full rounded-[12px] overflow-hidden">
+                          <Image src={topico.imagem} alt={topico.titulo} width={0} height={0} sizes="100vw" className="w-full h-[160px] object-cover" style={{ width: "100%", height: "100%" }} />
                         </div>
                       )}
 
                       {(topico.id === "caramelizacao" || topico.id === "produtos") && topico.imagemSecundaria && (
                         <div className="w-full rounded-[12px] overflow-hidden">
-                          <Image src={topico.imagemSecundaria} alt={`${topico.titulo} - Imagem adicional`} width={281} height={160} className="w-full h-auto object-contain" />
+                          <Image src={topico.imagemSecundaria} alt={`${topico.titulo} - Imagem adicional`} width={0} height={0} sizes="100vw" className="w-full h-[160px] object-cover" style={{ width: "100%", height: "100%" }} />
                         </div>
                       )}
 
@@ -125,13 +125,13 @@ export default function DesidratacaoTopicos() {
 
                       {topico.id === "produtos" && topico.imagem && (
                         <div className="w-full rounded-[12px] overflow-hidden">
-                          <Image src={topico.imagem} alt={topico.titulo} width={281} height={280} className="w-full h-[280px] object-cover" />
+                          <Image src={topico.imagem} alt={topico.titulo} width={0} height={0} sizes="100vw" className="w-full h-[160px] object-cover" style={{ width: "100%", height: "100%" }} />
                         </div>
                       )}
 
                       {topico.id === "sabor" && topico.imagem && (
                         <div className="w-full rounded-[12px] overflow-hidden">
-                          <Image src={topico.imagem} alt={topico.titulo} width={281} height={160} className="w-full h-[160px] object-cover" />
+                          <Image src={topico.imagem} alt={topico.titulo} width={0} height={0} sizes="100vw" className="w-full h-[160px] object-cover" style={{ width: "100%", height: "100%" }} />
                         </div>
                       )}
 
@@ -143,7 +143,7 @@ export default function DesidratacaoTopicos() {
 
                       {topico.id !== "caramelizacao" && topico.imagemSecundaria && (
                         <div className="w-full rounded-[12px] overflow-hidden">
-                          <Image src={topico.imagemSecundaria} alt={`${topico.titulo} - Imagem adicional`} width={281} height={160} className="w-full h-auto object-contain" />
+                          <Image src={topico.imagemSecundaria} alt={`${topico.titulo} - Imagem adicional`} width={0} height={0} sizes="100vw" className="w-full h-[160px] object-cover" style={{ width: "100%", height: "100%" }} />
                         </div>
                       )}
                     </div>

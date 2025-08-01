@@ -142,7 +142,7 @@ const InsetosModal: React.FC<InsetosModalProps> = ({ isOpen, onClose, onHome }) 
                   </div>
 
                   <div className="flex items-start gap-2">
-                    <p className="text-[#1C4F46] font-nunito font-semibold text-[16px] leading-[1.2] flex-1">Na metamorfose completa, do ovo sai a lagarta ou larva, que forma a pupa da qual surge a fase adulta.</p>
+                    <p className="text-[#1C4F46] font-nunito font-semibold text-[16px] leading-[1.2] flex-1">Na metamorfose incompleta, do ovo sai a ninfa, que se parece com o adulto, mas não tem asas. A ninfa sofre mudas até formar o indivíduo adulto.</p>
                   </div>
                 </div>
 
