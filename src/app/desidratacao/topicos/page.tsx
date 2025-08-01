@@ -172,12 +172,14 @@ export default function DesidratacaoTopicos() {
         </div>
 
         {/* Botões fixos */}
-        <div className="absolute max-w-[303px] bottom-[40px] left-[50px] z-10 flex flex-row justify-stretch items-stretch w-full gap-6">
-          <div className="flex-1">
-            <Botao onClick={handleVoltarClick} label="VOLTAR" variant="azul" height="67px" />
-          </div>
-          <div className="flex-1">
-            <Botao onClick={handleAvancarClick} label="AVANÇAR" variant="verde" height="67px" />
+        <div className="flex w-full justify-center absolute bottom-[40px]">
+          <div className="max-w-[303px] lg:max-w-[600px] bottom-[40px] left-[50px] z-10 flex flex-row justify-stretch items-stretch w-full gap-6">
+            <div className="flex-1">
+              <Botao onClick={handleVoltarClick} label="VOLTAR" variant="azul" height="67px" />
+            </div>
+            <div className="flex-1">
+              <Botao onClick={handleAvancarClick} label="AVANÇAR" variant="verde" height="67px" />
+            </div>
           </div>
         </div>
       </div>

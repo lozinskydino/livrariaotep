@@ -19,10 +19,9 @@ export default function Desidratacao() {
         background: "linear-gradient(180deg, #FF69B4 0%, #FF1493 100%)",
         margin: "0 auto",
       }}>
-      <div className="w-[393px] relative">
+      <div className="w-[393px] lg:w-[500px] relative">
         {/* Background Image com overlay rosa */}
-        <div
-          className="absolute inset-0">
+        <div className="absolute inset-0">
           {/* Overlay rosa para dar o tom correto */}
           <div
             className="absolute inset-0"
@@ -44,16 +43,11 @@ export default function Desidratacao() {
         </div>
 
         {/* Conteúdo principal */}
-        <div
-          className="relative z-10 flex flex-col items-center justify-center min-h-screen p-[40px] w-full"
-        >
+        <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-[40px] w-full">
           {/* Círculo principal com conteúdo */}
           <div className="flex-shrink-0 relative">
-            <div
-              className="rounded-full flex flex-col items-center justify-center p-8 pb-0"
-            >
+            <div className="rounded-full flex flex-col items-center justify-center p-8 pb-0">
               <Image src="/assets/images/desidratacao/logo.png" alt="Logo Desidratação" width={356} height={268} className="object-contain max-w-[356px] max-h-[268px]" />
-
             </div>
           </div>
 
