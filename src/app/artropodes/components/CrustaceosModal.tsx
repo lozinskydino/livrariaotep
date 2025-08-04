@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import BotaoRedondo from "./BotaoRedondo";
 import VideoPlayer from "./VideoPlayer";
 import ModalHeader from "./ModalHeader";
 
@@ -21,9 +20,7 @@ const CrustaceosModal: React.FC<CrustaceosModalProps> = ({ isOpen, onClose, onHo
     }
   };
 
-  const handleBotaoClick = (numero: string) => {
-    console.log(`Botão ${numero} clicado`);
-  };
+
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50" onClick={handleBackdropClick}>
@@ -50,7 +47,6 @@ const CrustaceosModal: React.FC<CrustaceosModalProps> = ({ isOpen, onClose, onHo
                 {/* Primeira seção com botão 1 */}
                 <div className="w-full flex flex-col gap-4">
                   <div className="flex items-start gap-2">
-                    <BotaoRedondo onClick={() => handleBotaoClick("1")} numero="1" />
                     <p className="text-[#1C4F46] font-nunito font-semibold text-[16px] leading-[1.2] flex-1">A maioria apresenta o corpo dividido em cefalotórax e abdômen e tem dez pernas. Todos têm dois pares de antenas.</p>
                   </div>
                 </div>
@@ -69,7 +65,6 @@ const CrustaceosModal: React.FC<CrustaceosModalProps> = ({ isOpen, onClose, onHo
                 {/* Segunda seção com botão 2 */}
                 <div className="w-full flex flex-col gap-4">
                   <div className="flex items-start gap-2">
-                    <BotaoRedondo onClick={() => handleBotaoClick("2")} numero="2" />
                     <p className="text-[#1C4F46] font-nunito font-semibold text-[16px] leading-[1.2] flex-1">São representados por lagostas, camarões, siris, tatuzinhos de jardim, cracas, entre outros animais que vivem no ambiente aquático e terrestre.</p>
                   </div>
                 </div>
@@ -92,7 +87,6 @@ const CrustaceosModal: React.FC<CrustaceosModalProps> = ({ isOpen, onClose, onHo
 
                 <div className="w-full flex flex-col gap-4">
                   <div className="flex items-start gap-2">
-                    <BotaoRedondo onClick={() => handleBotaoClick("3")} numero="3" />
                     <p className="text-[#1C4F46] font-nunito font-semibold text-[16px] leading-[1.2] flex-1">Muitos crustáceos são valorizados na gastronomia, como é o caso da lagosta, do camarão, do siri e do caranguejo.</p>
                   </div>
                 </div>

@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import BotaoRedondo from "./BotaoRedondo";
 import VideoPlayer from "./VideoPlayer";
 import ModalHeader from "./ModalHeader";
 
@@ -21,9 +20,7 @@ const QueliceradosModal: React.FC<QueliceradosModalProps> = ({ isOpen, onClose, 
     }
   };
 
-  const handleBotaoClick = (numero: string) => {
-    console.log(`Botão ${numero} clicado`);
-  };
+
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50" onClick={handleBackdropClick}>
@@ -52,7 +49,6 @@ const QueliceradosModal: React.FC<QueliceradosModalProps> = ({ isOpen, onClose, 
                 {/* Primeira seção com botão 1 */}
                 <div className="w-full flex flex-col gap-4">
                   <div className="flex items-start gap-2">
-                    <BotaoRedondo onClick={() => handleBotaoClick("1")} numero="1" />
                     <p className="text-[#1C4F46] font-nunito font-semibold text-[16px] leading-[1.2] flex-1">
                       Apresentam o corpo dividido em cefalotórax e abdômen e oito pernas. Não têm antenas.
                     </p>
@@ -73,7 +69,6 @@ const QueliceradosModal: React.FC<QueliceradosModalProps> = ({ isOpen, onClose, 
                   </div>
 
                   <div className="flex items-start gap-2">
-                    <BotaoRedondo onClick={() => handleBotaoClick("2")} numero="2" />
                     <p className="text-[#1C4F46] font-nunito font-semibold text-[16px] leading-[1.2] flex-1">
                       São representados por aranha, escorpião, ácaro, carrapato, entre outros animais.
                     </p>
@@ -94,7 +89,6 @@ const QueliceradosModal: React.FC<QueliceradosModalProps> = ({ isOpen, onClose, 
                   </div>
 
                   <div className="flex items-start gap-2">
-                    <BotaoRedondo onClick={() => handleBotaoClick("3")} numero="3" />
                     <p className="text-[#1C4F46] font-nunito font-semibold text-[16px] leading-[1.2] flex-1">
                       As quelíceras são apêndices medianos que servem para agarrar as presas, podendo inocular peçonha, como no caso das aranhas peçonhentas. Já os pedipalpos prendem ou cortam as presas.
                     </p>
@@ -121,7 +115,6 @@ const QueliceradosModal: React.FC<QueliceradosModalProps> = ({ isOpen, onClose, 
                   </div>
 
                   <div className="flex items-start gap-2">
-                    <BotaoRedondo onClick={() => handleBotaoClick("4")} numero="4" />
                     <p className="text-[#1C4F46] font-nunito font-semibold text-[16px] leading-[1.2] flex-1">
                     Muitas aranhas têm fiandeiras, situadas à frente do ânus. As glândulas tecem o fio de seda utilizado na produção da teia.
                     </p>

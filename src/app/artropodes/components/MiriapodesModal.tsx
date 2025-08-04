@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import BotaoRedondo from "./BotaoRedondo";
 import VideoPlayer from "./VideoPlayer";
 import ModalHeader from "./ModalHeader";
 
@@ -21,9 +20,7 @@ const MiriapodesModal: React.FC<MiriapodesModalProps> = ({ isOpen, onClose, onHo
     }
   };
 
-  const handleBotaoClick = (numero: string) => {
-    console.log(`Botão ${numero} clicado`);
-  };
+
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50" onClick={handleBackdropClick}>
@@ -52,7 +49,6 @@ const MiriapodesModal: React.FC<MiriapodesModalProps> = ({ isOpen, onClose, onHo
                 {/* Primeira seção com botão 1 */}
                 <div className="w-full flex flex-col gap-4">
                   <div className="flex items-start gap-2">
-                    <BotaoRedondo onClick={() => handleBotaoClick("1")} numero="1" />
                     <p className="text-[#1C4F46] font-nunito font-semibold text-[16px] leading-[1.2] flex-1">
                       Apresentam na cabeça um par de antenas e três pares de apêndices modificados como partes bucais, incluindo as mandíbulas.
                     </p>
@@ -67,7 +63,6 @@ const MiriapodesModal: React.FC<MiriapodesModalProps> = ({ isOpen, onClose, onHo
                   </div>
 
                   <div className="flex items-start gap-2">
-                    <BotaoRedondo onClick={() => handleBotaoClick("2")} numero="2" />
                     <p className="text-[#1C4F46] font-nunito font-semibold text-[16px] leading-[1.2] flex-1">
                       São todos terrestres e representados pela centopeia e pelo piolho-de-cobra.
                     </p>
@@ -77,7 +72,6 @@ const MiriapodesModal: React.FC<MiriapodesModalProps> = ({ isOpen, onClose, onHo
                 {/* Terceira seção - Botão 3 + Texto */}
                 <div className="w-full flex flex-col gap-4">
                   <div className="flex items-start gap-2">
-                    <BotaoRedondo onClick={() => handleBotaoClick("3")} numero="3" />
                     <p className="text-[#1C4F46] font-nunito font-semibold text-[16px] leading-[1.2] flex-1">
                       No caso da centopeia, cada segmento do corpo tem um par de pernas, já no caso do piolho-de-cobra, são dois pares de pernas por segmento. A centopeia apresenta, ainda, apêndices venenosos no segmento mais anterior do seu tronco. O veneno é usado para paralisar a presa e auxilia na sua defesa.
                     </p>

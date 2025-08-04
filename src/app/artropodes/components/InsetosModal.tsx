@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import BotaoRedondo from "./BotaoRedondo";
 import VideoPlayer from "./VideoPlayer";
 import ModalHeader from "./ModalHeader";
 

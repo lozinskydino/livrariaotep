@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import BotaoRedondo from "./BotaoRedondo";
 import ModalHeader from "./ModalHeader";
 
 interface ArtropodesModalProps {
@@ -20,9 +19,7 @@ const ArtropodesModal: React.FC<ArtropodesModalProps> = ({ isOpen, onClose, onHo
     }
   };
 
-  const handleBotaoClick = (numero: string) => {
-    console.log(`Botão ${numero} clicado`);
-  };
+
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50" onClick={handleBackdropClick}>
