@@ -37,15 +37,15 @@ export default function RegenciaComparecer() {
             </div>
 
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
-              <strong>1. Comparecer A (lugar/evento)</strong> - Com preposição "a"
+              <strong>1. Comparecer A (lugar/evento)</strong> - Com preposição &quot;a&quot;
               <br />
-              Significa "estar presente, aparecer".
+              Significa &quot;estar presente, aparecer&quot;.
               <br />
               <em>Exemplo: Ele compareceu à reunião conforme solicitado.</em>
             </div>
 
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
-              <strong>2. Comparecer EM (lugar)</strong> - Com preposição "em"
+              <strong>2. Comparecer EM (lugar)</strong> - Com preposição &quot;em&quot;
               <br />
               Também indica presença em local específico.
               <br />
@@ -53,7 +53,7 @@ export default function RegenciaComparecer() {
             </div>
 
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
-              <strong>Importante:</strong> O verbo comparecer é sempre intransitivo, exigindo preposição. A forma mais culta é "comparecer a", mas "comparecer em" também é aceita.
+              <strong>Importante:</strong> O verbo comparecer é sempre intransitivo, exigindo preposição. A forma mais culta é &quot;comparecer a&quot;, mas &quot;comparecer em&quot; também é aceita.
             </div>
           </div>
 

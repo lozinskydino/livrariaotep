@@ -37,9 +37,9 @@ export default function RegenciaAssistir() {
             </div>
 
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
-              <strong>1. Assistir A (algo/alguém)</strong> - Com preposição "a"
+              <strong>1. Assistir A (algo/alguém)</strong> - Com preposição &quot;a&quot;
               <br />
-              Significa "ver, presenciar, estar presente".
+              Significa &quot;ver, presenciar, estar presente&quot;.
               <br />
               <em>Exemplo: Ele assistiu ao filme no cinema.</em>
             </div>
@@ -47,15 +47,15 @@ export default function RegenciaAssistir() {
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
               <strong>2. Assistir (alguém)</strong> - Sem preposição (transitivo direto)
               <br />
-              Significa "ajudar, socorrer, dar assistência".
+              Significa &quot;ajudar, socorrer, dar assistência&quot;.
               <br />
               <em>Exemplo: O médico assistiu o paciente durante a cirurgia.</em>
             </div>
 
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
-              <strong>3. Assistir EM (lugar)</strong> - Com preposição "em"
+              <strong>3. Assistir EM (lugar)</strong> - Com preposição &quot;em&quot;
               <br />
-              Significa "morar, residir".
+              Significa &quot;morar, residir&quot;.
               <br />
               <em>Exemplo: Ele assiste em São Paulo há cinco anos.</em>
             </div>

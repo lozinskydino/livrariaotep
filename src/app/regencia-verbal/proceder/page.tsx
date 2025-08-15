@@ -37,17 +37,17 @@ export default function RegenciaProceder() {
             </div>
 
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
-              <strong>1. Proceder A (algo)</strong> - Com preposição "a"
+              <strong>1. Proceder A (algo)</strong> - Com preposição &quot;a&quot;
               <br />
-              Significa "dar início, realizar".
+              Significa &quot;dar início, realizar&quot;.
               <br />
               <em>Exemplo: A equipe procedeu à investigação do caso.</em>
             </div>
 
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
-              <strong>2. Proceder DE (lugar/origem)</strong> - Com preposição "de"
+              <strong>2. Proceder DE (lugar/origem)</strong> - Com preposição &quot;de&quot;
               <br />
-              Significa "originar-se, vir de".
+              Significa &quot;originar-se, vir de&quot;.
               <br />
               <em>Exemplo: Este produto procede da China.</em>
             </div>
@@ -55,7 +55,7 @@ export default function RegenciaProceder() {
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
               <strong>3. Proceder (sem complemento)</strong> - Intransitivo
               <br />
-              Significa "ter fundamento, ser válido".
+              Significa &quot;ter fundamento, ser válido&quot;.
               <br />
               <em>Exemplo: Sua reclamação não procede.</em>
             </div>

@@ -37,9 +37,9 @@ export default function RegenciaVisar() {
             </div>
 
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
-              <strong>1. Visar A (algo)</strong> - Com preposição "a"
+              <strong>1. Visar A (algo)</strong> - Com preposição &quot;a&quot;
               <br />
-              Significa "ter como objetivo, almejar".
+              Significa &quot;ter como objetivo, almejar&quot;.
               <br />
               <em>Exemplo: O projeto visa ao desenvolvimento sustentável.</em>
             </div>
@@ -47,7 +47,7 @@ export default function RegenciaVisar() {
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
               <strong>2. Visar (algo)</strong> - Sem preposição (transitivo direto)
               <br />
-              Significa "mirar, apontar" ou "dar visto em documento".
+              Significa &quot;mirar, apontar&quot; ou &quot;dar visto em documento&quot;.
               <br />
               <em>Exemplo: O caçador visou o alvo com precisão.</em>
               <br />
@@ -55,7 +55,7 @@ export default function RegenciaVisar() {
             </div>
 
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
-              <strong>Importante:</strong> Quando visar significa "objetivar", usa-se a preposição "a". Quando significa "mirar" ou "assinar", é transitivo direto.
+              <strong>Importante:</strong> Quando visar significa &quot;objetivar&quot;, usa-se a preposição &quot;a&quot;. Quando significa &quot;mirar&quot; ou &quot;assinar&quot;, é transitivo direto.
             </div>
           </div>
 

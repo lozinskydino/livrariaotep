@@ -37,23 +37,23 @@ export default function RegenciaSimpatizar() {
             </div>
 
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
-              <strong>1. Simpatizar COM (alguém/algo)</strong> - Com preposição "com"
+              <strong>1. Simpatizar COM (alguém/algo)</strong> - Com preposição &quot;com&quot;
               <br />
-              Significa "ter afinidade, gostar de".
+              Significa &quot;ter afinidade, gostar de&quot;.
               <br />
               <em>Exemplo: Ela simpatizou com a nova colega de trabalho.</em>
             </div>
 
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
-              <strong>Observação importante:</strong> O verbo simpatizar é sempre transitivo indireto, exigindo obrigatoriamente a preposição "com". Não existe a forma "simpatizar alguém" (sem preposição).
+              <strong>Observação importante:</strong> O verbo simpatizar é sempre transitivo indireto, exigindo obrigatoriamente a preposição &quot;com&quot;. Não existe a forma &quot;simpatizar alguém&quot; (sem preposição).
             </div>
 
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
               <strong>Outros exemplos:</strong>
               <br />
-              • "Simpatizo com suas ideias."
+              • &quot;Simpatizo com suas ideias.&quot;
               <br />
-              • "Todos simpatizaram com o novo projeto."
+              • &quot;Todos simpatizaram com o novo projeto.&quot;
             </div>
           </div>
 

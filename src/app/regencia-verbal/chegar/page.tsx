@@ -39,7 +39,7 @@ export default function RegenciaChegar() {
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
               <strong>1. Chegar A (lugar)</strong> - Com preposição "a"
               <br />
-              Significa "atingir um destino, alcançar".
+              Significa &quot;atingir um destino, alcançar&quot;.
               <br />
               <em>Exemplo: Ele chegou ao trabalho pontualmente.</em>
             </div>
@@ -47,13 +47,13 @@ export default function RegenciaChegar() {
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
               <strong>2. Chegar EM (lugar)</strong> - Com preposição "em"
               <br />
-              Também indica "atingir um destino" (uso mais coloquial).
+              Também indica &quot;atingir um destino&quot; (uso mais coloquial).
               <br />
               <em>Exemplo: Chegamos em casa tarde da noite.</em>
             </div>
 
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
-              <strong>Observação:</strong> A forma padrão é "chegar a", mas "chegar em" também é aceita no português brasileiro, especialmente na linguagem informal.
+              <strong>Observação:</strong> A forma padrão é &quot;chegar a&quot;, mas &quot;chegar em&quot; também é aceita no português brasileiro, especialmente na linguagem informal.
             </div>
           </div>
 

@@ -37,17 +37,17 @@ export default function RegenciaImplicar() {
             </div>
 
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
-              <strong>1. Implicar COM (alguém)</strong> - Com preposição "com"
+              <strong>1. Implicar COM (alguém)</strong> - Com preposição &quot;com&quot;
               <br />
-              Significa "irritar-se, aborrecer-se, provocar".
+              Significa &quot;irritar-se, aborrecer-se, provocar&quot;.
               <br />
               <em>Exemplo: Ele sempre implica com o irmão mais novo.</em>
             </div>
 
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
-              <strong>2. Implicar EM (algo)</strong> - Com preposição "em"
+              <strong>2. Implicar EM (algo)</strong> - Com preposição &quot;em&quot;
               <br />
-              Significa "acarretar, resultar em".
+              Significa &quot;acarretar, resultar em&quot;.
               <br />
               <em>Exemplo: Essa decisão pode implicar em demissões.</em>
             </div>
@@ -55,7 +55,7 @@ export default function RegenciaImplicar() {
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
               <strong>3. Implicar (algo)</strong> - Sem preposição (transitivo direto)
               <br />
-              Significa "envolver, comprometer".
+              Significa &quot;envolver, comprometer&quot;.
               <br />
               <em>Exemplo: As evidências implicaram o suspeito no crime.</em>
             </div>

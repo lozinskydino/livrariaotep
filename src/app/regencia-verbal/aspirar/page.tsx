@@ -39,7 +39,7 @@ export default function RegenciaAspirar() {
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
               <strong>1. Aspirar A (algo)</strong> - Com preposição "a"
               <br />
-              Significa "desejar, pretender, almejar".
+              Significa &quot;desejar, pretender, almejar&quot;.
               <br />
               <em>Exemplo: João aspira ao cargo de diretor.</em>
             </div>
@@ -47,13 +47,13 @@ export default function RegenciaAspirar() {
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
               <strong>2. Aspirar (algo)</strong> - Sem preposição (transitivo direto)
               <br />
-              Significa "respirar, inalar, sorver".
+              Significa &quot;respirar, inalar, sorver&quot;.
               <br />
               <em>Exemplo: O paciente aspirou o medicamento inalatório.</em>
             </div>
 
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
-              <strong>Importante:</strong> Quando aspirar significa "desejar", é sempre transitivo indireto (com preposição "a"). Quando significa "inalar", é transitivo direto (sem preposição).
+              <strong>Importante:</strong> Quando aspirar significa &quot;desejar&quot;, é sempre transitivo indireto (com preposição &quot;a&quot;). Quando significa &quot;inalar&quot;, é transitivo direto (sem preposição).
             </div>
           </div>
 
