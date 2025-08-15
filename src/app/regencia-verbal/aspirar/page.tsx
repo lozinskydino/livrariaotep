@@ -37,7 +37,7 @@ export default function RegenciaAspirar() {
             </div>
 
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
-              <strong>1. Aspirar A (algo)</strong> - Com preposição "a"
+              <strong>1. Aspirar A (algo)</strong> - Com preposição &quot;a&quot;
               <br />
               Significa &quot;desejar, pretender, almejar&quot;.
               <br />

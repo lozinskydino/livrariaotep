@@ -37,7 +37,7 @@ export default function RegenciaChegar() {
             </div>
 
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
-              <strong>1. Chegar A (lugar)</strong> - Com preposição "a"
+              <strong>1. Chegar A (lugar)</strong> - Com preposição &quot;a&quot;
               <br />
               Significa &quot;atingir um destino, alcançar&quot;.
               <br />
@@ -45,7 +45,7 @@ export default function RegenciaChegar() {
             </div>
 
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
-              <strong>2. Chegar EM (lugar)</strong> - Com preposição "em"
+              <strong>2. Chegar EM (lugar)</strong> - Com preposição &quot;em&quot;
               <br />
               Também indica &quot;atingir um destino&quot; (uso mais coloquial).
               <br />
