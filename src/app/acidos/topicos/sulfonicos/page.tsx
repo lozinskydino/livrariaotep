@@ -142,7 +142,7 @@ export default function AcidosSulfonicosDetalhe() {
           {/* Botão Voltar */}
           <div className="w-[260px]">
             <Botao
-              onClick={() => router.push("/acidos/topicos")}
+              onClick={() => router.back()}
               label="Voltar"
               variant="acidos"
               height="40px"

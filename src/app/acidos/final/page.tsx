@@ -34,7 +34,7 @@ export default function AcidosFinalPage() {
         <div className="w-[260px]">
           <Botao
             onClick={() => router.push("/acidos")}
-            label="Voltar ao Início"
+            label="Reiniciar"
             variant="acidos"
             height="40px"
           />

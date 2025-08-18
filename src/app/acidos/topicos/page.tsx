@@ -147,6 +147,17 @@ export default function AcidosTopicos() {
                 iconRightSize={24}
               />
             </div>
+
+            <div className="w-[260px]">
+                        <Botao
+                          onClick={() => router.push("/acidos/final")}
+                          label="Finalizar"
+                          variant="acidos"
+                          iconRightSrc="/assets/images/acidos/arrow-right.svg"
+                          iconRightAlt="Finalizar"
+                          height="40px"
+                        />
+                      </div>
           </div>
         </div>
       </div>
