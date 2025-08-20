@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import NextImage from "next/image";
 import Botao from "../components/Botao";
 import TopicoModalOverlay from "../components/TopicoModalOverlay";
 import { useRouter } from "next/navigation";
 import { Nunito } from "next/font/google";
-import { modalIds } from "../components/topicoContent";
+import { modalIds, TopicoId } from "../components/topicoContent";
 
 const nunito = Nunito({
   subsets: ["latin"],
@@ -115,9 +116,9 @@ export default function EstadosUnidosTopicos() {
           const wagonEl = startEl?.closest?.('[data-wagon-id]') as
             | (HTMLElement & { dataset: { wagonId?: string } })
             | null;
-          const id = wagonEl?.dataset?.wagonId;
+          const id = wagonEl?.dataset?.wagonId as TopicoId | undefined;
           if (id) {
-            if (modalIds.has(id as any)) {
+            if (modalIds.has(id)) {
               setActiveTopicId(id);
             } else {
               router.push(`/estados-unidos/topicos/${id}`);
@@ -128,18 +129,20 @@ export default function EstadosUnidosTopicos() {
       dragState.current = null;
     };
 
+    const onMouseLeave = () => endDrag();
+
     el.addEventListener("pointerdown", onPointerDown);
     el.addEventListener("pointermove", onPointerMove);
     el.addEventListener("pointerup", endDrag);
     el.addEventListener("pointercancel", endDrag);
-    el.addEventListener("mouseleave", endDrag as any);
+    el.addEventListener("mouseleave", onMouseLeave);
 
     return () => {
       el.removeEventListener("pointerdown", onPointerDown);
       el.removeEventListener("pointermove", onPointerMove);
       el.removeEventListener("pointerup", endDrag);
       el.removeEventListener("pointercancel", endDrag);
-      el.removeEventListener("mouseleave", endDrag as any);
+      el.removeEventListener("mouseleave", onMouseLeave);
     };
   }, []);
 
@@ -158,9 +161,7 @@ export default function EstadosUnidosTopicos() {
         update();
       }
     });
-    const ro = (window as any).ResizeObserver
-      ? new ResizeObserver(update)
-      : null;
+    const ro = typeof ResizeObserver !== "undefined" ? new ResizeObserver(update) : null;
     ro?.observe(el);
     const onWin = () => update();
     window.addEventListener("resize", onWin);
@@ -193,7 +194,7 @@ export default function EstadosUnidosTopicos() {
   const DEFAULT_DESC_WIDTH_PX = 220; // largura padrão (px) da descrição
   const DEFAULT_TEXT_OFFSET_PCT = 6; // deslocamento padrão para baixar o texto dentro do vagão
   const WAGOES: Array<{
-    id: string;
+    id: TopicoId;
     label: string;
     leftPct: number;
     widthPct: number;
@@ -299,9 +300,11 @@ export default function EstadosUnidosTopicos() {
         <div className="relative z-10 min-h-screen w-full">
           {/* Informação fixa no topo */}
           <div className="fixed top-[52px] left-1/2 -translate-x-1/2 z-20 select-none pointer-events-none">
-            <img
+            <NextImage
               src={infoSrc}
               alt="mova para o lado"
+              width={140}
+              height={140}
               className="w-[140px] h-auto opacity-95"
             />
           </div>
@@ -333,12 +336,13 @@ export default function EstadosUnidosTopicos() {
                     height: `${panoramaHeight ?? (scrollerHeight || 640)}px`,
                   }}
                 >
-                  <img
+                  <NextImage
                     src={bgSrc}
                     alt="BG Estação"
+                    fill
+                    sizes="100vw"
                     className="block w-full h-full object-cover select-none pointer-events-none"
-                    onLoad={(e) => {
-                      const img = e.currentTarget;
+                    onLoadingComplete={(img) => {
                       setImgNatural({ w: img.naturalWidth, h: img.naturalHeight });
                     }}
                     onError={() => setHasPanorama(false)}
@@ -380,7 +384,7 @@ export default function EstadosUnidosTopicos() {
                               const dy = e.clientY - s.startY;
                               const dist = Math.hypot(dx, dy);
                               if (dist <= 6) {
-                                if (modalIds.has(w.id as any)) {
+                                if (modalIds.has(w.id)) {
                                   setActiveTopicId(w.id);
                                 } else {
                                   router.push(`/estados-unidos/topicos/${w.id}`);
@@ -406,7 +410,7 @@ export default function EstadosUnidosTopicos() {
                                 <div style={{ transform: "scale(0.9375)", transformOrigin: "center" }}>
                                   <Botao
                                     onClick={() =>
-                                      modalIds.has(w.id as any)
+                                      modalIds.has(w.id)
                                         ? setActiveTopicId(w.id)
                                         : router.push(`/estados-unidos/topicos/${w.id}`)
                                     }
@@ -436,7 +440,7 @@ export default function EstadosUnidosTopicos() {
                               aria-label={`Abrir modal ${w.label.replace(/\n/g, " ")}`}
                               onPointerDown={(e) => e.stopPropagation()}
                               onClick={() =>
-                                modalIds.has(w.id as any)
+                                modalIds.has(w.id)
                                   ? setActiveTopicId(w.id)
                                   : router.push(`/estados-unidos/topicos/${w.id}`)
                               }
@@ -461,12 +465,14 @@ export default function EstadosUnidosTopicos() {
                 }}
               >
                 {/* Fundo/cidade (BG ESTAÇÃO.png) */}
-                <img
+                <NextImage
                   src={bgSrc}
                   alt="Cenário da estação"
-                  className="absolute inset-x-0 bottom-0 h-full w-auto select-none pointer-events-none"
-                  onLoad={(e) => {
-                    const img = e.currentTarget;
+                  fill
+                  sizes="100vw"
+                  className="select-none pointer-events-none"
+                  style={{ objectFit: "contain", objectPosition: "bottom center" }}
+                  onLoadingComplete={(img) => {
                     setBgWidth(img.naturalWidth * ((scrollerHeight || 640) / img.naturalHeight));
                   }}
                 />
