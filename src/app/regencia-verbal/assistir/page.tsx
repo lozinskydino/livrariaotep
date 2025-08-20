@@ -3,6 +3,7 @@
 import { Inter } from "next/font/google";
 import { useRouter } from "next/navigation";
 import Botao from "../components/Botao";
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "600"] });
 
@@ -29,7 +30,7 @@ export default function RegenciaAssistir() {
           {/* Card */}
           <div className="w-[260px] bg-white rounded-xl p-4 flex flex-col gap-3">
             <div className="flex justify-center mb-2">
-              <img src="/assets/images/regencia-verbal/assistir-icon.svg" alt="Assistir" className="w-12 h-12" />
+              <Image src="/assets/images/regencia-verbal/assistir-icon.svg" alt="Assistir" width={48} height={48} className="w-12 h-12" />
             </div>
 
             <div className={`${inter.className} font-semibold text-[#00076C] text-center tracking-[-0.14px] text-[16px]`}>

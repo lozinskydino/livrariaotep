@@ -2,8 +2,8 @@
 
 import { Inter, Noto_Sans } from "next/font/google";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import AssistirModal from "./components/AssistirModal";
 import ReflexaoAssistirModal from "./components/ReflexaoAssistirModal";
 import AspirarModal from "./components/AspirarModal";
@@ -21,7 +21,6 @@ const inter = Inter({ subsets: ["latin"], weight: ["400", "600"] });
 const notoSans = Noto_Sans({ subsets: ["latin"], weight: ["400", "600"] });
 
 export default function RegenciaVerbalPage() {
-  const router = useRouter();
   const [startProgress, setStartProgress] = useState(false);
   const [isAssistirOpen, setIsAssistirOpen] = useState(false);
   const [isReflexaoOpen, setIsReflexaoOpen] = useState(false);
@@ -51,7 +50,7 @@ export default function RegenciaVerbalPage() {
             key={startProgress ? 'progress-on' : 'progress-off'}
             className="absolute left-0 top-0 h-full bg-[#E67E22] rounded-full progress-fill"
             style={startProgress ? ({ animation: 'progressFill 6s linear forwards' } as React.CSSProperties) : undefined}
-            onAnimationEnd={() => { try { console.debug('progress animation ended'); } catch (_) {} }}
+            onAnimationEnd={() => { try { console.debug('progress animation ended'); } catch { } }}
           />
         </div>
         
@@ -82,15 +81,19 @@ export default function RegenciaVerbalPage() {
           {/* Círculo Central Novo do Figma (abaixo dos botões) */}
           <div className="absolute z-0 flex items-center justify-center">
             <div className="relative">
-              <img 
-                src="/assets/images/regencia-verbal/centro-circulo-amarelo.svg" 
-                alt="Círculo Central" 
+              <Image
+                src="/assets/images/regencia-verbal/centro-circulo-amarelo.svg"
+                alt="Círculo Central"
+                width={160}
+                height={160}
                 className="w-[160px] h-[160px]"
               />
               <div className="absolute inset-0 flex items-center justify-center">
-                <img 
-                  src="/assets/images/regencia-verbal/texto-regencia-verbal.svg" 
-                  alt="Regência Verbal" 
+                <Image
+                  src="/assets/images/regencia-verbal/texto-regencia-verbal.svg"
+                  alt="Regência Verbal"
+                  width={102}
+                  height={44}
                   className="w-[102px] h-[44px]"
                 />
               </div>
@@ -109,9 +112,11 @@ export default function RegenciaVerbalPage() {
             }}
             onClick={() => setIsAssistirOpen(true)}
           >
-            <img 
-              src="/assets/images/regencia-verbal/btn-assistir.svg" 
-              alt="Assistir" 
+            <Image
+              src="/assets/images/regencia-verbal/btn-assistir.svg"
+              alt="Assistir"
+              width={140}
+              height={150}
               className="w-[140px] h-[149.6px]"
             />
           </div>
@@ -125,9 +130,11 @@ export default function RegenciaVerbalPage() {
             }}
             onClick={() => setIsAspirarOpen(true)}
           >
-            <img 
-              src="/assets/images/regencia-verbal/btn-aspirar.svg" 
-              alt="Aspirar" 
+            <Image
+              src="/assets/images/regencia-verbal/btn-aspirar.svg"
+              alt="Aspirar"
+              width={140}
+              height={150}
               className="w-[140px] h-[149.6px]"
             />
           </div>
@@ -142,9 +149,11 @@ export default function RegenciaVerbalPage() {
             }}
             onClick={() => setIsImplicarOpen(true)}
           >
-            <img 
-              src="/assets/images/regencia-verbal/btn-implicar.svg" 
-              alt="Chegar" 
+            <Image
+              src="/assets/images/regencia-verbal/btn-implicar.svg"
+              alt="Chegar"
+              width={140}
+              height={150}
               className="w-[140px] h-[149.6px]"
             />
           </div>
@@ -158,9 +167,11 @@ export default function RegenciaVerbalPage() {
             }}
             onClick={() => setIsIrOuChegarOpen(true)}
           >
-            <img 
-              src="/assets/images/regencia-verbal/btn-chegar.svg" 
-              alt="Comparecer" 
+            <Image
+              src="/assets/images/regencia-verbal/btn-chegar.svg"
+              alt="Comparecer"
+              width={140}
+              height={150}
               className="w-[140px] h-[149.6px]"
             />
           </div>
@@ -175,9 +186,11 @@ export default function RegenciaVerbalPage() {
             }}
             onClick={() => setIsAgradarOpen(true)}
           >
-            <img 
-              src="/assets/images/regencia-verbal/btn-agradar.svg" 
-              alt="Agradar" 
+            <Image
+              src="/assets/images/regencia-verbal/btn-agradar.svg"
+              alt="Agradar"
+              width={140}
+              height={150}
               className="w-[140px] h-[149.6px]"
             />
           </div>
@@ -191,9 +204,11 @@ export default function RegenciaVerbalPage() {
             }}
             onClick={() => setIsPrecisarOpen(true)}
           >
-            <img 
-              src="/assets/images/regencia-verbal/btn-precisar.svg" 
-              alt="Precisar" 
+            <Image
+              src="/assets/images/regencia-verbal/btn-precisar.svg"
+              alt="Precisar"
+              width={140}
+              height={150}
               className="w-[140px] h-[149.6px]"
             />
           </div>
@@ -208,9 +223,11 @@ export default function RegenciaVerbalPage() {
             }}
             onClick={() => setIsRepararOpen(true)}
           >
-            <img 
-              src="/assets/images/regencia-verbal/btn-reparar.svg" 
-              alt="Reparar" 
+            <Image
+              src="/assets/images/regencia-verbal/btn-reparar.svg"
+              alt="Reparar"
+              width={140}
+              height={150}
               className="w-[140px] h-[149.6px]"
             />
           </div>
@@ -224,9 +241,11 @@ export default function RegenciaVerbalPage() {
             }}
             onClick={() => setIsChamarOpen(true)}
           >
-            <img 
-              src="/assets/images/regencia-verbal/btn-chamar.svg" 
-              alt="Chamar" 
+            <Image
+              src="/assets/images/regencia-verbal/btn-chamar.svg"
+              alt="Chamar"
+              width={140}
+              height={150}
               className="w-[140px] h-[149.6px]"
             />
           </div>
@@ -238,9 +257,11 @@ export default function RegenciaVerbalPage() {
           prefetch
           className="cursor-pointer hover:scale-105 transition-transform duration-200"
         >
-          <img 
-            src="/assets/images/regencia-verbal/chevron-baixo.svg" 
-            alt="Continuar" 
+          <Image
+            src="/assets/images/regencia-verbal/chevron-baixo.svg"
+            alt="Continuar"
+            width={100}
+            height={100}
             className=""
           />
         </Link>

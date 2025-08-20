@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Inter } from "next/font/google";
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"], weight: ["600"] });
 
@@ -42,7 +43,7 @@ export default function ModalCTAButton({ label, onClick, className = "", icon, i
       {icon ? (
         <span className="shrink-0" aria-hidden>{icon}</span>
       ) : iconLeftSrc ? (
-        <img src={iconLeftSrc} alt={iconLeftAlt} width={iconSize} height={iconSize} className="shrink-0" />
+        <Image src={iconLeftSrc} alt={iconLeftAlt} width={iconSize} height={iconSize} className="shrink-0" />
       ) : null}
       <span className="text-[14px] leading-[20px] font-semibold whitespace-nowrap">{label}</span>
     </button>
