@@ -1,14 +1,14 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 import ModalHeader from "../../components/ModalHeader";
 import { Nunito } from "next/font/google";
 
 const nunito = Nunito({ subsets: ["latin"], weight: ["400", "700", "800", "900"], display: "swap" });
 
-export default function TopicoModal({ params }: { params: { id: string } }) {
+export default function TopicoModal() {
   const router = useRouter();
-  const { id } = params;
+  const { id } = useParams<{ id: string }>();
 
   // Mínimo conteúdo para navegação; copiar texto/imagens do Figma depois
   const TITULOS: Record<string, string> = {
