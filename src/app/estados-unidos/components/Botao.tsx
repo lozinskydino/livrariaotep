@@ -43,7 +43,7 @@ export default function Botao({ onClick, label, variant, height }: BotaoProps) {
       onClick={onClick} 
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="w-full border-4 border-white border-pulse rounded-full py-3 px-6 shadow-[0px_2px_0px_0px_rgba(0,0,0,0.15)] relative overflow-hidden cursor-pointer"
+      className="w-full border-4 border-white border-pulse rounded-full px-6 shadow-[0px_2px_0px_0px_rgba(0,0,0,0.15)] relative overflow-hidden cursor-pointer flex items-center justify-center"
       style={{ backgroundColor: colors.bg, height: height ?? "auto" }}
     >
       <div

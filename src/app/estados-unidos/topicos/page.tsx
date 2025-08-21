@@ -44,10 +44,14 @@ export default function EstadosUnidosTopicos() {
 
   // Assets exportados do Figma (nomes com espaços e acentuação)
   const bgSrc = encodeURI(
-    "/assets/images/estados-unidos/topicos/bg-estacao.png"
+    "/assets/images/estados-unidos/topicos/bg-estacao.svg"
   );
   const infoSrc = encodeURI("/assets/images/estados-unidos/Infor.png");
   const router = useRouter();
+
+  // Responsividade específica para o viewport do Playwright 375x600
+  const isSmallViewport = scrollerHeight <= 726;
+  const isVeryShortViewport = scrollerHeight < 572;
 
   // Pré-carrega a imagem para garantir que imgNatural seja definido, mesmo se o onLoad do <img> não disparar em alguns cenários
   useEffect(() => {
@@ -203,6 +207,8 @@ export default function EstadosUnidosTopicos() {
     btnTopPct?: number; // topo do botão (opcional), relativo à altura
     descWidthPx?: number; // largura da caixa de descrição em pixels
     textOffsetPct?: number; // deslocamento adicional do texto (positivo = desce), relativo à altura do vagão
+    gapSmallPct?: number; // ajuste extra de espaçamento texto x botão para alturas <= 726
+    gapVeryShortPct?: number; // ajuste extra de espaçamento texto x botão para alturas < 572
   }> = [
     {
       id: "grandes-fortunas",
@@ -214,6 +220,8 @@ export default function EstadosUnidosTopicos() {
       btnTopPct: 8,
       descWidthPx: 160,
       textOffsetPct: 11,
+      gapVeryShortPct: -8,
+      gapSmallPct: -5,
     },
     {
       id: "exploracao-operarios",
@@ -223,6 +231,8 @@ export default function EstadosUnidosTopicos() {
       topPct: 50,
       heightPct: 30,
       textOffsetPct: 0,
+      gapVeryShortPct: -8,
+      gapSmallPct: -8,
     },
     {
       id: "diferencas-sociais",
@@ -233,6 +243,8 @@ export default function EstadosUnidosTopicos() {
       heightPct: 21,
       btnTopPct: 0,
       textOffsetPct: 15,
+      gapVeryShortPct: -8,
+      gapSmallPct: -10,
     },
     {
       id: "cultura-arte-inovacoes",
@@ -243,6 +255,8 @@ export default function EstadosUnidosTopicos() {
       heightPct: 21,
       btnTopPct: 0,
       textOffsetPct: 15,
+      gapVeryShortPct: -8,
+      gapSmallPct: -10,
     },
     {
       id: "trabalhadores-domesticos",
@@ -253,6 +267,9 @@ export default function EstadosUnidosTopicos() {
       heightPct: 21,
       btnTopPct: 0,
       textOffsetPct: 15,
+      gapVeryShortPct: -8,
+      gapSmallPct: -10,
+      
     },
     {
       id: "proibicao-escravizacao",
@@ -263,6 +280,8 @@ export default function EstadosUnidosTopicos() {
       heightPct: 21,
       btnTopPct: 0,
       textOffsetPct: 15,
+      gapVeryShortPct: -8,
+      gapSmallPct: -10,
     },
     {
       id: "faroeste",
@@ -273,6 +292,8 @@ export default function EstadosUnidosTopicos() {
       heightPct: 22,
       btnTopPct: 0,
       textOffsetPct: 12,
+      gapVeryShortPct: -8,
+      gapSmallPct: -10,
     },
   ];
 
@@ -336,16 +357,16 @@ export default function EstadosUnidosTopicos() {
                     height: `${panoramaHeight ?? (scrollerHeight || 640)}px`,
                   }}
                 >
-                  <NextImage
-                    src={bgSrc}
-                    alt="BG Estação"
-                    fill
-                    sizes="100vw"
-                    className="block w-full h-full object-cover select-none pointer-events-none"
-                    onLoadingComplete={(img) => {
-                      setImgNatural({ w: img.naturalWidth, h: img.naturalHeight });
+                  {/* Usar background-image evita repetição/tiling ao rolar */}
+                  <div
+                    className="absolute inset-0 select-none pointer-events-none"
+                    style={{
+                      backgroundImage: `url(${bgSrc})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
                     }}
-                    onError={() => setHasPanorama(false)}
+                    aria-hidden
                   />
 
 
@@ -354,14 +375,39 @@ export default function EstadosUnidosTopicos() {
                   {panoramaWidth && panoramaHeight && (
                     <>
                       {WAGOES.map((w) => {
-                        const pillH = 55;
-                        const fontSize = 17;
+                        // Tamanhos responsivos para botão e texto dos vagões
+                        const basePillH = 55;
+                        const baseFontSize = 17;
+                        const pillH = isVeryShortViewport
+                          ? 44
+                          : isSmallViewport
+                          ? 48
+                          : basePillH;
+                        const fontSize = isVeryShortViewport
+                          ? 14
+                          : isSmallViewport
+                          ? 15
+                          : baseFontSize;
                         const left = `${w.leftPct}%`;
                         const top = `${w.topPct}%`;
                         const width = `${w.widthPct}%`;
                         const height = `${w.heightPct}%`;
-                        const btnTop = w.btnTopPct != null ? `${w.btnTopPct}%` : undefined;
-                        const textTop = `calc(50% + ${(w.textOffsetPct ?? DEFAULT_TEXT_OFFSET_PCT)}%)`;
+                        // Ajustes responsivos: subir o botão e jogar o texto mais para baixo
+                        const btnTopPctAdj =
+                          w.btnTopPct != null
+                            ? w.btnTopPct +
+                              (isSmallViewport ? -4 : 0) + // subir 4% no viewport pequeno
+                              (isVeryShortViewport ? -2 : 0) // subir +2% extra quando altura < 572
+                            : undefined;
+                        const btnTop =
+                          btnTopPctAdj != null ? `${btnTopPctAdj}%` : undefined;
+                        const textTop = `calc(50% + ${
+                          (w.textOffsetPct ?? DEFAULT_TEXT_OFFSET_PCT) +
+                          (isSmallViewport ? 8 : 0) + // +8% no viewport pequeno
+                          (isVeryShortViewport ? 6 : 0) + // +6% extra quando altura < 572
+                          (isSmallViewport ? (w.gapSmallPct ?? 0) : 0) +
+                          (isVeryShortViewport ? (w.gapVeryShortPct ?? 0) : 0)
+                        }%)`;
                         return (
                           <div
                             key={w.id}
@@ -406,8 +452,13 @@ export default function EstadosUnidosTopicos() {
                                 style={{ top: btnTop, width: "max-content" }}
                                 onPointerDown={(e) => e.stopPropagation()}
                               >
-                                {/* Escala leve para aproximar fonte de 15px (Botao usa text-base ~16px) */}
-                                <div style={{ transform: "scale(0.9375)", transformOrigin: "center" }}>
+                                {/* Escala responsiva do conteúdo do botão para harmonizar com alturas menores */}
+                                <div
+                                  style={{
+                                    transform: `scale(${isVeryShortViewport ? 0.85 : isSmallViewport ? 0.9 : 0.9375})`,
+                                    transformOrigin: "center",
+                                  }}
+                                >
                                   <Botao
                                     onClick={() =>
                                       modalIds.has(w.id)
