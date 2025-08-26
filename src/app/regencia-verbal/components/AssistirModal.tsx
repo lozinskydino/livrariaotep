@@ -88,7 +88,7 @@ export default function AssistirModal({ open, onClose, onVerReflexao }: Assistir
                   subtitle={`No sentido de "ver", "presenciar", o verbo é transitivo indireto, ou seja, precisa da preposição, no caso a preposição "a".`}
                   exemplo={
                     <>
-                      Exemplo: "Assistimos <u>ao</u> jogo ontem, mas não assistimos <u>à</u> novela."
+                      Exemplo: &quot;Assistimos <u>ao</u> jogo ontem, mas não assistimos <u>à</u> novela.&quot;
                     </>
                   }
                 />
@@ -100,7 +100,7 @@ export default function AssistirModal({ open, onClose, onVerReflexao }: Assistir
                   subtitle={`No sentido de "auxiliar", o verbo não precisa de preposição, ou seja, é transitivo direto.`}
                   exemplo={
                     <>
-                      Exemplo: "O resgatista assistiu <u>os</u> feridos no acidente."
+                      Exemplo: &quot;O resgatista assistiu <u>os</u> feridos no acidente.&quot;
                     </>
                   }
                 />
@@ -112,7 +112,7 @@ export default function AssistirModal({ open, onClose, onVerReflexao }: Assistir
                   subtitle={`No sentido de "pertencer", "caber por direito", o verbo precisa da preposição "a", mas o prêmio/direito é que funciona como sujeito na frase e o merecedor dele é o complemento:`}
                   exemplo={
                     <>
-                      Exemplo: "O direito de estudar assiste <u>a</u> toda criança."
+                      Exemplo: &quot;O direito de estudar assiste <u>a</u> toda criança.&quot;
                     </>
                   }
                 />
