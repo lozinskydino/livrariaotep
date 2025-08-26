@@ -86,7 +86,11 @@ export default function AssistirModal({ open, onClose, onVerReflexao }: Assistir
                   index="01"
                   title="Ver"
                   subtitle={`No sentido de "ver", "presenciar", o verbo é transitivo indireto, ou seja, precisa da preposição, no caso a preposição "a".`}
-                  exemplo={`Exemplo: "Assistimos ao jogo ontem, mas não assistimos à novela."`}
+                  exemplo={
+                    <>
+                      Exemplo: "Assistimos <u>ao</u> jogo ontem, mas não assistimos <u>à</u> novela."
+                    </>
+                  }
                 />
 
                 {/* Item 2 */}
@@ -94,7 +98,11 @@ export default function AssistirModal({ open, onClose, onVerReflexao }: Assistir
                   index="02"
                   title="Auxiliar"
                   subtitle={`No sentido de "auxiliar", o verbo não precisa de preposição, ou seja, é transitivo direto.`}
-                  exemplo={`Exemplo: "O resgatista assistiu os feridos no acidente."`}
+                  exemplo={
+                    <>
+                      Exemplo: "O resgatista assistiu <u>os</u> feridos no acidente."
+                    </>
+                  }
                 />
 
                 {/* Item 3 */}
@@ -102,7 +110,11 @@ export default function AssistirModal({ open, onClose, onVerReflexao }: Assistir
                   index="03"
                   title="Pertencer"
                   subtitle={`No sentido de "pertencer", "caber por direito", o verbo precisa da preposição "a", mas o prêmio/direito é que funciona como sujeito na frase e o merecedor dele é o complemento:`}
-                  exemplo={`Exemplo: "O direito de estudar assiste a toda criança."`}
+                  exemplo={
+                    <>
+                      Exemplo: "O direito de estudar assiste <u>a</u> toda criança."
+                    </>
+                  }
                 />
               </div>
             </div>
@@ -111,7 +123,7 @@ export default function AssistirModal({ open, onClose, onVerReflexao }: Assistir
           {/* Rodapé CTA */}
           <div className="px-5 pb-5">
             <ModalCTAButton
-              label="Ver reflexão sobre os sentidos do verbo"
+              label="Reflexão sobre os sentidos do verbo"
               onClick={() => {
                 onClose?.();
                 onVerReflexao?.();
@@ -128,7 +140,7 @@ export default function AssistirModal({ open, onClose, onVerReflexao }: Assistir
   );
 }
 
-function TimelineItem({ index, title, subtitle, exemplo }: { index: string; title: string; subtitle: string; exemplo: string; }) {
+function TimelineItem({ index, title, subtitle, exemplo }: { index: string; title: string; subtitle: string; exemplo: React.ReactNode; }) {
   return (
     <div className="relative">
       {/* Marker sobreposto ao card */}

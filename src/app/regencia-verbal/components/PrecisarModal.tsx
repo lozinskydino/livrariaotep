@@ -90,7 +90,7 @@ export default function PrecisarModal({ open, onClose }: PrecisarModalProps) {
                   subtitle={`No sentido de necessitar, o verbo vai ser transitivo indireto, com preposição.`}
                   exemploPrefix="Exemplo: "
                   exemploHtml={
-                    <>Os moradores em situação de rua precisam <u>de</u> sua ajuda.</>
+                    <>As pessoas em situação de rua precisam <u>de</u> sua ajuda.</>
                   }
                 />
               </div>
