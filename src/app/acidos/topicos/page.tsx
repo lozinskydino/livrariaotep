@@ -43,16 +43,16 @@ export default function AcidosTopicos() {
             {/* Card — ÁCIDO BÓRICO */}
             <div className="w-[260px] bg-white rounded-xl p-4 flex flex-col gap-3">
               <div className="w-full flex items-center justify-between gap-2 px-1">
-                <div className="text-[#00076C] w-[147px]">
+                <div className="text-[#00076C] w-[160px]">
                   <div className={`${inter.className} font-semibold text-[14px] tracking-[-0.14px] leading-[21.385px]`}>ÁCIDO BÓRICO</div>
-                  <p className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px]`}>
+                  <p className={`${inter.className} font-normal text-[13px] leading-[18px] tracking-[-0.12px]`}>
                     Oxiácido fraco de fórmula <span className="font-bold">H</span>
-                    <span className="align-super text-[9px]">3</span>
+                    <span className="align-sub text-[11px]">3</span>
                     <span className="font-bold">BO</span>
-                    <span className="align-super text-[9px]">3</span>, presente e comercializado em solução como água boricada.
+                    <span className="align-sub text-[11px]">3</span>, presente e comercializado em solução como água boricada.
                   </p>
                 </div>
-                <div className="shrink-0 w-[70px] h-20 bg-center bg-no-repeat bg-cover" style={{ backgroundImage: `url('${IMG_BORICO}')` }} />
+                <div className="shrink-0 w-[58px] h-20 bg-center bg-no-repeat bg-cover" style={{ backgroundImage: `url('${IMG_BORICO}')` }} />
               </div>
 
               {/* Button */}
@@ -71,16 +71,16 @@ export default function AcidosTopicos() {
             {/* Card — ÁCIDO CRÔMICO */}
             <div className="w-[260px] bg-white rounded-xl p-4 flex flex-col gap-3">
               <div className="w-full flex items-center justify-between gap-2 px-1">
-                <div className="text-[#00076C] w-[147px]">
+                <div className="text-[#00076C] w-[160px]">
                   <div className={`${inter.className} font-semibold text-[14px] tracking-[-0.14px] leading-[21.385px]`}>ÁCIDO CRÔMICO</div>
-                  <p className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px]`}>
+                  <p className={`${inter.className} font-normal text-[13px] leading-[18px] tracking-[-0.12px]`}>
                     Oxiácido fraco de fórmula <span className="font-bold">H</span>
-                    <span className="align-super text-[9px]">2</span>
+                    <span className="align-sub text-[11px]">2</span>
                     <span className="font-bold">CrO</span>
-                    <span className="align-super text-[9px]">4</span>, muito utilizado nos processos de cromagem de peças.
+                    <span className="align-sub text-[11px]">4</span>, muito utilizado nos processos de cromagem de peças.
                   </p>
                 </div>
-                <div className="shrink-0 w-[70px] h-[42px] bg-center bg-no-repeat bg-cover" style={{ backgroundImage: `url('${IMG_CROMICO}')` }} />
+                <div className="shrink-0 w-[58px] h-[42px] bg-center bg-no-repeat bg-cover" style={{ backgroundImage: `url('${IMG_CROMICO}')` }} />
               </div>
 
               <Botao
@@ -98,14 +98,14 @@ export default function AcidosTopicos() {
             {/* Card — ÁCIDO PERCLÓRICO */}
             <div className="w-[260px] bg-white rounded-xl p-4 flex flex-col gap-3">
               <div className="w-full flex items-center justify-between gap-2 px-1">
-                <div className="text-[#00076C] w-[147px]">
+                <div className="text-[#00076C] w-[160px]">
                   <div className={`${inter.className} font-semibold text-[14px] tracking-[-0.14px] leading-[21.385px]`}>ÁCIDO PERCLÓRICO</div>
-                  <p className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px]`}>
+                  <p className={`${inter.className} font-normal text-[13px] leading-[18px] tracking-[-0.12px]`}>
                     Oxiácido muito forte de fórmula <span className="font-bold">HClO</span>
-                    <span className="align-super text-[9px]">4</span>, muito utilizado como agente oxidante na produção de combustíveis e explosivos.
+                    <span className="align-sub text-[11px]">4</span>, muito utilizado como agente oxidante na produção de combustíveis e explosivos.
                   </p>
                 </div>
-                <div className="shrink-0 w-[73px] h-16 bg-center bg-no-repeat bg-cover" style={{ backgroundImage: `url('${IMG_PERCLORICO}')` }} />
+                <div className="shrink-0 w-[58px] h-16 bg-center bg-no-repeat bg-cover" style={{ backgroundImage: `url('${IMG_PERCLORICO}')` }} />
               </div>
 
               <Botao
@@ -123,17 +123,17 @@ export default function AcidosTopicos() {
             {/* Card — ÁCIDOS SULFÔNICOS */}
             <div className="w-[260px] bg-white rounded-xl p-4 flex flex-col gap-3">
               <div className="w-full flex items-center justify-between gap-2 px-1">
-                <div className="text-[#00076C] w-[147px] relative h-[114px]">
+                <div className="text-[#00076C] w-[160px] relative h-[114px]">
                   <div className={`${inter.className} font-semibold text-[14px] tracking-[-0.14px] leading-[21.385px] text-center absolute left-1/2 top-[11px] -translate-x-1/2 -translate-y-1/2 w-full`}>
                     ÁCIDOS SULFÔNICOS
                   </div>
-                  <p className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] absolute left-0 top-[74px] -translate-y-1/2 w-[147px]`}>
+                  <p className={`${inter.className} font-normal text-[13px] leading-[18px] tracking-[-0.12px] absolute left-0 top-[74px] -translate-y-1/2 w-[160px]`}>
                     Oxiácidos orgânicos que apresentam na molécula o grupo <span className="font-bold">−SO</span>
-                    <span className="align-super text-[9px]">3</span>
+                    <span className="align-sub text-[11px]">3</span>
                     <span className="font-bold">H</span>, muito aplicado na produção de detergentes.
                   </p>
                 </div>
-                <div className="shrink-0 w-[73px] h-16 bg-center bg-no-repeat bg-cover" style={{ backgroundImage: `url('${IMG_SULFONICOS}')` }} />
+                <div className="shrink-0 w-[58px] h-16 bg-center bg-no-repeat bg-cover" style={{ backgroundImage: `url('${IMG_SULFONICOS}')` }} />
               </div>
 
               <Botao

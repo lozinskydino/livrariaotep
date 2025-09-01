@@ -41,11 +41,11 @@ export default function AcidoBoricoDetalhe() {
           <div className="w-[260px] bg-white rounded-xl p-4 flex flex-col gap-3">
             {/* Cabeçalho card */}
             <div className={`${inter.className} font-semibold text-[#00076C] text-center tracking-[-0.16px]`}> 
-              <p className="leading-[21.385px] text-[0px]">
+              <p className="leading-[21.385px]">
                 <span className="text-[16px]">Ácido Bórico - H</span>
-                <span className="text-[12px] align-super">3</span>
+                <span className="text-[12px] align-sub">3</span>
                 <span className="text-[16px]">BO</span>
-                <span className="text-[12px] align-super">3</span>
+                <span className="text-[12px] align-sub">3</span>
               </p>
             </div>
 

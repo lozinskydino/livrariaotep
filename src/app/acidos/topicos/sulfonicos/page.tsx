@@ -37,7 +37,11 @@ export default function AcidosSulfonicosDetalhe() {
           <div className="w-[260px] bg-white rounded-xl p-4 flex flex-col gap-3">
             {/* Cabeçalho card */}
             <div className={`${inter.className} font-semibold text-[#00076C] text-center tracking-[-0.16px]`}>
-              <p className="leading-[21.385px] text-[16px]">Ácidos sulfônicos - HSO3−</p>
+              <p className="leading-[21.385px] text-[0px]">
+                <span className="text-[16px]">Ácidos sulfônicos - HSO</span>
+                <span className="text-[12px] align-sub">3</span>
+                <span className="text-[16px]">H</span>
+              </p>
             </div>
 
             {/* Subtítulo */}
@@ -49,7 +53,7 @@ export default function AcidosSulfonicosDetalhe() {
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
               <p>
                 Os ácidos sulfônicos são compostos orgânicos derivados do ácido sulfúrico (H
-                <span className="align-super text-[9px]">2</span>
+                <span className="align-sub text-[9px]">2</span>
                 SO
                 <span className="align-sub text-[9px]">4</span>), utilizados em setores como os de limpeza, têxtil e plástico. A principal
                 aplicação está na produção de sabões e detergentes, devido à alta afinidade por óleos e gorduras e à capacidade de

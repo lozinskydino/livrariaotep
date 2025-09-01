@@ -37,7 +37,7 @@ export default function CromicoVidros() {
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
               O ácido crômico também é utilizado na fabricação de vidros coloridos, sendo responsável por conferir tonalidades
               verdes ou âmbar aos produtos. Durante o processo de fusão dos materiais, ele atua como fonte de cromo, que reage
-              com os componentes da mistura, como sílica (SiO₂), óxidos de sódio (Na₂O) e cálcio (CaO) para proporcionar as
+              com os componentes da mistura, como sílica (SiO<span className="align-sub text-[9px]">2</span>), óxidos de sódio (Na<span className="align-sub text-[9px]">2</span>O) e cálcio (CaO) para proporcionar as
               tonalidades nas vidrarias.
             </div>
           </div>

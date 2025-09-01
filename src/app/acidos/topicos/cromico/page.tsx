@@ -41,11 +41,11 @@ export default function AcidoCromicoDetalhe() {
           <div className="w-[260px] bg-white rounded-xl p-4 flex flex-col gap-3">
             {/* Cabeçalho card */}
             <div className={`${inter.className} font-semibold text-[#00076C] text-center tracking-[-0.16px]`}>
-              <p className="leading-[21.385px] text-[0px]">
+              <p className="leading-[21.385px]">
                 <span className="text-[16px]">Ácido Crômico - H</span>
-                <span className="text-[12px] align-super">2</span>
+                <span className="text-[12px] align-sub">2</span>
                 <span className="text-[16px]">CrO</span>
-                <span className="text-[12px] align-super">4</span>
+                <span className="text-[12px] align-sub">4</span>
               </p>
             </div>
 

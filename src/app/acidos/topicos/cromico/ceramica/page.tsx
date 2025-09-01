@@ -35,7 +35,7 @@ export default function CromicoCeramica() {
             </div>
 
             <div className={`${inter.className} font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700`}>
-              Assim como no processo de fabricação de vidros coloridos, o ácido crômico é utilizado na produção de cerâmicas para conferir cores e acabamentos específicos aos produtos. Durante a vitrificação (transformação da superfície por meio de calor intenso) da cerâmica, ele reage com componentes como sílica (SiO₂), alumina (A₂O₃) e óxidos metálicos, formando esmaltes com tonalidades variadas, como verde ou marrom. Além de conferir cores, a aplicação desse ácido aumenta as resistências química e mecânica das peças, tornando-as mais duráveis e visualmente atrativas. Esse uso é comum em cerâmicas decorativas, utensílios domésticos e revestimentos.
+              Assim como no processo de fabricação de vidros coloridos, o ácido crômico é utilizado na produção de cerâmicas para conferir cores e acabamentos específicos aos produtos. Durante a vitrificação (transformação da superfície por meio de calor intenso) da cerâmica, ele reage com componentes como sílica (SiO<span className="align-sub text-[9px]">2</span>), alumina (A<span className="align-sub text-[9px]">2</span>O<span className="align-sub text-[9px]">3</span>) e óxidos metálicos, formando esmaltes com tonalidades variadas, como verde ou marrom. Além de conferir cores, a aplicação desse ácido aumenta as resistências química e mecânica das peças, tornando-as mais duráveis e visualmente atrativas. Esse uso é comum em cerâmicas decorativas, utensílios domésticos e revestimentos.
             </div>
           </div>
 
