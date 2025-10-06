@@ -38,10 +38,9 @@ export default function TopicoModalOverlay({ id, onClose }: Props) {
               <div
                 key={i}
                 className="mt-4 text-[#c93030] text-[16px] font-semibold leading-[1.2] break-words"
-                style={{ hyphens: "auto" }}
-              >
-                {block.text}
-              </div>
+                style={{ hyphens: "none" }}
+                dangerouslySetInnerHTML={{ __html: block.text }}
+              />
             );
           }
           // bloco de imagem com múltiplas camadas

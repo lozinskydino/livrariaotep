@@ -33,7 +33,7 @@ export const topicosContent: Record<TopicoId, TopicoContent> = {
       {
         type: "p",
         text:
-          "Em meados do século XIX, os Estados Unidos estabilizavam economicamente. O desbravamento da região central do país, com a construção de inúmeras linhas férreas, aliado à industrialização crescente, fez nomes como John Davidson Rockefeller, na indústria petrolífera, Andrew Carnegie, na siderurgia, Cornelius Vanderbilt, na indústria ferroviária, e John Jacob Astor, no comércio de peles, conquistarem enormes fortunas, patrocinarem o desenvolvimento do país e alçarem espaço de notoriedade social.",
+          "Em meados do século XIX, os Estados Unidos se estabilizavam economicamente. O desbravamento da região central do país, com a construção de inúmeras linhas férreas, aliado à industrialização crescente, fez nomes como John Davidson Rockefeller, na indústria petrolífera, Andrew Carnegie, na siderurgia, Cornelius Vanderbilt, na indústria ferroviária, e John Jacob Astor, no comércio de peles, conquistarem enormes fortunas, patrocinarem o desenvolvimento do país e alçarem espaço de notoriedade social.",
       },
       {
         type: "image",
@@ -58,7 +58,7 @@ export const topicosContent: Record<TopicoId, TopicoContent> = {
       {
         type: "p",
         text:
-          "James Truslow Adams, escritor e historiador americano. Ele popularizou a frase “Sonho Americano” em seu livro de 1931 The Epic of America.",
+          "James Truslow Adams, escritor e historiador americano, popularizou a expressão “sonho americano” em seu livro <em>The Epic of America</em>, de 1931.",
       },
     ],
   },
@@ -68,7 +68,7 @@ export const topicosContent: Record<TopicoId, TopicoContent> = {
       {
         type: "p",
         text:
-          "As indústrias americanas, apesar de praticarem salários maiores que as europeias, ainda explorava a mão de obra, pois o salário não acompanhava a qualidade de vida das pessoas. Não havia investimento em prevenção de acidentes, a jornada de trabalho era exaustiva, e a escolaridade, tanto dos operários como de seus filhos, era baixa por falta de oferta de qualificação. Assim, começaram a se popularizar os sindicatos, que negociavam com os empresários e organizavam greves.",
+          "As indústrias americanas, apesar de praticarem salários maiores que as europeias, ainda exploravam a mão de obra, pois o salário não correspondia à qualidade de vida das pessoas. Não havia investimento em prevenção de acidentes, a jornada de trabalho era exaustiva, e a escolaridade, tanto dos operários como de seus filhos, era baixa por falta de oferta de qualificação. Assim, começaram a se popularizar os sindicatos, que negociavam com os empresários e organizavam greves.",
       },
     ],
   },
@@ -135,15 +135,6 @@ export const topicosContent: Record<TopicoId, TopicoContent> = {
         text:
           "Clara Barton angariou fundos para a implantação de centros de atendimento à saúde da Cruz Vermelha no país, oferecendo gratuitamente assistência a todos que necessitassem.",
       },
-      {
-        type: "image",
-        bg: "/assets/figma/c01ff62983a11fb2a16cff3cf6b0cfb959addb87.png",
-        overlay: "/assets/figma/d247f6129e6d51012ed097ba43962476c9f5b015.png",
-        className:
-          "bg-[position:0%_50%,_50%_50%] bg-no-repeat bg-size-[100%_232.86%,cover] box-border flex flex-col gap-2 h-40 items-center justify-center p-[8px] rounded-2xl shrink-0 w-full mt-4",
-        aria: "Thomas Edison",
-      },
-      { type: "p", text: "Thomas Edison" },
       {
         type: "image",
         bg: "/assets/figma/a1cd9637209ccbe0e85c6574b168841be8c991b8.png",
