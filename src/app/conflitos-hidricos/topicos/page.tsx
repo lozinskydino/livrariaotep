@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
+import ModalHeader from "../components/ModalHeader";
 import FooterNavegacao from "../components/FooterNavegacao";
 import InfoCard from "../components/InfoCard";
 import InfoCardTitle from "../components/InfoCardTitle";
@@ -12,6 +13,7 @@ import Image from "next/image";
 export default function ConflitosHidricosTopicos() {
   const router = useRouter();
   const handleVoltar = () => router.push("/conflitos-hidricos/intro");
+  const handleHome = () => router.push("/conflitos-hidricos");
   const handleAvancar = () => router.push("/conflitos-hidricos/final");
 
   // Estado do modal
@@ -89,8 +91,8 @@ export default function ConflitosHidricosTopicos() {
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
-    el.addEventListener("wheel", onWheel, { passive: false });
-    return () => el.removeEventListener("wheel", onWheel as unknown as EventListener);
+    el.addEventListener("wheel", onWheel as EventListener, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel as EventListener);
   }, [onWheel]);
 
   // Medir dimensões naturais do SVG (naturalWidth/Height ou viewBox)
@@ -109,7 +111,7 @@ export default function ConflitosHidricosTopicos() {
       fetch(src)
         .then((r) => r.text())
         .then((svg) => {
-          const m = svg.match(/viewBox=\"([\d\\.\s-]+)\"/);  
+          const m = svg.match(/viewBox=\"([\d\.\s-]+)\"/);
           if (m && m[1]) {
             const parts = m[1].trim().split(/\s+/).map(Number);
             if (parts.length === 4 && parts[2] > 0 && parts[3] > 0) {
@@ -120,7 +122,7 @@ export default function ConflitosHidricosTopicos() {
         .catch(() => {});
     };
     if (img.complete) update();
-    else img.addEventListener("load", update, { once: true } as const);
+    else img.addEventListener("load", update as EventListener, { once: true });
   }, []);
 
   // Aplica foco inicial nas Américas (frações relativas ao SVG)
@@ -259,6 +261,21 @@ export default function ConflitosHidricosTopicos() {
     } catch {}
   };
 
+  const zoomIn = () => {
+    const el = containerRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    zoomAt(rect.width / 2, rect.height / 2, 0.2);
+  };
+  const zoomOut = () => {
+    const el = containerRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    zoomAt(rect.width / 2, rect.height / 2, -0.2);
+  };
+  const resetView = () => {
+    fitToContainer();
+  };
 
   // Toggle de zoom: clique 1 aplica zoom intenso; clique 2 restaura a view base
   const toggleZoom = () => {
@@ -322,6 +339,9 @@ export default function ConflitosHidricosTopicos() {
     { id: 23, texto: "Israel lança ataques retaliatórios a Gaza após o ataque do Hamas a Israel em outubro, incluindo ataques a poços de água e bombeamento de água." },
   ];
 
+  // Classes dinâmicas para espaçamento do topo
+  const topPadClass = topSpacing === 'veryNarrow' ? 'pt-0' : topSpacing === 'narrow' ? 'pt-1' : 'pt-4 md:pt-8';
+  const titleMarginClass = topSpacing === 'veryNarrow' ? 'mt-4 mb-4' : topSpacing === 'narrow' ? 'mt-4 mb-4' : 'mt-1 md:mt-2 mb-3 md:mb-4';
 
   return (
     <div className="relative overflow-hidden flex flex-col justify-center items-center min-h-screen mx-auto" style={{ backgroundColor: "#FFFFFF" }}>
@@ -346,7 +366,7 @@ export default function ConflitosHidricosTopicos() {
 
           {/* Título centralizado conforme Figma */}
           <h1 className={`mt-4 mb-4 text-center text-[17px] font-extrabold font-nunito leading-[1.2] text-[#09163C]`}>
-            DISPONIBILIDADE E CONFLITOS POR ÁGUA
+            ATUAIS CONFLITOS POR ÁGUA NO PLANETA
           </h1>
 
           {/* Mapa com zoom/pan (fora de InfoCard) */}
@@ -370,14 +390,12 @@ export default function ConflitosHidricosTopicos() {
                   transformOrigin: "center center",
                 }}
               >
-                <Image
+                <img
                   ref={imgRef}
                   src="/assets/images/conflitos-hidricos/mapa.svg"
                   alt="Mapa mundi de conflitos por água"
                   className="w-full h-full object-contain pointer-events-none"
                   draggable={false}
-                  width={imgSize.w || 1000}
-                  height={imgSize.h || 800}
                 />
               </div>
 
@@ -400,6 +418,7 @@ export default function ConflitosHidricosTopicos() {
           {/* Lista de cards (1–23) usando InfoCard/InfoCardTitle */}
           <div className="mt-6 flex flex-col gap-4 mb-6">
             {itens.map((item) => {
+              const topicoData = topicosData.find((t) => t.id === item.id);
               const isSelected = ultimoTopicoClicado === item.id;
               return (
                 <div
@@ -447,7 +466,7 @@ export default function ConflitosHidricosTopicos() {
 
       {/* Modal Overlay */}
       {modalAberto !== null && (
-        <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-start justify-center">
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-50 overflow-y-auto flex justify-center">
           {(() => {
             const topico = topicosData.find((t) => t.id === modalAberto);
             if (!topico) return null;

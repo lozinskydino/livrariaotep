@@ -18,7 +18,7 @@ export const topicosData: TopicoData[] = [
     mapaSrc: "/assets/images/conflitos-hidricos/mapa-sudao.svg",
     imagemSrc: "/assets/images/conflitos-hidricos/sudao-2023.png",
     imagemAlt: "Sudão 2023",
-    mapOffset: 30,
+    mapOffset: 0,
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ export const topicosData: TopicoData[] = [
     mapaSrc: "/assets/images/conflitos-hidricos/mapa-africa-do-sul.svg",
     imagemSrc: "/assets/images/conflitos-hidricos/africa-do-sul-2023.png",
     imagemAlt: "África do Sul 2023",
-    mapOffset: 30,
+    mapOffset: 40,
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ export const topicosData: TopicoData[] = [
     mapaSrc: "/assets/images/conflitos-hidricos/mapa-ucrania.svg",
     imagemSrc: "/assets/images/conflitos-hidricos/ucrania-2023.png",
     imagemAlt: "Ucrânia 2023",
-    mapOffset: 30,
+    mapOffset: 5,
   },
   {
     id: 4,
@@ -48,7 +48,7 @@ export const topicosData: TopicoData[] = [
     mapaSrc: "/assets/images/conflitos-hidricos/mapa-palestina.svg",
     imagemSrc: "/assets/images/conflitos-hidricos/palestina-2023.png",
     imagemAlt: "Palestina 2023",
-    mapOffset: 30,
+    mapOffset: 0,
   },
   {
     id: 5,
@@ -58,7 +58,7 @@ export const topicosData: TopicoData[] = [
     mapaSrc: "/assets/images/conflitos-hidricos/mapa-burkina-faso.svg",
     imagemSrc: "/assets/images/conflitos-hidricos/burkina-faso-2023.png",
     imagemAlt: "Burkina Faso 2023",
-    mapOffset: 30,
+    mapOffset: 0,
   },
   {
     id: 6,
@@ -68,7 +68,7 @@ export const topicosData: TopicoData[] = [
     mapaSrc: "/assets/images/conflitos-hidricos/mapa-iemen.svg",
     imagemSrc: "/assets/images/conflitos-hidricos/iemen-2023.png",
     imagemAlt: "Iêmen 2023",
-    mapOffset: 30,
+    mapOffset: 0,
   },
   {
     id: 7,
@@ -78,7 +78,7 @@ export const topicosData: TopicoData[] = [
     mapaSrc: "/assets/images/conflitos-hidricos/mapa-ucrania.svg",
     imagemSrc: "/assets/images/conflitos-hidricos/ucrania-2023-2.png",
     imagemAlt: "Ucrânia 2023",
-    mapOffset: 30,
+    mapOffset: 5,
   },
   {
     id: 8,
@@ -88,7 +88,7 @@ export const topicosData: TopicoData[] = [
     mapaSrc: "/assets/images/conflitos-hidricos/mapa-iemen.svg",
     imagemSrc: "/assets/images/conflitos-hidricos/iemen-2023-2.png",
     imagemAlt: "Iêmen 2023",
-    mapOffset: 30,
+    mapOffset: 20,
   },
   {
     id: 9,
@@ -98,7 +98,7 @@ export const topicosData: TopicoData[] = [
     mapaSrc: "/assets/images/conflitos-hidricos/mapa-ira-afeganistao.svg",
     imagemSrc: "/assets/images/conflitos-hidricos/ira-afeganistao-2023.png",
     imagemAlt: "Irã e Afeganistão 2023",
-    mapOffset: 30,
+    mapOffset: 0,
   },
   {
     id: 10,
@@ -108,7 +108,7 @@ export const topicosData: TopicoData[] = [
     mapaSrc: "/assets/images/conflitos-hidricos/mapa-iraque.svg",
     imagemSrc: "/assets/images/conflitos-hidricos/iraque-2023.png",
     imagemAlt: "Iraque 2023",
-    mapOffset: 30,
+    mapOffset: 5,
   },
   {
     id: 11,
@@ -118,7 +118,7 @@ export const topicosData: TopicoData[] = [
     mapaSrc: "/assets/images/conflitos-hidricos/mapa-burkina-faso.svg",
     imagemSrc: "/assets/images/conflitos-hidricos/burkina-faso-2023-2.png",
     imagemAlt: "Burkina Faso 2023",
-    mapOffset: 30,
+    mapOffset: 0,
   },
   {
     id: 12,
@@ -128,7 +128,7 @@ export const topicosData: TopicoData[] = [
     mapaSrc: "/assets/images/conflitos-hidricos/mapa-ucrania.svg",
     imagemSrc: "/assets/images/conflitos-hidricos/ucrania-2023-3.png",
     imagemAlt: "Ucrânia 2023",
-    mapOffset: 30,
+    mapOffset: 5,
   },
   {
     id: 13,
@@ -138,7 +138,7 @@ export const topicosData: TopicoData[] = [
     mapaSrc: "/assets/images/conflitos-hidricos/mapa-etiopia.svg",
     imagemSrc: "/assets/images/conflitos-hidricos/etiopia-2023.png",
     imagemAlt: "Etiópia 2023",
-    mapOffset: 30,
+    mapOffset: 5,
   },
   {
     id: 14,
@@ -148,7 +148,7 @@ export const topicosData: TopicoData[] = [
     mapaSrc: "/assets/images/conflitos-hidricos/mapa-estados-unidos.svg",
     imagemSrc: "/assets/images/conflitos-hidricos/estados-unidos-2023.png",
     imagemAlt: "Estados Unidos 2023",
-    mapOffset: 30,
+    mapOffset: 0,
   },
   {
     id: 15,
@@ -158,7 +158,7 @@ export const topicosData: TopicoData[] = [
     mapaSrc: "/assets/images/conflitos-hidricos/mapa-palestina.svg",
     imagemSrc: "/assets/images/conflitos-hidricos/palestina-2023.png",
     imagemAlt: "Palestina 2023",
-    mapOffset: 30,
+    mapOffset: 0,
   },
   {
     id: 16,
@@ -168,7 +168,7 @@ export const topicosData: TopicoData[] = [
     mapaSrc: "/assets/images/conflitos-hidricos/mapa-sudao.svg",
     imagemSrc: "/assets/images/conflitos-hidricos/sudao-2023-2.png",
     imagemAlt: "Sudão 2023",
-    mapOffset: 30,
+    mapOffset: 0,
   },
   {
     id: 17,
@@ -178,7 +178,7 @@ export const topicosData: TopicoData[] = [
     mapaSrc: "/assets/images/conflitos-hidricos/mapa-palestina.svg",
     imagemSrc: "/assets/images/conflitos-hidricos/palestina-2023-3.png",
     imagemAlt: "Palestina 2023",
-    mapOffset: 30,
+    mapOffset: 0,
   },
   {
     id: 18,
@@ -188,7 +188,7 @@ export const topicosData: TopicoData[] = [
     mapaSrc: "/assets/images/conflitos-hidricos/mapa-ucrania.svg",
     imagemSrc: "/assets/images/conflitos-hidricos/ucrania-2023-4.png",
     imagemAlt: "Ucrânia 2023",
-    mapOffset: 30,
+    mapOffset: 5,
   },
   {
     id: 19,
@@ -198,7 +198,7 @@ export const topicosData: TopicoData[] = [
     mapaSrc: "/assets/images/conflitos-hidricos/mapa-ucrania.svg",
     imagemSrc: "/assets/images/conflitos-hidricos/ucrania-2023-5.png",
     imagemAlt: "Ucrânia 2023",
-    mapOffset: 30,
+    mapOffset: 5,
   },
   {
     id: 20,
@@ -208,7 +208,7 @@ export const topicosData: TopicoData[] = [
     mapaSrc: "/assets/images/conflitos-hidricos/mapa-sudao.svg",
     imagemSrc: "/assets/images/conflitos-hidricos/sudao-2023-3.png",
     imagemAlt: "Sudão 2023",
-    mapOffset: 30,
+    mapOffset: 0,
   },
   {
     id: 21,
@@ -218,7 +218,7 @@ export const topicosData: TopicoData[] = [
     mapaSrc: "/assets/images/conflitos-hidricos/mapa-palestina-israel.svg",
     imagemSrc: "/assets/images/conflitos-hidricos/palestina-israel-2023.png",
     imagemAlt: "Palestina e Israel 2023",
-    mapOffset: 30,
+    mapOffset: 8,
   },
   {
     id: 22,
@@ -228,7 +228,7 @@ export const topicosData: TopicoData[] = [
     mapaSrc: "/assets/images/conflitos-hidricos/mapa-ucrania.svg",
     imagemSrc: "/assets/images/conflitos-hidricos/ucrania-2023-6.png",
     imagemAlt: "Ucrânia 2023",
-    mapOffset: 30,
+    mapOffset: 5,
   },
   {
     id: 23,
@@ -238,6 +238,6 @@ export const topicosData: TopicoData[] = [
     mapaSrc: "/assets/images/conflitos-hidricos/mapa-palestina-israel.svg",
     imagemSrc: "/assets/images/conflitos-hidricos/palestina-2023-6.png",
     imagemAlt: "Palestina 2023",
-    mapOffset: 30,
+    mapOffset: 0,
   },
 ];
