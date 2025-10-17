@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import VideoPlayer from "./VideoPlayer";
 import ModalHeader from "./ModalHeader";
 

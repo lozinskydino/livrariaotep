@@ -1,9 +1,8 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
-import VideoPlayer from "./VideoPlayer";
 import ModalHeader from "./ModalHeader";
+import VideoPlayer from "./VideoPlayer";
 
 interface EquinodermosModalProps {
   isOpen: boolean;
@@ -18,10 +17,6 @@ const EquinodermosModal: React.FC<EquinodermosModalProps> = ({ isOpen, onClose, 
     if (e.target === e.currentTarget) {
       onClose();
     }
-  };
-
-  const handleBotaoClick = (numero: string) => {
-    console.log(`Botão ${numero} clicado`);
   };
 
   return (

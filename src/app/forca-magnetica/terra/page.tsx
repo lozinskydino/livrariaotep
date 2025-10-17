@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
+import { useRef } from "react";
 import Botao from "../components/Botao";
 import ForcaMagneticaModal from "../components/ForcaMagneticaModal";
 import VentoSolarModal from "../components/VentoSolarModal";
@@ -11,7 +12,6 @@ import AuroraAustralModal from "../components/AuroraAustralModal";
 
 export default function ForcaMagneticaTerra() {
   const router = useRouter();
-  const [selectedButton, setSelectedButton] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isVentoSolarModalOpen, setIsVentoSolarModalOpen] = useState(false);
   const [isAuroraBorealModalOpen, setIsAuroraBorealModalOpen] = useState(false);
@@ -215,6 +215,25 @@ export default function ForcaMagneticaTerra() {
                     height: "calc(100% - 4px)",
                     backgroundColor: button.id === 0 ? "#E8B3FF" : "#FFF176",
                   }}
+                />
+
+                <Image
+                  src={bgSrc}
+                  alt="Panorama"
+                  width={1000}
+                  height={1000}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  onLoad={(e) => {
+                    const img = e.currentTarget as HTMLImageElement;
+                    setImgNatural({ w: img.naturalWidth, h: img.naturalHeight });
+                  }}
+                />
+                <Image
+                  src={infoSrc}
+                  alt="Info"
+                  width={1000}
+                  height={1000}
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
 
                 {/* Texto do botão */}

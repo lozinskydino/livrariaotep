@@ -93,7 +93,7 @@ export default function DesidratacaoTopicos() {
         {/* Conteúdo principal */}
         <div className="flex flex-col items-center h-full px-10 pt-[80px] pb-[120px] gap-[5px] overflow-hidden" style={{ paddingLeft: "50px" }}>
           {/* Tópicos Accordion */}
-          {topicos.map((topico, index) => (
+          {topicos.map((topico) => (
             <div key={topico.id} className="w-[313px] relative lg:w-[500px]">
               {/* Tópico expandido */}
               {topicoAberto === topico.id && (

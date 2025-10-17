@@ -24,20 +24,7 @@ export default function EstadosUnidosTopicos() {
     scrollLeft: number;
     target: Element | null;
   } | null>(null);
-  const [showHint, setShowHint] = useState(true);
   const [hasPanorama, setHasPanorama] = useState(true);
-  const [panoramaWidth, setPanoramaWidth] = useState<number | null>(null);
-  const [panoramaHeight, setPanoramaHeight] = useState<number | null>(null);
-  const [bgWidth, setBgWidth] = useState<number | null>(null);
-  const [scrollerHeight, setScrollerHeight] = useState<number>(0);
-  const [scrollerWidth, setScrollerWidth] = useState<number>(0);
-  const tapRef = useRef<{
-    startX: number;
-    startY: number;
-    time: number;
-    wagonId: string;
-  } | null>(null);
-  const [activeTopicId, setActiveTopicId] = useState<string | null>(null);
   const [imgNatural, setImgNatural] = useState<{ w: number; h: number } | null>(
     null
   );
@@ -50,8 +37,8 @@ export default function EstadosUnidosTopicos() {
   const router = useRouter();
 
   // Responsividade específica para o viewport do Playwright 375x600
-  const isSmallViewport = scrollerHeight <= 726;
-  const isVeryShortViewport = scrollerHeight < 572;
+  const isSmallViewport = scrollerRef.current?.clientHeight <= 726;
+  const isVeryShortViewport = scrollerRef.current?.clientHeight < 572;
 
   // Pré-carrega a imagem para garantir que imgNatural seja definido, mesmo se o onLoad do <img> não disparar em alguns cenários
   useEffect(() => {
@@ -72,7 +59,7 @@ export default function EstadosUnidosTopicos() {
       img.removeEventListener("load", onLoad);
       img.removeEventListener("error", onError);
     };
-  }, [bgSrc, imgNatural]);
+  }, [bgSrc, imgNatural, router]);
 
   // Utilitário para rolagem suave controlada pelos botões
   const scrollToX = (x: number) => {
@@ -170,9 +157,9 @@ export default function EstadosUnidosTopicos() {
     const onWin = () => update();
     window.addEventListener("resize", onWin);
     return () => {
+      cancelAnimationFrame(rafId);
       ro?.disconnect();
       window.removeEventListener("resize", onWin);
-      cancelAnimationFrame(rafId);
     };
   }, []);
 
