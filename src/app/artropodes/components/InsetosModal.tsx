@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import VideoPlayer from "./VideoPlayer";
 import ModalHeader from "./ModalHeader";
 
@@ -17,6 +18,10 @@ const InsetosModal: React.FC<InsetosModalProps> = ({ isOpen, onClose, onHome }) 
     if (e.target === e.currentTarget) {
       onClose();
     }
+  };
+
+  const handleBotaoClick = (numero: string) => {
+    console.log(`Botão ${numero} clicado`);
   };
 
   return (

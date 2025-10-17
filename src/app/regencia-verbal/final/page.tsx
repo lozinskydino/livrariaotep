@@ -1,13 +1,15 @@
 "use client";
 
-import { Inter } from "next/font/google";
+import { Inter, Noto_Sans } from "next/font/google";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "600"] });
+const notoSans = Noto_Sans({ subsets: ["latin"], weight: ["400", "600"] });
 
 export default function RegenciaVerbalFinalPage() {
+  const router = useRouter();
   const [startProgress, setStartProgress] = useState(false);
 
   useEffect(() => {
@@ -50,12 +52,10 @@ export default function RegenciaVerbalFinalPage() {
           prefetch
           className="cursor-pointer hover:scale-105 transition-transform duration-200"
         >
-          <Image
-            src="/assets/images/regencia-verbal/final-confetti.svg"
-            alt="Confete"
-            width={1000}
-            height={1000}
-            className="absolute top-0 left-0 w-full h-full object-cover pointer-events-none"
+          <img
+            src="/assets/images/regencia-verbal/chevron-baixo.svg"
+            alt="Voltar"
+            className="rotate-180"
           />
         </Link>
       </div>

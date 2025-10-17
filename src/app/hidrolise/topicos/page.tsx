@@ -5,6 +5,7 @@ import Image from "next/image";
 import InfoCard from "../components/InfoCard";
 import InfoCardTitle from "../components/InfoCardTitle";
 import InfoCardText from "../components/InfoCardText";
+import Botao from "../components/Botao";
 import FooterNavegacao from "../components/FooterNavegacao";
 
 export default function HidroliseTopicos() {

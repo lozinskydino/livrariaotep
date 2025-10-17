@@ -2,6 +2,7 @@
 
 import React, { useEffect } from "react";
 import { Inter, Noto_Sans } from "next/font/google";
+import ModalCTAButton from "./ModalCTAButton";
 
 const inter = Inter({ subsets: ["latin"], weight: ["600"] });
 const noto = Noto_Sans({ subsets: ["latin"], weight: ["400", "600", "800"] });
@@ -9,6 +10,7 @@ const noto = Noto_Sans({ subsets: ["latin"], weight: ["400", "600", "800"] });
 export type ImplicarModalProps = {
   open: boolean;
   onClose: () => void;
+  onVerReflexao?: () => void;
 };
 
 /**
@@ -19,7 +21,7 @@ export type ImplicarModalProps = {
  * - Texto corrido: #3A3A3A
  * - Exemplo (itálico): #878787
  */
-export default function ImplicarModal({ open, onClose }: ImplicarModalProps) {
+export default function ImplicarModal({ open, onClose, onVerReflexao }: ImplicarModalProps) {
   useEffect(() => {
     if (typeof document === "undefined") return;
     if (open) {

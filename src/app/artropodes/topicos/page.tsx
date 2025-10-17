@@ -92,7 +92,7 @@ export default function ArtropodesTopicos() {
             {/* Insetos */}
             <div className="bg-[#41AA98] border-4 border-white rounded-[60px] pr-[5px] pb-[5px] cursor-pointer" onClick={handleInsetosClick}>
               <div className="bg-[#EBF3EE] hover:bg-[#b9dac7] border-2 border-[#1C4F46] rounded-[60px] h-[120px] flex flex-col items-center justify-center">
-                <Image src="/assets/images/artropodes/insetos.svg" alt="Insetos" width={110} height={110} className="w-[110px] h-[110px] object-contain animate-pulse-step" />
+                <img src="/assets/images/artropodes/insetos.svg" alt="Insetos" className="w-[110px] h-[110px] object-contain animate-pulse-step" />
               </div>
             </div>
 
@@ -100,7 +100,7 @@ export default function ArtropodesTopicos() {
             <div className="bg-[#41AA98] border-4 border-white rounded-[60px] pr-[5px] pb-[5px] cursor-pointer" onClick={handleCrustaceosClick}>
               <div className="bg-[#EBF3EE] hover:bg-[#b9dac7] border-2 border-[#1C4F46] rounded-[60px] p-4 h-[120px] flex flex-col items-center justify-center">
                 <div className="flex items-center justify-center mb-2">
-                  <Image src="/assets/images/artropodes/tatuzinho.svg" alt="Tatuzinho" width={95} height={95} className="w-[95px] h-[95px] object-contain animate-pulse-step" />
+                  <img src="/assets/images/artropodes/tatuzinho.svg" alt="Tatuzinho" className="w-[95px] h-[95px] object-contain animate-pulse-step" />
                 </div>
               </div>
             </div>
@@ -109,7 +109,7 @@ export default function ArtropodesTopicos() {
             <div className="bg-[#41AA98] border-4 border-white rounded-[60px] pr-[5px] pb-[5px] cursor-pointer" onClick={handleQueliceradosClick}>
               <div className="bg-[#EBF3EE] hover:bg-[#b9dac7] border-2 border-[#1C4F46] rounded-[60px] p-4 h-[120px] flex flex-col items-center justify-center">
                 <div className="flex items-center justify-center mb-2">
-                  <Image src="/assets/images/artropodes/aranha.svg" alt="Aranha" width={95} height={95} className="w-[95px] h-[95px] object-contain animate-pulse-step" />
+                  <img src="/assets/images/artropodes/aranha.svg" alt="Aranha" className="w-[95px] h-[95px] object-contain animate-pulse-step" />
                 </div>
               </div>
             </div>
@@ -118,7 +118,7 @@ export default function ArtropodesTopicos() {
             <div className="bg-[#41AA98] border-4 border-white rounded-[60px] pr-[5px] pb-[5px] cursor-pointer" onClick={handleMiriapodesClick}>
               <div className="bg-[#EBF3EE] hover:bg-[#b9dac7] border-2 border-[#1C4F46] rounded-[60px] p-4 h-[120px] flex flex-col items-center justify-center">
                 <div className="flex items-center justify-center mb-2">
-                  <Image src="/assets/images/artropodes/centopeia.svg" alt="Centopeia" width={95} height={95} className="w-[95px] h-[95px] object-contain animate-pulse-step" />
+                  <img src="/assets/images/artropodes/centopeia.svg" alt="Centopeia" className="w-[95px] h-[95px] object-contain animate-pulse-step" />
                 </div>
               </div>
             </div>

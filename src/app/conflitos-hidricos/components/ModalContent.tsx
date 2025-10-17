@@ -1,27 +1,34 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import InfoCard from "./InfoCard";
 import Botao from "./Botao";
 import ModalHeader from "./ModalHeader";
 
 interface ModalContentProps {
+  id: number;
   titulo: string;
   descricao: string;
   mapaSrc: string;
   imagemSrc: string;
+  imagemAlt: string;
   mapOffset: number;
   onClose: () => void;
 }
 
-const ModalContent: React.FC<ModalContentProps> = ({
+export default function ModalContent({
+  id,
   titulo,
   descricao,
   mapaSrc,
   imagemSrc,
+  imagemAlt,
   mapOffset,
   onClose,
-}: ModalContentProps) => {
+}: ModalContentProps) {
   const [bottomOffset, setBottomOffset] = useState(50);
+  const [mapObjectPosition, setMapObjectPosition] = useState("50% 50%");
 
   const getOffsetForViewport = (width: number, height: number) => {
     const buttonAndGapHeight = 300; // 67px botão + 40px gap
@@ -47,18 +54,21 @@ const ModalContent: React.FC<ModalContentProps> = ({
     return Math.min(height * 0.2, width * 0.25) + buttonAndGapHeight;
   };
 
-  useEffect(() => {
-    const getMapObjectPosition = (width: number, height: number) => {
-      const baseVerticalPercent = Math.max(0, Math.min(100, (height * 0.35) / (height * 0.01)));
-      const compensatedPercent = baseVerticalPercent + mapOffset;
-      return `50% ${Math.round(compensatedPercent)}%`;
-    };
+  const getMapObjectPosition = (width: number, height: number) => {
+    const baseVerticalPercent = Math.max(0, Math.min(100, (height * 0.35) / (height * 0.01)));
+    const compensatedPercent = baseVerticalPercent + mapOffset;
+    return `50% ${Math.round(compensatedPercent)}%`;
+  };
 
+  useEffect(() => {
     const updateOffset = () => {
       const { innerHeight, innerWidth } = window;
       const dynamicOffset = getOffsetForViewport(innerWidth, innerHeight);
       const clampedOffset = Math.max(0, Math.min(dynamicOffset, 200));
       setBottomOffset(clampedOffset);
+
+      const objectPos = getMapObjectPosition(innerWidth, innerHeight);
+      setMapObjectPosition(objectPos);
     };
 
     updateOffset();
@@ -67,60 +77,94 @@ const ModalContent: React.FC<ModalContentProps> = ({
     return () => {
       window.removeEventListener("resize", updateOffset);
     };
-  }, [mapOffset]);
+  }, []);
 
   return (
-    <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-start justify-center">
-      <div className="relative w-full max-w-[393px] mx-auto mt-4 mb-4 bg-white rounded-[16px] overflow-hidden">
-        {/* ModalHeader */}
-        <ModalHeader onBack={onClose} onHome={onClose} />
+    <div className="fixed inset-0 overflow-hidden flex flex-col w-screen h-screen" style={{ backgroundColor: "#FFFFFF", zIndex: 50 }}>
+      {/* Background com imagem do mapa */}
+      <div className="w-full h-full relative flex justify-center">
+        {/* Background branco base */}
+        <div className="absolute inset-0" style={{ background: "#FFFFFF" }} />
 
-        {/* Conteúdo */}
-        <div className="relative z-10 flex flex-col items-center gap-6 p-6 pt-6 w-full">
+        {/* Header com botões de navegação */}
+        <ModalHeader onBack={onClose} onHome={onClose} bgColor="#FFFFFF" />
+
+        {/* Conteúdo principal responsivo */}
+        <div className="relative z-10 w-full h-full flex flex-col">
           {/* Título */}
-          <div className="w-full flex items-center justify-center">
-            <span className="font-semibold text-[15.275px] leading-[21.385px] tracking-[-0.1527px] text-[#09163C]">
-              {titulo}
-            </span>
-          </div>
+          <h1 className="mt-4 mb-4 text-center text-[17px] font-extrabold font-nunito leading-[1.2] text-[#09163C] absolute z-20 w-full">
+            ATUAIS CONFLITOS POR ÁGUA NO PLANETA
+          </h1> 
 
-          {/* Card principal */}
-          <div className="w-[260px] bg-white rounded-xl p-4 flex flex-col gap-3">
-            {/* Descrição */}
-            <div className="font-normal text-[12px] leading-[16px] tracking-[-0.12px] text-neutral-700">
-              <p>{descricao}</p>
-            </div>
-
-            {/* Mapa */}
-            <div className="relative h-[98px] w-full bg-white rounded-xl overflow-hidden border border-neutral-300">
-              <div
-                className="absolute inset-0 bg-center bg-cover"
-                style={{
-                  backgroundImage: `url('${mapaSrc}')`,
-                  backgroundPosition: `50% ${mapOffset}%`,
-                }}
+          {/* Mapa com InfoCard sobreposto */}
+          <div className="relative w-full h-full">
+            <div className="relative w-full h-full overflow-hidden">
+              <Image
+                src={mapaSrc}
+                alt={`Mapa - ${titulo}`}
+                fill
+                className="object-none"
+                style={{ objectPosition: mapObjectPosition }}
+                priority
               />
+              <div className="absolute inset-0" />
             </div>
 
-            {/* Imagem */}
-            <div className="relative h-[98px] w-full bg-white rounded-xl overflow-hidden border border-neutral-300">
-              <div
-                className="absolute inset-0 bg-center bg-cover"
-                style={{
-                  backgroundImage: `url('${imagemSrc}')`,
-                }}
-              />
-            </div>
-          </div>
+            <div
+              className="absolute w-[calc(100%-32px)] max-w-[600px] left-1/2 -translate-x-1/2 flex flex-col gap-10"
+              style={{ bottom: bottomOffset }}
+            >
+              <InfoCard
+                containerBg="#51618D"
+                innerBg="#DEF3FB"
+                innerBorder="#09163C"
+                className="!mt-0"
+              >
+                <div className="flex flex-col gap-4">
+                  {/* Título do card */}
+                  <h2 className="text-[#09163C] text-[18px] leading-[1.2] font-extrabold font-nunito">
+                    {titulo}
+                  </h2>
 
-          {/* Botão Fechar */}
-          <div className="w-[260px]">
-            <Botao onClick={onClose} label="Fechar" variant="azul" height="40px" />
+                  {/* Texto descritivo */}
+                  <p className="text-[#09163C] text-[16px] leading-[1.2] font-semibold font-nunito">
+                    {descricao}
+                  </p>
+
+                  {/* Container da imagem com ano */}
+                  <div className="relative w-full h-[200px] rounded-lg overflow-hidden">
+                    <Image
+                      src={imagemSrc}
+                      alt={imagemAlt}
+                      fill
+                      className="object-cover"
+                    />
+                    {/* Overlay com gradiente e ano */}
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background: "linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(217, 217, 217, 0) 100%)",
+                      }}
+                    />
+                    <div className="absolute top-[10px] left-[13px]">
+                      <span className="text-white text-[16px] leading-[1.2] font-bold font-nunito">
+                        2023
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </InfoCard>
+
+              {/* Botão Voltar */}
+              <div className="flex justify-center items-center px-4">
+                <div className="w-full">
+                  <Botao onClick={onClose} label="Voltar" variant="azul" height="67px" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
-};
-
-export default ModalContent;
+}

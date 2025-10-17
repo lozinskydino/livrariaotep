@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { Inter, Noto_Sans } from "next/font/google";
 import ReflexaoTitle from "@/app/regencia-verbal/components/ReflexaoTitle";
 
@@ -13,6 +14,7 @@ export type ReflexaoAssistirModalProps = {
 };
 
 export default function ReflexaoAssistirModal({ open, onClose }: ReflexaoAssistirModalProps) {
+  const router = useRouter();
 
   useEffect(() => {
     if (!open) return;

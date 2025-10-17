@@ -2,10 +2,12 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import Botao from "../components/Botao";
 
 export default function ForcaMagneticaFinal() {
   const router = useRouter();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleVoltarClick = () => {
     router.back();
@@ -13,6 +15,10 @@ export default function ForcaMagneticaFinal() {
 
   const handleAvancarClick = () => {
     router.push("/forca-magnetica");
+  };
+
+  const handleModalOpen = () => {
+    setIsModalOpen(true);
   };
 
   return (

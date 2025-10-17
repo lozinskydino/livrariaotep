@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
-import { Noto_Sans } from "next/font/google";
+import React, { useEffect } from "react";
+import { Inter, Noto_Sans } from "next/font/google";
 
+const inter = Inter({ subsets: ["latin"], weight: ["600"] });
 const noto = Noto_Sans({ subsets: ["latin"], weight: ["400", "600", "800"] });
 
 export type IrOuChegarModalProps = {

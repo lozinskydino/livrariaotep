@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Botao from "../components/Botao";
 import FooterNavegacao from "../components/FooterNavegacao";
 import InfoCard from "../components/InfoCard";
 

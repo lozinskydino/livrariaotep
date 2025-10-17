@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
+import ModalHeader from "../components/ModalHeader";
 import FooterNavegacao from "../components/FooterNavegacao";
 import InfoCard from "../components/InfoCard";
 import InfoCardTitle from "../components/InfoCardTitle";
@@ -12,6 +13,7 @@ import Image from "next/image";
 export default function ConflitosHidricosTopicos() {
   const router = useRouter();
   const handleVoltar = () => router.push("/conflitos-hidricos/intro");
+  const handleHome = () => router.push("/conflitos-hidricos");
   const handleAvancar = () => router.push("/conflitos-hidricos/final");
 
   // Estado do modal
@@ -32,11 +34,13 @@ export default function ConflitosHidricosTopicos() {
   const pointersRef = useRef<Map<number, { x: number; y: number }>>(new Map());
   const pinchRef = useRef<{ pinching: boolean; startDistance: number; startScale: number; center: { x: number; y: number } }>({ pinching: false, startDistance: 0, startScale: 1, center: { x: 0, y: 0 } });
   // Espaçamento superior responsivo
+  const [topSpacing, setTopSpacing] = useState<'normal' | 'narrow' | 'veryNarrow'>('normal');
   const [containerPad, setContainerPad] = useState<number>(16);
 
   useEffect(() => {
     const isVeryNarrow = window.innerWidth <= 391;
     const isNarrow = window.innerWidth <= 461;
+    setTopSpacing(isVeryNarrow ? 'veryNarrow' : isNarrow ? 'narrow' : 'normal');
     setContainerPad(isVeryNarrow ? 4 : isNarrow ? 6 : 16);
   }, []);
 
@@ -82,13 +86,13 @@ export default function ConflitosHidricosTopicos() {
     const cy = e.clientY - rect.top;
     const delta = e.deltaY > 0 ? -0.12 : 0.12;
     zoomAt(cx, cy, delta);
-  }, [zoomAt]) as EventListener;
+  }, [zoomAt]);
 
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
-    el.addEventListener("wheel", onWheel as EventListener, { passive: false });
-    return () => el.removeEventListener("wheel", onWheel as EventListener);
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel as any);
   }, [onWheel]);
 
   // Medir dimensões naturais do SVG (naturalWidth/Height ou viewBox)
@@ -96,8 +100,8 @@ export default function ConflitosHidricosTopicos() {
     const img = imgRef.current;
     if (!img) return;
     const update = () => {
-      const w = img.naturalWidth || 0;
-      const h = img.naturalHeight || 0;
+      let w = img.naturalWidth || 0;
+      let h = img.naturalHeight || 0;
       if (w && h) {
         setImgSize({ w, h });
         return;
@@ -109,7 +113,7 @@ export default function ConflitosHidricosTopicos() {
         .then((svg) => {
           const m = svg.match(/viewBox=\"([\d\.\s-]+)\"/);
           if (m && m[1]) {
-            const parts = m[1].trim().split(/\s+/).map(Number) as number[];
+            const parts = m[1].trim().split(/\s+/).map(Number);
             if (parts.length === 4 && parts[2] > 0 && parts[3] > 0) {
               setImgSize({ w: parts[2], h: parts[3] });
             }
@@ -118,7 +122,7 @@ export default function ConflitosHidricosTopicos() {
         .catch(() => {});
     };
     if (img.complete) update();
-    else img.addEventListener("load", update, { once: true } as EventListenerOptions);
+    else img.addEventListener("load", update, { once: true } as any);
   }, []);
 
   // Aplica foco inicial nas Américas (frações relativas ao SVG)
@@ -257,6 +261,21 @@ export default function ConflitosHidricosTopicos() {
     } catch {}
   };
 
+  const zoomIn = () => {
+    const el = containerRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    zoomAt(rect.width / 2, rect.height / 2, 0.2);
+  };
+  const zoomOut = () => {
+    const el = containerRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    zoomAt(rect.width / 2, rect.height / 2, -0.2);
+  };
+  const resetView = () => {
+    fitToContainer();
+  };
 
   // Toggle de zoom: clique 1 aplica zoom intenso; clique 2 restaura a view base
   const toggleZoom = () => {
@@ -320,6 +339,9 @@ export default function ConflitosHidricosTopicos() {
     { id: 23, texto: "Israel lança ataques retaliatórios a Gaza após o ataque do Hamas a Israel em outubro, incluindo ataques a poços de água e bombeamento de água." },
   ];
 
+  // Classes dinâmicas para espaçamento do topo
+  const topPadClass = topSpacing === 'veryNarrow' ? 'pt-0' : topSpacing === 'narrow' ? 'pt-1' : 'pt-4 md:pt-8';
+  const titleMarginClass = topSpacing === 'veryNarrow' ? 'mt-4 mb-4' : topSpacing === 'narrow' ? 'mt-4 mb-4' : 'mt-1 md:mt-2 mb-3 md:mb-4';
 
   return (
     <div className="relative overflow-hidden flex flex-col justify-center items-center min-h-screen mx-auto" style={{ backgroundColor: "#FFFFFF" }}>
@@ -368,12 +390,10 @@ export default function ConflitosHidricosTopicos() {
                   transformOrigin: "center center",
                 }}
               >
-                <Image
+                <img
                   ref={imgRef}
                   src="/assets/images/conflitos-hidricos/mapa.svg"
                   alt="Mapa mundi de conflitos por água"
-                  width={1000}
-                  height={1000}
                   className="w-full h-full object-contain pointer-events-none"
                   draggable={false}
                 />
@@ -398,6 +418,7 @@ export default function ConflitosHidricosTopicos() {
           {/* Lista de cards (1–23) usando InfoCard/InfoCardTitle */}
           <div className="mt-6 flex flex-col gap-4 mb-6">
             {itens.map((item) => {
+              const topicoData = topicosData.find((t) => t.id === item.id);
               const isSelected = ultimoTopicoClicado === item.id;
               return (
                 <div
@@ -451,10 +472,12 @@ export default function ConflitosHidricosTopicos() {
             if (!topico) return null;
             return (
               <ModalContent
+                id={topico.id}
                 titulo={topico.titulo}
                 descricao={topico.descricao}
                 mapaSrc={topico.mapaSrc}
                 imagemSrc={topico.imagemSrc}
+                imagemAlt={topico.imagemAlt}
                 mapOffset={topico.mapOffset}
                 onClose={() => setModalAberto(null)}
               />
