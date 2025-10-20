@@ -30,6 +30,7 @@ export default function ConflitosHidricosTopicos() {
   const PADDING = 16;
   const baseViewRef = useRef<{ scale: number; pos: { x: number; y: number } } | null>(null);
   const [isZoomed, setIsZoomed] = useState(false);
+  const [manualZoomActive, setManualZoomActive] = useState(false);
   // Multi-touch (pinch)
   const pointersRef = useRef<Map<number, { x: number; y: number }>>(new Map());
   const pinchRef = useRef<{ pinching: boolean; startDistance: number; startScale: number; center: { x: number; y: number } }>({ pinching: false, startDistance: 0, startScale: 1, center: { x: 0, y: 0 } });
@@ -158,7 +159,7 @@ export default function ConflitosHidricosTopicos() {
     setScale(target);
     setPos({ x: posX, y: posY });
     baseViewRef.current = { scale: target, pos: { x: posX, y: posY } };
-    setIsZoomed(false);
+    setManualZoomActive(false);
   }, [imgSize.w, imgSize.h]);
 
   useEffect(() => {
@@ -194,8 +195,8 @@ export default function ConflitosHidricosTopicos() {
       return;
     }
 
-    // Pan apenas com zoom ativo e apenas com 1 toque
-    if (!isZoomed || pointersRef.current.size !== 1) return;
+    // Pan com zoom ativo ou em desktop (scale > 1), apenas com 1 toque
+    if ((scale <= 1 && !manualZoomActive) || pointersRef.current.size !== 1) return;
     (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
     dragRef.current.dragging = true;
     dragRef.current.startX = e.clientX;
@@ -234,7 +235,7 @@ export default function ConflitosHidricosTopicos() {
           };
         });
         if (baseViewRef.current) {
-          setIsZoomed(newScale > baseViewRef.current.scale + 0.02);
+          setManualZoomActive(newScale > baseViewRef.current.scale + 0.02);
         }
         return newScale;
       });
@@ -290,14 +291,14 @@ export default function ConflitosHidricosTopicos() {
     // Ajuste fino: cxFrac (↔), cyFrac (↕), wFrac/hFrac (intensidade do zoom)
     const focus = { cxFrac: -0.04, cyFrac: 0.40, wFrac: 0.12, hFrac: 0.12 };
 
-    if (isZoomed) {
+    if (manualZoomActive) {
       if (baseViewRef.current) {
         setScale(baseViewRef.current.scale);
         setPos(baseViewRef.current.pos);
       } else {
         fitToContainer();
       }
-      setIsZoomed(false);
+      setManualZoomActive(false);
       return;
     }
 
@@ -310,7 +311,7 @@ export default function ConflitosHidricosTopicos() {
     const posY = screenCY - worldCY * target;
     setScale(target);
     setPos({ x: posX, y: posY });
-    setIsZoomed(true);
+    setManualZoomActive(true);
   };
 
   const itens: { id: number; texto: string }[] = [
@@ -374,15 +375,17 @@ export default function ConflitosHidricosTopicos() {
             {/* Área interativa do mapa */}
             <div
               ref={containerRef}
-              className="absolute inset-0 overflow-hidden rounded-[16px] touch-none"
-              style={{ padding: containerPad }}
+              className={`absolute inset-0 overflow-hidden rounded-[16px] touch-none pointer-events-none cursor-grab active:cursor-grabbing`}
+              style={{
+                padding: containerPad
+              }}
               onPointerDown={startDrag}
               onPointerMove={onDrag}
               onPointerUp={endDrag}
               onPointerCancel={endDrag}
             >
               <div
-                className="origin-center touch-none select-none"
+                className="origin-center touch-none select-none pointer-events-auto"
                 style={{
                   width: imgSize.w ? `${imgSize.w}px` : "100%",
                   height: imgSize.h ? `${imgSize.h}px` : "100%",
@@ -399,10 +402,10 @@ export default function ConflitosHidricosTopicos() {
                 />
               </div>
 
-              {/* Botão de lupa com + (toggle zoom), canto inferior esquerdo */}
+              {/* Botão de lupa com + (toggle zoom), canto inferior esquerdo - apenas mobile */}
               <button
                 onClick={toggleZoom}
-                className="absolute left-5 bottom-5 w-12 h-12 rounded-full bg-white shadow-[0px_2px_3.6px_rgba(0,0,0,0.65)] border border-[#09163C]/20 flex items-center justify-center active:translate-y-px lg:hidden"
+                className="absolute left-5 bottom-5 w-12 h-12 rounded-full bg-white shadow-[0px_2px_3.6px_rgba(0,0,0,0.65)] border border-[#09163C]/20 flex items-center justify-center active:translate-y-px cursor-pointer pointer-events-auto z-50 lg:hidden"
                 aria-label="Alternar zoom"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -100,13 +100,15 @@ export default function HidroliseTopicos() {
             </InfoCardText>
           </InfoCard>
 
-          <Image
+          <div className="flex justify-center">
+            <Image
             src="/assets/images/hidrolise/cursor.svg"
             alt=""
             width={313}
             height={56}
             className="object-contain"
           />
+          </div>
 
           {/* Carrossel horizontal (arraste para o lado) */}
             <div
