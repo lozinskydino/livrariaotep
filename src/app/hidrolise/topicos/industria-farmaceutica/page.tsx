@@ -5,7 +5,7 @@ import Image from "next/image";
 import InfoCard from "../../components/InfoCard";
 import InfoCardTitle from "../../components/InfoCardTitle";
 import InfoCardText from "../../components/InfoCardText";
-import FooterNavegacao from "../../components/FooterNavegacao";
+import Botao from "../../components/Botao";
 import ModalHeader from "../../components/ModalHeader";
 
 export default function IndustriaFarmaceuticaPage() {
@@ -67,7 +67,8 @@ export default function IndustriaFarmaceuticaPage() {
             </InfoCardText>
           </InfoCard>
 
-          <FooterNavegacao onVoltar={handleVoltar} onAvancar={handleAvancar} />
+          {/* Botão Voltar */}
+          <Botao onClick={handleVoltar} label="VOLTAR" variant="azul" height="67px" />
         </div>
       </div>
     </div>

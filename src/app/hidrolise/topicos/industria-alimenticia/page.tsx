@@ -5,7 +5,7 @@ import Image from "next/image";
 import InfoCard from "../../components/InfoCard";
 import InfoCardTitle from "../../components/InfoCardTitle";
 import InfoCardText from "../../components/InfoCardText";
-import FooterNavegacao from "../../components/FooterNavegacao";
+import Botao from "../../components/Botao";
 import ModalHeader from "../../components/ModalHeader";
 
 export default function IndustriaAlimenticiaPage() {
@@ -68,8 +68,8 @@ export default function IndustriaAlimenticiaPage() {
             </InfoCardText>
           </InfoCard>
 
-          {/* Rodapé com navegação reutilizável */}
-          <FooterNavegacao onVoltar={handleVoltar} onAvancar={handleAvancar} />
+          {/* Botão Voltar */}
+          <Botao onClick={handleVoltar} label="VOLTAR" variant="azul" height="67px" />
         </div>
       </div>
     </div>
