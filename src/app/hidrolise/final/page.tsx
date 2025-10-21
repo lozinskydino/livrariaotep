@@ -2,15 +2,9 @@
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { Angkor } from "next/font/google";
 import InfoCard from "../components/InfoCard";
 import InfoCardText from "../components/InfoCardText";
 import FooterNavegacao from "../components/FooterNavegacao";
-
-const angkor = Angkor({
-  subsets: ["latin"],
-  weight: ["400"],
-});
 
 export default function HidroliseFinalPage() {
   const router = useRouter();
@@ -103,8 +97,8 @@ export default function HidroliseFinalPage() {
         {/* Conteúdo principal */}
         <div className="relative z-10 flex flex-col items-center justify-center min-h-screen py-10 px-10 max-w-[600px] gap-6">
 
-          {/* Logo/Título com texto estilizado */}
-          <div className="w-[380.944px] h-[217.236px] relative flex items-center justify-center mb-10">
+          {/* Logo/Título com SVG */}
+          <div className="w-[380.944px] h-[217.236px] relative flex items-center justify-center mb-10 md:mt-20">
             <div
               className="absolute"
               style={{
@@ -112,39 +106,13 @@ export default function HidroliseFinalPage() {
                 transformOrigin: 'center'
               }}
             >
-              <h1
-                className={`${angkor.className} text-center uppercase whitespace-pre-wrap`}
-                style={{
-                  fontSize: '44.49px',
-                  lineHeight: '1.2',
-                  letterSpacing: '-2.2245px',
-                  color: '#343434',
-                  width: '373.134px'
-                }}
-              >
-                Hidrólise{' '}
-                <span
-                  className="underline decoration-wavy"
-                  style={{
-                    textDecorationColor: '#5d8493',
-                    textUnderlineOffset: '9.5%',
-                    textDecorationSkipInk: 'none'
-                  }}
-                >
-                  ácida
-                </span>
-                {' e '}
-                <span
-                  className="underline decoration-wavy"
-                  style={{
-                    textDecorationColor: '#5d8493',
-                    textUnderlineOffset: '12.5%',
-                    textDecorationSkipInk: 'none'
-                  }}
-                >
-                  básica
-                </span>
-              </h1>
+              <Image
+                src="/assets/images/hidrolise/logo.svg"
+                alt="Hidrólise ácida e básica"
+                width={373}
+                height={217}
+                className="object-contain"
+              />
             </div>
           </div>
 

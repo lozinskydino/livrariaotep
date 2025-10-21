@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import InfoCard from "../components/InfoCard";
 import InfoCardTitle from "../components/InfoCardTitle";
@@ -10,11 +11,48 @@ import FooterNavegacao from "../components/FooterNavegacao";
 
 export default function HidroliseTopicos() {
   const router = useRouter();
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
   const handleVoltar = () => router.push("/hidrolise/info");
   const handleAvancar = () => router.push("/hidrolise/final");
   const handleAbrirIndustriaAlimenticia = () => router.push("/hidrolise/topicos/industria-alimenticia");
   const handleAbrirIndustriaFarmaceutica = () => router.push("/hidrolise/topicos/industria-farmaceutica");
   const handleAbrirEfluentesGordurosos = () => router.push("/hidrolise/topicos/efluentes-gordurosos");
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollContainerRef.current) return;
+    setIsDragging(true);
+    setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
+    setScrollLeft(scrollContainerRef.current.scrollLeft);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollContainerRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startX) * 2; // Multiplicador para velocidade do scroll
+    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  // Wrapper para prevenir navegação durante drag
+  const handleCardClick = (callback: () => void) => (e: React.MouseEvent) => {
+    if (isDragging) {
+      e.preventDefault();
+      return;
+    }
+    callback();
+  };
 
   return (
     <div
@@ -112,10 +150,19 @@ export default function HidroliseTopicos() {
 
           {/* Carrossel horizontal (arraste para o lado) */}
             <div
-              className="overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth overscroll-x-contain px-6"
+              ref={scrollContainerRef}
+              className="overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth overscroll-x-contain px-6 select-none"
               role="region"
               aria-label="Carrossel de aplicações industriais"
-              style={{ scrollPaddingLeft: 0, scrollPaddingRight: 0 }}
+              style={{ 
+                scrollPaddingLeft: 0, 
+                scrollPaddingRight: 0,
+                cursor: isDragging ? 'grabbing' : 'grab'
+              }}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseLeave}
             >
               <div className="flex gap-6">
                 {/* Slide 1 */}
@@ -125,7 +172,7 @@ export default function HidroliseTopicos() {
                   role="button"
                   tabIndex={0}
                   aria-label="Abrir página Indústria alimentícia"
-                  onClick={handleAbrirIndustriaAlimenticia}
+                  onClick={handleCardClick(handleAbrirIndustriaAlimenticia)}
                   onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleAbrirIndustriaAlimenticia(); } }}
                 >
                   <InfoCard containerBg="#646363" innerBg="#d7e8f0" innerBorder="#343434" radius={16} padding={16}>
@@ -153,7 +200,7 @@ export default function HidroliseTopicos() {
                   role="button"
                   tabIndex={0}
                   aria-label="Abrir página Indústria farmacêutica"
-                  onClick={handleAbrirIndustriaFarmaceutica}
+                  onClick={handleCardClick(handleAbrirIndustriaFarmaceutica)}
                   onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleAbrirIndustriaFarmaceutica(); } }}
                 >
                   <InfoCard containerBg="#646363" innerBg="#d7e8f0" innerBorder="#343434" radius={16} padding={16}>
@@ -181,7 +228,7 @@ export default function HidroliseTopicos() {
                   role="button"
                   tabIndex={0}
                   aria-label="Abrir página Efluentes gordurosos"
-                  onClick={handleAbrirEfluentesGordurosos}
+                  onClick={handleCardClick(handleAbrirEfluentesGordurosos)}
                   onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleAbrirEfluentesGordurosos(); } }}
                 >
                   <InfoCard containerBg="#646363" innerBg="#d7e8f0" innerBorder="#343434" radius={16} padding={16}>

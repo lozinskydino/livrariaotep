@@ -2,14 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Angkor } from "next/font/google";
 import Botao from "./components/Botao";
 import Image from "next/image";
-
-const angkor = Angkor({
-  subsets: ["latin"],
-  weight: ["400"],
-});
 
 export default function Hidrolise() {
   const router = useRouter();
@@ -126,7 +120,7 @@ export default function Hidrolise() {
         {/* Conteúdo principal */}
         <div className="relative z-10 flex flex-col items-center justify-center min-h-screen py-10 px-10 max-w-[600px]">
 
-          {/* Logo/Título com texto estilizado */}
+          {/* Logo/Título com SVG */}
           <div className="w-[380.944px] h-[217.236px] relative flex items-center justify-center mb-10">
             <div
               className="absolute"
@@ -135,39 +129,13 @@ export default function Hidrolise() {
                 transformOrigin: 'center'
               }}
             >
-              <h1
-                className={`${angkor.className} text-center uppercase whitespace-pre-wrap`}
-                style={{
-                  fontSize: '44.49px',
-                  lineHeight: '1.2',
-                  letterSpacing: '-2.2245px',
-                  color: '#343434',
-                  width: '373.134px'
-                }}
-              >
-                Hidrólise{' '}
-                <span
-                  className="underline decoration-wavy"
-                  style={{
-                    textDecorationColor: '#5d8493',
-                    textUnderlineOffset: '9.5%',
-                    textDecorationSkipInk: 'none'
-                  }}
-                >
-                  ácida
-                </span>
-                {' e '}
-                <span
-                  className="underline decoration-wavy"
-                  style={{
-                    textDecorationColor: '#5d8493',
-                    textUnderlineOffset: '12.5%',
-                    textDecorationSkipInk: 'none'
-                  }}
-                >
-                  básica
-                </span>
-              </h1>
+              <Image
+                src="/assets/images/hidrolise/logo.svg"
+                alt="Hidrólise ácida e básica"
+                width={373}
+                height={217}
+                className="object-contain"
+              />
             </div>
           </div>
 
