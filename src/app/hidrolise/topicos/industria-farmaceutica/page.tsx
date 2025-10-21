@@ -11,8 +11,8 @@ import ModalHeader from "../../components/ModalHeader";
 export default function IndustriaFarmaceuticaPage() {
   const router = useRouter();
   const handleVoltar = () => router.back();
-  const handleAvancar = () => router.push("/hidrolise/topicos");
-  const handleHome = () => router.push("/");
+  const handleAvancar = () => router.back();
+  const handleHome = () => router.push("/hidrolise");
 
   return (
     <div
