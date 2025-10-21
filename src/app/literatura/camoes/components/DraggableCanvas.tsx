@@ -59,7 +59,7 @@ export default function DraggableCanvas({
 
     // Limites diferentes para mobile e desktop
     const minX = isMobile ? -600 : -200;
-    const maxX = isMobile ? 600 : 400;
+    const maxX = isMobile ? 600 : 1200;
     const minY = -600;
     const maxY = 400;
 
