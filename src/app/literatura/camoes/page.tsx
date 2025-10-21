@@ -6,11 +6,29 @@ import Image from "next/image";
 import { EB_Garamond } from "next/font/google";
 import DraggableCanvas from "./components/DraggableCanvas";
 import PoemCard from "./components/PoemCard";
+import PoemModal from "./components/PoemModal";
 
 const ebGaramond = EB_Garamond({ subsets: ["latin"], weight: ["400", "800"], style: ["normal", "italic"] });
 
+// Dados dos modais
+const modalData = {
+  modal1: {
+    title: "Contradições do amor: entre o amar e o querer",
+    content: "Para o poeta, o amor deve ir além da atração pelo físico, deve ser um sentido em toda a sua essência, transcendendo o patamar do querer.",
+  },
+  modal2: {
+    title: "Saudade metafísica: tempo e eternidade.",
+    content: "Nessa temática, Luís de Camões reflete sobre os elementos da vida neste plano, em que sucumbimos aos desejos humanos, e a possibilidade de atingirmos a essência dos puros sentimentos no plano eterno. Neste soneto, ele lamenta pela perda da pessoa amada e clama para não ser esquecido no Céu.",
+  },
+  modal3: {
+    title: "A lírica reflexiva",
+    content: "Camões falou não apenas dos sentimentos e impressões pessoais, mas também refletiu sobre as dificuldades enfrentadas pela nação, dando voz aos dilemas universais enfrentados pelo ser humano em sua jornada na Terra.",
+  },
+};
+
 export default function CamoesPage() {
   const [startProgress, setStartProgress] = useState(false);
+  const [openModal, setOpenModal] = useState<string | null>(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -108,45 +126,51 @@ export default function CamoesPage() {
         {/* Poem Cards */}
         <PoemCard
           title="Amor é fogo que arde sem se ver"
-          content="Amor é um fogo que arde sem se ver, é ferida que dói, e não se sente; é um contentamento descontente, é dor que desatina sem doer.\n\nÉ um não querer mais que bem querer; é um andar solitário entre a gente; é nunca contentar-se de contente; é um cuidar que ganha em se perder."
-          x={30}
-          y={-340}
-          width={320}
-          height={380}
+          content="Amor é um fogo que arde sem se ver, é ferida que dói, e não se sente; é um contentamento descontente, é dor que desatina sem doer.É um não querer mais que bem querer; é um andar solitário entre a gente; é nunca contentar-se de contente; é um cuidar que ganha em se perder."
+          x={-20}
+          y={-380}
+          width={340}
+          height={420}
+          modalId="modal1"
+          onZoomClick={() => setOpenModal("modal1")}
         />
 
         <PoemCard
           title="Principais características da lírica camoniana"
-          content="Escrita de determinados nomes em letra maiúscula (Amor, Beleza e Mulher) como forma de marcar a busca pelo ideal absoluto de tais conceitos.\n\nApresenta métrica, rima e ritmo.\n\nUso de formas clássicas, como soneto, ode entre outras.\n\nUso de figuras de linguagem, como metáforas, paradoxos, aliteração e outras."
-          x={-190}
-          y={230}
-          width={320}
-          height={380}
+          content="Escrita de determinados nomes em letra maiúscula (Amor, Beleza e Mulher) como forma de marcar a busca pelo ideal absoluto de tais conceitos.Apresenta métrica, rima e ritmo.Uso de formas clássicas, como soneto, ode entre outras.Uso de figuras de linguagem, como metáforas, paradoxos, aliteração e outras."
+          x={-280}
+          y={200}
+          width={340}
+          height={420}
         />
 
         <PoemCard
           title="Alma minha gentil, que te partiste"
-          content="Alma minha gentil, que te partiste tão cedo desta vida descontente, repousa lá no Céu eternamente, e viva eu cá na terra sempre triste.\n\nSe lá no assento etéreo, onde subiste, memória desta vida se consente, não te esqueças daquele amor ardente que já nos olhos meus tão puro viste.\n\n[...]"
-          x={620}
-          y={-40}
-          width={320}
-          height={380}
+          content="Alma minha gentil, que te partiste tão cedo desta vida descontente, repousa lá no Céu eternamente, e viva eu cá na terra sempre triste.Se lá no assento etéreo, onde subiste, memória desta vida se consente, não te esqueças daquele amor ardente que já nos olhos meus tão puro viste.[...]"
+          x={680}
+          y={-80}
+          width={340}
+          height={420}
+          modalId="modal2"
+          onZoomClick={() => setOpenModal("modal2")}
         />
 
         <PoemCard
           title="Mudam-se os tempos, mudam-se as vontades"
-          content="Mudam-se os tempos, mudam-se as vontades, Muda-se o ser, muda-se a confiança; Todo o mundo é composto de mudança, Tomando sempre novas qualidades.\n\nContinuamente vemos novidades, Diferentes em tudo da esperança; Do mal ficam as mágoas na lembrança, E do bem (se algum houve), as saudades.\n\n[...]"
-          x={460}
-          y={550}
-          width={320}
-          height={380}
+          content="Mudam-se os tempos, mudam-se as vontades, Muda-se o ser, muda-se a confiança; Todo o mundo é composto de mudança, Tomando sempre novas qualidades.Continuamente vemos novidades, Diferentes em tudo da esperança; Do mal ficam as mágoas na lembrança, E do bem (se algum houve), as saudades.[...]"
+          x={480}
+          y={580}
+          width={340}
+          height={420}
+          modalId="modal3"
+          onZoomClick={() => setOpenModal("modal3")}
         />
       </DraggableCanvas>
 
       {/* Botão Chevron Baixo */}
       <button
         onClick={handleNavigateDown}
-        className="cursor-pointer hover:scale-105 transition-transform duration-200 absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
+        className="cursor-pointer hover:scale-105 transition-transform duration-200 absolute bottom-20 left-1/2 -translate-x-1/2 z-20"
       >
         <div className="w-10 h-10 bg-[#C3AC7C]/90 rounded-full flex items-center justify-center shadow-lg">
           <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -154,6 +178,26 @@ export default function CamoesPage() {
           </svg>
         </div>
       </button>
+
+      {/* Modais */}
+      <PoemModal
+        isOpen={openModal === "modal1"}
+        onClose={() => setOpenModal(null)}
+        title={modalData.modal1.title}
+        content={modalData.modal1.content}
+      />
+      <PoemModal
+        isOpen={openModal === "modal2"}
+        onClose={() => setOpenModal(null)}
+        title={modalData.modal2.title}
+        content={modalData.modal2.content}
+      />
+      <PoemModal
+        isOpen={openModal === "modal3"}
+        onClose={() => setOpenModal(null)}
+        title={modalData.modal3.title}
+        content={modalData.modal3.content}
+      />
 
       {/* Estilos da animação de progresso */}
       <style jsx global>{`
