@@ -156,7 +156,7 @@ export const topicosData: TopicoData[] = [
     titulo: "Palestina",
     descricao: "Um grupo de colonos israelitas vandaliza redes de abastecimento de água pertencentes a agricultores palestinianos na área de Al Sahel, na aldeia de Turmus Ayya, Ramallah e Al Bireh, na Cisjordânia.",
     mapaSrc: "/assets/images/conflitos-hidricos/mapa-palestina.svg",
-    imagemSrc: "/assets/images/conflitos-hidricos/palestina-2023.png",
+    imagemSrc: "/assets/images/conflitos-hidricos/palestina-2023-2.png",
     imagemAlt: "Palestina 2023",
     mapOffset: 0,
   },

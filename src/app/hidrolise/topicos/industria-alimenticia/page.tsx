@@ -60,7 +60,7 @@ export default function IndustriaAlimenticiaPage() {
             </div>
 
             <InfoCardText className="mt-2">
-              Sob ação de um ácido (como ácido clorídrico, HC, diluído) e aquecimento, o açúcar (rutina) é separado da molécula de quercetina.
+              Sob ação de um ácido (como ácido clorídrico, HCℓ, diluído) e aquecimento, o açúcar (rutina) é separado da molécula de quercetina.
               O resultado é a liberação da <b>quercetina livre</b>, que possui maior atividade biológica e é mais facilmente absorvida pelo organismo.
             </InfoCardText>
             <InfoCardText className="mt-2">

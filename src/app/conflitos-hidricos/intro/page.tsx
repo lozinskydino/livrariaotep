@@ -53,9 +53,9 @@ export default function ConflitosHidricosIntro() {
             <InfoCardText className="whitespace-pre-line">
               {`A água é vital para o corpo humano e outras vidas do planeta. Além disso, é de suma importância para os processos produtivos, como atividades agrícolas e industriais e geração de energia.
 
-Você sabia que a água é usada em guerras como um alvo estratégico há séculos? E que o acesso diário da população pode gerar conflitos? Por que isso acontece se o acesso à água potável faz parte dos direitos humanos e é um dos Objetivos de Desenvolvimentos Sustentável da Organização das Nações Unidas?
+Você sabia que a água é usada em guerras como um alvo estratégico há séculos? E que o acesso diário da população pode gerar conflitos? Por que isso acontece se o acesso à água potável faz parte dos direitos humanos e é um dos Objetivos de Desenvolvimento Sustentável da Organização das Nações Unidas?
 
-Explore no planisfério alguns dos mais de mil e seiscentos conflitos por água em micro e macro no mundo para compreender a importância desse recurso.`}
+Explore no planisfério alguns dos mais de mil e seiscentos conflitos relacionados à água, em diferentes escalas — locais e globais — para compreender a importância desse recurso essencial.`}
             </InfoCardText>
           </InfoCard>
 

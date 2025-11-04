@@ -59,7 +59,7 @@ export default function IndustriaFarmaceuticaPage() {
             </div>
 
             <InfoCardText className="mt-2">
-            Sob condições controladas, como a <b>presença de água e catalisadores</b> básicos, a molécula de amoxicilina é quebrada em dois compostos principais: p-hidroxifenilglicina e ácido 6-aminopenicilânico. Esses produtos são avaliados quanto à sua biodegradabilidade e potencial impacto ambiental.
+            Sob condições controladas, como a <b>presença de água e catalisadores básicos</b>, a molécula de amoxicilina é quebrada em dois compostos principais: p-hidroxifenilglicina e ácido 6-aminopenicilânico. Esses produtos são avaliados quanto à sua biodegradabilidade e potencial impacto ambiental.
             </InfoCardText>
 
             <InfoCardText className="mt-2">

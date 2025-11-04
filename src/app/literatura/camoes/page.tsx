@@ -126,7 +126,7 @@ export default function CamoesPage() {
         {/* Poem Cards */}
         <PoemCard
           title="Amor é fogo que arde sem se ver"
-          content="Amor é um fogo que arde sem se ver, é ferida que dói, e não se sente; é um contentamento descontente, é dor que desatina sem doer.É um não querer mais que bem querer; é um andar solitário entre a gente; é nunca contentar-se de contente; é um cuidar que ganha em se perder."
+          content="Amor é um fogo que arde sem se ver, <br /> é ferida que dói, e não se sente; <br /> é um contentamento descontente, <br /> é dor que desatina sem doer. <br /> <br />É um não querer mais que bem querer; <br /> é um andar solitário entre a gente; <br /> é nunca contentar-se de contente; <br /> é um cuidar que ganha em se perder."
           x={-20}
           y={-380}
           width={340}
@@ -137,7 +137,7 @@ export default function CamoesPage() {
 
         <PoemCard
           title="Principais características da lírica camoniana"
-          content="Escrita de determinados nomes em letra maiúscula (Amor, Beleza e Mulher) como forma de marcar a busca pelo ideal absoluto de tais conceitos.Apresenta métrica, rima e ritmo.Uso de formas clássicas, como soneto, ode entre outras.Uso de figuras de linguagem, como metáforas, paradoxos, aliteração e outras."
+          content="<ul style='list-style-type: disc; margin-left: 1.5em; line-height: 1.7em;'><li>Escrita de determinados nomes em letra maiúscula (Amor, Beleza e Mulher) como forma de marcar a busca pelo ideal absoluto de tais conceitos.</li><li>Apresenta métrica, rima e ritmo.</li><li>Uso de formas clássicas, como soneto, ode, entre outras.</li><li>Uso de figuras de linguagem, como metáforas, paradoxos, aliteração e outras.</li></ul>"
           x={-280}
           y={200}
           width={340}
@@ -146,7 +146,7 @@ export default function CamoesPage() {
 
         <PoemCard
           title="Alma minha gentil, que te partiste"
-          content="Alma minha gentil, que te partiste tão cedo desta vida descontente, repousa lá no Céu eternamente, e viva eu cá na terra sempre triste.Se lá no assento etéreo, onde subiste, memória desta vida se consente, não te esqueças daquele amor ardente que já nos olhos meus tão puro viste.[...]"
+          content="Alma minha gentil, que te partiste<br /> tão cedo desta vida descontente, <br /> repousa lá no Céu eternamente, <br /> e viva eu cá na terra sempre triste.<br /> Se lá no assento etéreo, onde subiste,<br /> memória desta vida se consente,<br /> não te esqueças daquele amor ardente<br /> que já nos olhos meus tão puro viste.<br /> [...]."
           x={680}
           y={-80}
           width={340}
@@ -157,7 +157,7 @@ export default function CamoesPage() {
 
         <PoemCard
           title="Mudam-se os tempos, mudam-se as vontades"
-          content="Mudam-se os tempos, mudam-se as vontades, Muda-se o ser, muda-se a confiança; Todo o mundo é composto de mudança, Tomando sempre novas qualidades.Continuamente vemos novidades, Diferentes em tudo da esperança; Do mal ficam as mágoas na lembrança, E do bem (se algum houve), as saudades.[...]"
+          content="Mudam-se os tempos, mudam-se as vontades,<br /> Muda-se o ser, muda-se a confiança; <br /> Todo o mundo é composto de mudança, <br /> Tomando sempre novas qualidades. <br /><br /> Continuamente vemos novidades, <br /> Diferentes em tudo da esperança; <br /> Do mal ficam as mágoas na lembrança, <br /> E do bem (se algum houve), as saudades.<br /><br />[...]"
           x={480}
           y={580}
           width={340}

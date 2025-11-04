@@ -69,9 +69,10 @@ export default function PoemCard({
       </h3>
 
       {/* Conteúdo */}
-      <p className={`${ebGaramond.className} italic text-[#333] text-[17px] leading-[1.7em] whitespace-pre-line`}>
-        {content}
-      </p>
+      <p
+        className={`${ebGaramond.className} italic text-[#333] text-[17px] leading-[1.7em]`}
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
 
       {/* Assinatura */}
       {author && (

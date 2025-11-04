@@ -57,9 +57,7 @@ export default function CamoesFinalPage() {
 
         {/* Seção de Texto */}
         <div className="space-y-6 relative z-10">
-          <h1 className={`${ebGaramond.className} italic text-[35px] font-extrabold text-[#C3AC7C] leading-[1.002738516671317em]`}>
-            Finalização
-          </h1>
+
           
           <div className="space-y-4">
             <p className={`${ebGaramond.className} text-[20px] font-normal text-white leading-[1.05em]`}>
