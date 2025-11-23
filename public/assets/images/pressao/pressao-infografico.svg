@@ -1,0 +1,10 @@
+<svg width="2000" height="1080" viewBox="0 0 2000 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="2000" height="1080" fill="url(#paint0_linear)"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-family="Arial" font-size="40">Infográfico de Pressão - Substitua este arquivo pelo SVG exportado do Figma</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="1000" y1="0" x2="1000" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#278FAC"/>
+      <stop offset="1" stop-color="#083555"/>
+    </linearGradient>
+  </defs>
+</svg>

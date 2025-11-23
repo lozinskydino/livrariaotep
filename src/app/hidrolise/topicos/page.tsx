@@ -283,9 +283,6 @@ export default function HidroliseTopicos() {
             <InfoCard containerBg="#646363" innerBg="#e6e6e6" innerBorder="#343434" radius={16} padding={16} className="!mt-0">
               <div className="flex justify-between items-start w-full gap-4">
                 <div className="flex-1">
-                  <h2 id="glossario-heading" className="text-[#343434] text-[18px] leading-[1.2] font-extrabold font-nunito mb-[16px]">
-                    Glossário para a palavra &quot;flavonoides&quot;
-                  </h2>
                   <p className="text-[#343434] text-[16px] leading-[1.2] font-semibold font-nunito">
                     Substâncias naturais encontradas em diversas frutas. São responsáveis pela cor e pela proteção das plantas, além disso propiciam benefícios à saúde humana, por exemplo, protegem as células contra danos, reduzem inflamações, fortalecem o sistema imunológico e ajudam na saúde do coração e dos ossos.
                   </p>
