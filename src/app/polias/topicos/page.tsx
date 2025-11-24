@@ -86,7 +86,7 @@ export default function PoliasTopicos() {
   const buttons = [
     { xPct: 24.0, yPct: 26.5 }, // 1
     { xPct: 20.0, yPct: 56.5 }, // 2
-    { xPct: 50.0, yPct: 84.0 }, // 3
+    { xPct: 50.0, yPct: 78.0 }, // 3 (levemente mais alto para afastar do footer)
     { xPct: 88.0, yPct: 83.0 }, // 4
     { xPct: 86.0, yPct: 42.0 }, // 5
     { xPct: 69.0, yPct: 49.0 }, // 6
@@ -206,10 +206,10 @@ export default function PoliasTopicos() {
   const closeModal = () => setOpenId(null);
 
   return (
-    <div className="relative w-full min-h-screen bg-black overflow-hidden">
+    <div className="relative w-full min-h-screen bg-black overflow-y-auto overflow-x-hidden">
       <div
         ref={scrollRef}
-        className="relative w-full h-screen overflow-x-auto overflow-y-hidden cursor-grab active:cursor-grabbing lg:cursor-default lg:active:cursor-default"
+        className="relative w-full min-h-screen overflow-x-auto overflow-y-hidden cursor-grab active:cursor-grabbing lg:cursor-default lg:active:cursor-default"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         onMouseDown={onMouseDown}
         onMouseUp={onMouseUp}
@@ -229,7 +229,7 @@ export default function PoliasTopicos() {
           />
 
           <div
-            className="absolute inset-0 h-screen"
+            className="absolute inset-0"
             style={{
               background:
                 "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%)",
@@ -258,12 +258,12 @@ export default function PoliasTopicos() {
       </div>
 
       {/* Indicador 'mova para o lado' (somente mobile) */}
-      <div className="absolute bottom-[108px] z-30 flex items-center justify-center w-full lg:hidden">
+      <div className="fixed bottom-[108px] z-30 flex items-center justify-center w-full lg:hidden">
         <Image src="/assets/images/polias/move-icon.png" alt="Cursor" width={153} height={53}/>
       </div>
 
       {/* Navegação inferior */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-full flex justify-center px-10">
+      <div className="fixed bottom-10 left-1/2 -translate-x-1/2 w-full flex justify-center px-10 z-50">
         <div className="max-w-[313px] w-full">
           <FooterNavegacao onVoltar={handleVoltar} onAvancar={handleAvancar} height="67px" />
         </div>

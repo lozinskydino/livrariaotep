@@ -12,7 +12,33 @@ export default function PoliasFinal() {
   const handleInicio = () => router.push("/polias");
 
   return (
-    <div className="relative flex min-h-screen justify-center overflow-hidden bg-black">
+    <div className="relative flex min-h-screen [@media(max-height:375px)]:h-[100vh] [@media(max-height:420px)]:h-[50vh] [@media(max-height:600px)]:h-[150vh] justify-center overflow-y-auto overflow-x-hidden bg-black">
+      {/* Cordas ajustadas como na página principal de polias */}
+      <div
+        className="pointer-events-none absolute inset-y-0 left-1/2 w-[8px] rounded-md z-10"
+        style={{
+          top: "86px",
+          bottom: "66px",
+          transform: "translateX(calc(-50% - 52px))",
+          backgroundColor: "#F6A13A",
+          backgroundImage: "url('/assets/images/polias/string-piece.svg')",
+          backgroundSize: "5px 8px",
+        }}
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-y-0 left-1/2 w-[8px] rounded-md z-10"
+        style={{
+          top: "86px",
+          bottom: "66px",
+          transform: "translateX(calc(-50% + 52px))",
+          backgroundColor: "#F6A13A",
+          backgroundImage: "url('/assets/images/polias/string-piece.svg')",
+          backgroundSize: "5px 8px",
+        }}
+        aria-hidden
+      />
+
       <div className="absolute inset-0" aria-hidden>
         <div
           className="h-full w-full"
@@ -20,7 +46,7 @@ export default function PoliasFinal() {
         />
       </div>
 
-      <div className="relative flex w-full max-w-[430px] justify-center px-6 py-16 md:px-10">
+      <div className="relative z-20 flex w-full justify-center px-6 py-16 md:px-10">
         {/* Polias topo/rodapé decorativas */}
         <div className="pointer-events-none select-none" aria-hidden>
           <Image
@@ -45,8 +71,8 @@ export default function PoliasFinal() {
         <div
           className="absolute left-1/2 -translate-x-1/2"
           style={{
-            top: "clamp(120px, 16vh, 220px)",
-            bottom: "clamp(140px, 18vh, 240px)",
+            top: "clamp(120px, 20vh, 200px)",
+            bottom: "clamp(120px, 20vh, 200px)",
             width: "min(85%, 324px)",
           }}
         >

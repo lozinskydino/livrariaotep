@@ -12,23 +12,29 @@ export default function PoliasIntro() {
   const handleAvancarClick = () => router.push("/polias/topicos");
 
   return (
-    <div className="relative flex min-h-screen justify-center overflow-hidden bg-black">
-      {/* Cordas contínuas em toda a viewport (acima do gradiente, abaixo do conteúdo) */}
+    <div className="relative flex min-h-screen justify-center overflow-y-auto overflow-x-hidden bg-black">
+      {/* Cordas ajustadas como na página principal de polias */}
       <div
         className="pointer-events-none absolute inset-y-0 left-1/2 w-[8px] rounded-md z-10"
         style={{
-          transform: "translateX(calc(-50% - 60px))",
-          background: "linear-gradient(180deg, #F6A13A 0%, #F6A13A 100%)",
-          boxShadow: "inset 0 0 0 2px #E08A20, inset 0 0 0 4px rgba(255, 230, 180, 0.35)",
+          top: "86px",
+          bottom: "66px",
+          transform: "translateX(calc(-50% - 52px))",
+          backgroundColor: "#F6A13A",
+          backgroundImage: "url('/assets/images/polias/string-piece.svg')",
+          backgroundSize: "5px 8px",
         }}
         aria-hidden
       />
       <div
         className="pointer-events-none absolute inset-y-0 left-1/2 w-[8px] rounded-md z-10"
         style={{
-          transform: "translateX(calc(-50% + 60px))",
-          background: "linear-gradient(180deg, #F6A13A 0%, #F6A13A 100%)",
-          boxShadow: "inset 0 0 0 2px #E08A20, inset 0 0 0 4px rgba(255, 230, 180, 0.35)",
+          top: "86px",
+          bottom: "66px",
+          transform: "translateX(calc(-50% + 52px))",
+          backgroundColor: "#F6A13A",
+          backgroundImage: "url('/assets/images/polias/string-piece.svg')",
+          backgroundSize: "5px 8px",
         }}
         aria-hidden
       />
@@ -41,7 +47,7 @@ export default function PoliasIntro() {
         />
       </div>
 
-      <div className="relative flex w-full max-w-[430px] justify-center px-6 py-16 md:px-10">
+      <div className="relative z-20 flex w-full min-w-screen [@media(max-height:375px)]:h-[250vh] [@media(max-height:420px)]:h-[220vh] [@media(max-height:600px)]:h-[150vh] justify-center px-6 py-16 md:px-10">
         <div className="pointer-events-none select-none z-20" aria-hidden>
           <Image
             src="/assets/images/polias/polia-topo.svg"

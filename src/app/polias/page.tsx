@@ -14,7 +14,32 @@ export default function Polias() {
 
   return (
     <div className="relative flex min-h-screen justify-center overflow-hidden bg-black">
-      <div className="absolute inset-0" aria-hidden>
+      <div
+        className="pointer-events-none absolute inset-y-0 left-1/2 w-[8px] rounded-md z-10"
+        style={{
+          top: "86px",
+          bottom: "66px",
+          transform: "translateX(calc(-50% - 52px))",
+          backgroundColor: "#F6A13A",
+          backgroundImage: "url('/assets/images/polias/string-piece.svg')",
+          backgroundSize: "5px 8px",
+        }}
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-y-0 left-1/2 w-[8px] rounded-md z-10"
+        style={{
+          top: "86px",
+          bottom: "66px",
+          transform: "translateX(calc(-50% + 52px))",
+          backgroundColor: "#F6A13A",
+          backgroundImage: "url('/assets/images/polias/string-piece.svg')",
+          backgroundSize: "5px 8px",
+        }}
+        aria-hidden
+      />
+
+      <div className="absolute inset-0 z-0" aria-hidden>
         <div
           className="h-full w-full"
           style={{
@@ -23,8 +48,7 @@ export default function Polias() {
         />
       </div>
 
-      <div className="relative flex w-full max-w-[430px] justify-center px-6 py-16 md:px-10">
-        {/* Polia superior */}
+      <div className="relative z-20 flex w-full max-w-[430px] justify-center px-6 py-16 md:px-10">
         <div className="pointer-events-none select-none" aria-hidden>
           <Image
             src="/assets/images/polias/polia-topo.svg"
@@ -36,7 +60,6 @@ export default function Polias() {
           />
         </div>
 
-        {/* Polia inferior */}
         <div className="pointer-events-none select-none" aria-hidden>
           <Image
             src="/assets/images/polias/polia-bottom.svg"
@@ -56,8 +79,6 @@ export default function Polias() {
             width: "min(75%, 240px)",
           }}
         >
-          
-
           <div className="relative flex h-full flex-col items-center justify-center gap-10 px-6">
             <Image
               src="/assets/images/polias/logo.svg"

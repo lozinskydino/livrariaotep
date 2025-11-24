@@ -187,6 +187,19 @@ export default function PressaoTopicos() {
     return () => resizeObserver.disconnect();
   }, [updateOverflowState]);
 
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+
+    if (openModalIndex !== null) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [openModalIndex]);
+
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!scrollContainerRef.current || !showIndicator) return;
     setIsDragging(true);
@@ -320,7 +333,7 @@ export default function PressaoTopicos() {
             <div className="pointer-events-none absolute -right-16 bottom-16 h-[260px] w-[260px] rounded-full bg-[#1A5F73]/40 blur-[140px]" />
           </div>
 
-          <div className="relative min-h-screen w-full px-6 py-16 flex justify-center overflow-y-auto">
+          <div className="relative min-h-screen max-h-screen w-full px-6 py-16 flex justify-center overflow-y-auto">
             <div className="w-full max-w-[430px] flex flex-col items-center gap-8">
               <ModalHeader onBack={closeModal} onHome={closeModal} bgColor="transparent" />
 
